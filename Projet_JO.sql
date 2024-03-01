@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 29 fév. 2024 à 20:33
+-- Généré le : ven. 01 mars 2024 à 18:39
 -- Version du serveur : 10.5.19-MariaDB-0+deb11u2
 -- Version de PHP : 7.4.33
 
@@ -32,7 +32,8 @@ CREATE TABLE `Athlete` (
   `Athlete_name` char(32) NOT NULL,
   `Athlete_firstName` int(32) NOT NULL,
   `Athlete_age` int(11) NOT NULL,
-  `Country_code` char(3) NOT NULL
+  `Country_code` char(3) NOT NULL,
+  `Athlete_sexe` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -67,7 +68,9 @@ CREATE TABLE `Date_calendar` (
 CREATE TABLE `Discipline` (
   `Discipline_id` int(11) NOT NULL,
   `Category` char(32) NOT NULL,
-  `Format_Discipline` char(32) NOT NULL
+  `Format_Discipline` char(32) NOT NULL,
+  `Date_start` int(11) NOT NULL,
+  `Date_end` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -79,7 +82,10 @@ CREATE TABLE `Discipline` (
 CREATE TABLE `Event` (
   `Event_id` int(11) NOT NULL,
   `Event_name` char(32) NOT NULL,
-  `Discipline_id` int(11) NOT NULL
+  `Discipline_id` int(11) NOT NULL,
+  `Sexe_athlete` enum('MAN','WOMAN') NOT NULL,
+  `Time_start` time NOT NULL,
+  `Time_end` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,7 +107,7 @@ CREATE TABLE `Is_from` (
 
 CREATE TABLE `Medal` (
   `Medal_id` int(11) NOT NULL,
-  `Medal_type` char(32) NOT NULL,
+  `Medal_type` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `Event_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -251,7 +257,9 @@ ALTER TABLE `Date_calendar`
 -- Index pour la table `Discipline`
 --
 ALTER TABLE `Discipline`
-  ADD PRIMARY KEY (`Discipline_id`);
+  ADD PRIMARY KEY (`Discipline_id`),
+  ADD KEY `FK_Discipline_Date_start` (`Date_start`),
+  ADD KEY `FK_Discipline_Date_end` (`Date_end`);
 
 --
 -- Index pour la table `Event`
@@ -415,6 +423,13 @@ ALTER TABLE `Transport`
 --
 ALTER TABLE `Athlete`
   ADD CONSTRAINT `FK_Athlete_Country_code` FOREIGN KEY (`Country_code`) REFERENCES `Country` (`Country_code`);
+
+--
+-- Contraintes pour la table `Discipline`
+--
+ALTER TABLE `Discipline`
+  ADD CONSTRAINT `FK_Discipline_Date_end` FOREIGN KEY (`Date_end`) REFERENCES `Date_calendar` (`Date_id`),
+  ADD CONSTRAINT `FK_Discipline_Date_start` FOREIGN KEY (`Date_start`) REFERENCES `Date_calendar` (`Date_id`);
 
 --
 -- Contraintes pour la table `Event`

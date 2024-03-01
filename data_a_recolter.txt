@@ -1,0 +1,85 @@
+// SOURCES
+
+- Fichier Discipline olympique:
+    -> LINK : https://medias.paris2024.org/uploads/2023/03/calendrier-sports-olympiques.htm
+    -> CONTENT Discipline:
+        - nom
+        - date_start / date_end (que discipline)
+        - site
+        - date remise des médailles
+
+- Fichier Discipline/Epreuve paralympique :
+    -> LINK : https://medias.paris2024.org/uploads/2023/12/Calendrier-de-competition-Paralympiques-par-epreuve.htm#_Toc137505151
+    -> CONTENT Discipline :
+        - nom
+        - date_start / date_end (que discipline)
+    -> CONTENT Epreuve :
+        - nom
+        - catégorie (paralympic)
+        - site
+        - time_start / time_end
+    ->
+
+
+
+// TABLES
+
+- Date :
+    -> FOUND CONTENT :
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Discipline :
+    -> FOUND CONTENT
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Athlete :
+    -> FOUND CONTENT :
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Transport :
+    -> FOUND CONTENT:
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Site :
+    -> FOUND CONTENT:
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Record :
+    -> FOUND CONTENT:
+        - 
+    -> MISSING CONTENT :
+        - 
+
+- Medal :
+    -> FOUND CONTENT:
+        -
+    -> MISSING CONTENT :
+        - 
+
+- Athlete :
+    -> FOUND CONTENT:
+        -
+    -> MISSING CONTENT :
+        - 
+
+- Country :
+    -> FOUND CONTENT:
+        -
+    -> MISSING CONTENT :
+        - 
+
+- Nationality :
+    -> FOUND CONTENT:
+        -
+    -> MISSING CONTENT :
+        - 

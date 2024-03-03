@@ -13,6 +13,9 @@
                 https://www.lequipe.fr/Athletisme/jeux-olympiques/annee-2024/page-calendrier-resultats
                 Qui correspond à "https://www.lequipe.fr/" + Nom_de_discipline + "/"+"jeux-olympiques"+"/"+"annee-2024"+"/page-calendrier-resultats"
                 pour les resultats https://www.lequipe.fr/" + Nom_de_discipline + "/" + "jeux-olympiques" + "/annee-2024/page-calendrier-resultats/"+ nom de l'épreuve
+                dans la page c'est un simple tableau avec les ligne "tr" avec une class "CalendarWidget__line" et des cellule "td" qui pour les info possède les attribue
+                "CalendarWidget__cell CalendarWidget__cell--date", "CalendarWidget__cell CalendarWidget__cell--competition" ET
+                "CalendarWidget__cell CalendarWidget__cell--link" pour le lien vers les résultats des épreuves.
     -> CONTENT Discipline :
         - nom
         - date_start / date_end (que discipline)

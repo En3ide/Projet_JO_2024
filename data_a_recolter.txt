@@ -10,6 +10,9 @@
 
 - Fichier Discipline/Epreuve paralympique :
     -> LINK : https://medias.paris2024.org/uploads/2023/12/Calendrier-de-competition-Paralympiques-par-epreuve.htm#_Toc137505151
+                https://www.lequipe.fr/Athletisme/jeux-olympiques/annee-2024/page-calendrier-resultats
+                Qui correspond à "https://www.lequipe.fr/" + Nom_de_discipline + "/"+"jeux-olympiques"+"/"+"annee-2024"+"/page-calendrier-resultats"
+                pour les resultats https://www.lequipe.fr/" + Nom_de_discipline + "/" + "jeux-olympiques" + "/annee-2024/page-calendrier-resultats/"+ nom de l'épreuve
     -> CONTENT Discipline :
         - nom
         - date_start / date_end (que discipline)

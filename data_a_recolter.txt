@@ -80,6 +80,11 @@
 
 - Country :
     -> FOUND CONTENT:
+        Code pays récupérer avec nom depuis wikipedia
+        Réquette créer avec une fonction pour récup les données et une fonction pour
+        insérer les datas dans un fichier .sql donné en parametre.
+        recup_code_pays()
+        send_country_code(result, bdd.db)
         -
     -> MISSING CONTENT :
         - 

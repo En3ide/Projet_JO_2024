@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests, ast, sqlite3
 
 def recup_site():
-    # Renvoie un tableau [Num, Alpha-3, Alpha-2, Nom Français]
+    # Renvoie un tableau [Date, Adress, Capacité, URL du site]
     url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
     reponse = requests.get(url)
     if reponse.status_code == 200:
@@ -17,9 +17,6 @@ def recup_site():
             cells = tr.find_all('td')
             if len(cells) > 3:
                 tmp = [cell for cell in cells]
-            #tmp = ast.literal_eval(str(content))# Site commune status capacité Sport_olympic
-            # print(str(tmp)+"   1")
-                #print(tmp)
                 result.append(["00-00-00",tmp[0].text.replace("\n", "")+' '+tmp[1].text.replace("\n", ""),tmp[3].text.replace('\xa0', '').replace("\n", ""), "https://fr.wikipedia.org/"+tmp[0].a['href']])# Creation_date Address capacity URL
         return(result)
     else:

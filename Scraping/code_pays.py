@@ -5,22 +5,26 @@ def recup_code_pays():
     # Renvoie un tableau [Num, Alpha-3, Alpha-2, Nom Français]
     url = 'https://fr.wikipedia.org/wiki/ISO_3166-1'
     reponse = requests.get(url)
-    soup = BeautifulSoup(reponse.text, 'html.parser')
+    if reponse.status_code == 200:
+        soup = BeautifulSoup(reponse.text, 'html.parser')
 
-    # Exemple : Extraire le tableau
-    tab = soup.find('table', class_=['wikitable','sortable','jquery-tablesorter'])
+        # Exemple : Extraire le tableau
+        tab = soup.find('table', class_=['wikitable','sortable','jquery-tablesorter'])
 
-    result = []
-    tmp = []
-    for tr in tab.find_all('tr'):
-        cells = tr.find_all('td')
-        content = [cell.text for cell in cells]
-        tmp = ast.literal_eval(str(content))
-        if len(tmp) > 0:
-            result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
+        result = []
+        tmp = []
+        for tr in tab.find_all('tr'):
+            cells = tr.find_all('td')
+            content = [cell.text for cell in cells]
+            tmp = ast.literal_eval(str(content))
+            if len(tmp) > 0:
+                result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
 
-    print(result[0])
-    return(result)
+        print(result[0])
+        return(result)
+    else:
+        print(reponse.status_code)
+        return([])
 
 def send_country_code(result, bdd=""):
     send = ""

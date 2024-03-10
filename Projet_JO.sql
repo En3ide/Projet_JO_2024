@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Hôte : localhost
--- Généré le : ven. 01 mars 2024 à 18:39
--- Version du serveur : 10.5.19-MariaDB-0+deb11u2
--- Version de PHP : 7.4.33
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -21,8 +12,6 @@ SET time_zone = "+00:00";
 -- Base de données : `Projet_JO`
 --
 
--- --------------------------------------------------------
-
 --
 -- Structure de la table `Athlete`
 --
@@ -31,7 +20,7 @@ CREATE TABLE `Athlete` (
   `Athlete_id` int(11) NOT NULL,
   `Athlete_name` char(32) NOT NULL,
   `Athlete_firstName` int(32) NOT NULL,
-  `Athlete_age` int(11) NOT NULL,
+  `Athlete_birthday` int(11) NOT NULL,
   `Country_code` char(3) NOT NULL,
   `Athlete_sexe` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -83,9 +72,7 @@ CREATE TABLE `Event` (
   `Event_id` int(11) NOT NULL,
   `Event_name` char(32) NOT NULL,
   `Discipline_id` int(11) NOT NULL,
-  `Sexe_athlete` enum('MAN','WOMAN') NOT NULL,
-  `Time_start` time NOT NULL,
-  `Time_end` time NOT NULL
+  `Sexe_athlete` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

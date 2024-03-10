@@ -72,7 +72,7 @@ CREATE TABLE `Event` (
   `Event_id` int(11) NOT NULL,
   `Event_name` char(32) NOT NULL,
   `Discipline_id` int(11) NOT NULL,
-  `Sexe_athlete` enum('MAN','WOMAN') NOT NULL
+  `Event_gender` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -95,7 +95,9 @@ CREATE TABLE `Is_from` (
 CREATE TABLE `Medal` (
   `Medal_id` int(11) NOT NULL,
   `Medal_type` enum('GOLD','SILVER','BRONZE') NOT NULL,
-  `Event_id` int(11) NOT NULL
+  `Event_id` int(11) NOT NULL,
+  `Team_id` int(11),
+  `Athlete_id` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -120,7 +122,9 @@ CREATE TABLE `Record` (
   `Record_stat` char(32) NOT NULL,
   `Record_holder` int(11) NOT NULL,
   `Record_date` date NOT NULL,
-  `Event_id` int(11) NOT NULL
+  `Event_id` int(11) NOT NULL,
+  `Team_id` int(11),
+  `Athlete` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

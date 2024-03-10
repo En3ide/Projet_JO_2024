@@ -107,8 +107,8 @@ CREATE TABLE `Medal` (
 --
 
 CREATE TABLE `Nationality` (
-  `nationality_id` int(11) NOT NULL,
-  `nationality_name` char(32) NOT NULL
+  `Nationality_id` int(11) NOT NULL,
+  `Nationality_name` char(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -277,7 +277,7 @@ ALTER TABLE `Medal`
 -- Index pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  ADD PRIMARY KEY (`nationality_id`);
+  ADD PRIMARY KEY (`Nationality_id`);
 
 --
 -- Index pour la table `Record`
@@ -379,7 +379,7 @@ ALTER TABLE `Medal`
 -- AUTO_INCREMENT pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  MODIFY `nationality_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Nationality_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Record`
@@ -433,7 +433,7 @@ ALTER TABLE `Event`
 --
 ALTER TABLE `Is_from`
   ADD CONSTRAINT `FK_Is_from_Athlete_id` FOREIGN KEY (`Athlete_id`) REFERENCES `Athlete` (`Athlete_id`),
-  ADD CONSTRAINT `FK_Is_from_Nationality_id` FOREIGN KEY (`Nationality_id`) REFERENCES `Nationality` (`nationality_id`);
+  ADD CONSTRAINT `FK_Is_from_Nationality_id` FOREIGN KEY (`Nationality_id`) REFERENCES `Nationality` (`Nationality_id`);
 
 --
 -- Contraintes pour la table `Medal`
@@ -445,7 +445,7 @@ ALTER TABLE `Medal`
 -- Contraintes pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  ADD CONSTRAINT `Nationality_ibfk_1` FOREIGN KEY (`nationality_id`) REFERENCES `Athlete` (`Athlete_id`);
+  ADD CONSTRAINT `Nationality_ibfk_1` FOREIGN KEY (`Nationality_id`) REFERENCES `Athlete` (`Athlete_id`);
 
 --
 -- Contraintes pour la table `Record`

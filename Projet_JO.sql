@@ -57,9 +57,7 @@ CREATE TABLE `Date_calendar` (
 CREATE TABLE `Discipline` (
   `Discipline_id` int(11) NOT NULL,
   `Category` char(32) NOT NULL,
-  `Format_Discipline` char(32) NOT NULL,
-  `Date_start` int(11) NOT NULL,
-  `Date_end` int(11) NOT NULL
+  `Format_Discipline` char(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -135,10 +133,10 @@ CREATE TABLE `Record` (
 
 CREATE TABLE `Site` (
   `Site_id` int(11) NOT NULL,
-  `Creation_date` date NOT NULL,
+  `Creation_date` date,
   `Adress` char(32) NOT NULL,
   `Capacity` int(11) NOT NULL,
-  `URL_site` char(255) NOT NULL
+  `URL_site` char(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

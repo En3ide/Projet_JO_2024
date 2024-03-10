@@ -20,9 +20,9 @@ CREATE TABLE `Athlete` (
   `Athlete_id` int(11) NOT NULL,
   `Athlete_name` char(32) NOT NULL,
   `Athlete_firstName` int(32) NOT NULL,
-  `Athlete_birthday` int(11) NOT NULL,
+  `Athlete_birthday` date NOT NULL,
   `Country_code` char(3) NOT NULL,
-  `Athlete_sexe` enum('MAN','WOMAN') NOT NULL
+  `Athlete_gender` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

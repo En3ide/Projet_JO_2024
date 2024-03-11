@@ -91,8 +91,8 @@ CREATE TABLE `Is_from` (
 --
 
 CREATE TABLE `Medal` (
-  `Medal_id` int(11) NOT NULL,
-  `Medal_type` enum('GOLD','SILVER','BRONZE') NOT NULL,
+  `id_medal` int(11) NOT NULL,
+  `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `id_event` int(11) NOT NULL,
   `id_team` int(11),
   `id_athlete` int(11)
@@ -269,8 +269,8 @@ ALTER TABLE `Is_from`
 -- Index pour la table `Medal`
 --
 ALTER TABLE `Medal`
-  ADD PRIMARY KEY (`Medal_id`),
-  ADD KEY `FK_Medal_id_event` (`id_event`);
+  ADD PRIMARY KEY (`id_medal`),
+  ADD KEY `FK_id_medal_event` (`id_event`);
 
 --
 -- Index pour la table `Nationality`
@@ -373,7 +373,7 @@ ALTER TABLE `Event`
 -- AUTO_INCREMENT pour la table `Medal`
 --
 ALTER TABLE `Medal`
-  MODIFY `Medal_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_medal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Nationality`
@@ -442,9 +442,9 @@ ALTER TABLE `Is_from`
 -- Contraintes pour la table `Medal`
 --
 ALTER TABLE `Medal`
-  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
-  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_Medal_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
+  ADD CONSTRAINT `FK_id_medal_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_id_medal_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
+  ADD CONSTRAINT `FK_id_medal_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 --
 -- Contraintes pour la table `Nationality`
 --

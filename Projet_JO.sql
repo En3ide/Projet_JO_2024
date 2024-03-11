@@ -442,12 +442,8 @@ ALTER TABLE `Is_from`
 -- Contraintes pour la table `Medal`
 --
 ALTER TABLE `Medal`
-  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
-
-ALTER TABLE `Medal`
-  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`);
-
-ALTER TABLE `Medal`
+  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
   ADD CONSTRAINT `FK_Medal_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 --
 -- Contraintes pour la table `Nationality`
@@ -459,7 +455,9 @@ ALTER TABLE `Nationality`
 -- Contraintes pour la table `Record`
 --
 ALTER TABLE `Record`
-  ADD CONSTRAINT `FK_id_record_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
+  ADD CONSTRAINT `FK_id_record_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_record_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`),
+  ADD CONSTRAINT `FK_record_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`);
 
 --
 -- Contraintes pour la table `Team`

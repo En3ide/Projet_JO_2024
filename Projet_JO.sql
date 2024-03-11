@@ -2,12 +2,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de données : `Projet_JO_2024`
 --
@@ -18,8 +12,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Athlete` (
   `id_athlete` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_athlete` varchar(32) NOT NULL,
-  `firstname_athlete` varchar(32) NOT NULL,
+  `name_athlete` VARCHAR(32) NOT NULL,
+  `firstname_athlete` VARCHAR(32) NOT NULL,
   `birthday_athlete` date NOT NULL,
   `gender_athlete` enum('MAN', 'WOMAN') NOT NULL,
   `code_country` char(3) NOT NULL
@@ -32,8 +26,8 @@ CREATE TABLE `Athlete` (
 --
 
 CREATE TABLE `Country` (
-  `code_country` char(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_country` varchar(32) NOT NULL
+  `code_country` char(3) NOT NULL PRIMARY KEY,
+  `name_country` VARCHAR(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,8 +50,8 @@ CREATE TABLE `Date_calendar` (
 
 CREATE TABLE `Discipline` (
   `id_disc` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_fr_disc` varchar(32) NOT NULL,
-  `name_an_disc` varchar(32) NOT NULL,
+  `name_fr_disc` VARCHAR(32) NOT NULL,
+  `name_an_disc` VARCHAR(32) NOT NULL,
   `category_disc` enum('OLYMPIC', 'PARALYMPIC') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -69,11 +63,11 @@ CREATE TABLE `Discipline` (
 
 CREATE TABLE `Event` (
   `id_event` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_event` varchar(32) NOT NULL,
+  `name_event` VARCHAR(32) NOT NULL,
   `format_disc` enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
   `gender_event` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   `id_disc` int(11) NOT NULL,
-  `id_record` int(11) NOT NULL,
+  `id_record` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -99,7 +93,8 @@ CREATE TABLE `Medal` (
   `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `id_event` int(11) NOT NULL,
   `id_team` int(11),
-  `id_athlete` int(11)
+  `id_athlete` int(11),
+  `id_date_cal` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -110,8 +105,8 @@ CREATE TABLE `Medal` (
 
 CREATE TABLE `Record` (
   `id_record` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `stat_record` varchar(32) NOT NULL,
-  `holder_record` varchar(32) NOT NULL,
+  `stat_record` VARCHAR(32) NOT NULL,
+  `holder_record` VARCHAR(32) NOT NULL,
   `date_record` date NOT NULL,
   `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -125,9 +120,9 @@ CREATE TABLE `Record` (
 CREATE TABLE `Site` (
   `id_site` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `creation_date_site` date,
-  `adress_site` varchar(32) NOT NULL,
+  `adress_site` VARCHAR(32) NOT NULL,
   `capacity_site` int(11) NOT NULL,
-  `URL_site` varchar(255)
+  `URL_site` VARCHAR(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -201,7 +196,7 @@ CREATE TABLE `To_Schedule` (
 CREATE TABLE `To_Serve` (
   `id_site` int(11) NOT NULL,
   `id_trans` int(11) NOT NULL,
-  `num_ligne` varchar(32) DEFAULT NULL,
+  `num_ligne` VARCHAR(32) DEFAULT NULL,
   PRIMARY KEY (`id_site`, `id_trans`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -213,7 +208,7 @@ CREATE TABLE `To_Serve` (
 
 CREATE TABLE `Transport` (
   `id_trans` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_trans` varchar(32) NOT NULL
+  `name_trans` VARCHAR(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -238,7 +233,7 @@ ALTER TABLE `Event`
   ADD INDEX `IDX_Event_id_record` (`id_record`),
 
   ADD CONSTRAINT `FK_Event_id_disc` FOREIGN KEY (`id_disc`) REFERENCES `Discipline` (`id_disc`),
-  ADD CONSTRAINT `FK_Event_id_record` FOREIGN KEY (`id_record`) REFERENCES `Discipline` (`id_record`);
+  ADD CONSTRAINT `FK_Event_id_record` FOREIGN KEY (`id_record`) REFERENCES `Record` (`id_record`);
 
 --
 -- Index pour la table `Is_from` et Contraintes pour la table `Is_from`
@@ -262,7 +257,7 @@ ALTER TABLE `Medal`
   ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
   ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
   ADD CONSTRAINT `FK_Medal_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`),
-  ADD CONSTRAINT `FK_Medal_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Team` (`id_date_cal`);
+  ADD CONSTRAINT `FK_Medal_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`);
 
 --
 -- Index pour la table `Record` et Contraintes pour la table `Record`
@@ -333,7 +328,3 @@ ALTER TABLE `To_Serve`
   ADD CONSTRAINT `FK_To_Serve_id_trans` FOREIGN KEY (`id_trans`) REFERENCES `Transport` (`id_trans`);
 
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

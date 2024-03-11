@@ -9,7 +9,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `Projet_JO`
+-- Base de données : `Projet_JO_2024`
 --
 
 --
@@ -17,12 +17,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Athlete` (
-  `Athlete_id` int(11) NOT NULL,
-  `Athlete_name` char(32) NOT NULL,
-  `Athlete_firstName` int(32) NOT NULL,
-  `Athlete_birthday` date NOT NULL,
-  `Country_code` char(3) NOT NULL,
-  `Athlete_gender` enum('MAN','WOMAN') NOT NULL
+  `id_athlete` int(11) NOT NULL,
+  `name_athlete` char(32) NOT NULL,
+  `firstname_athlete` char(32) NOT NULL,
+  `birthday_athlete` date NOT NULL,
+  `code_country` char(3) NOT NULL,
+  `gender_athlete` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `Athlete` (
 --
 
 CREATE TABLE `Country` (
-  `Country_code` char(3) NOT NULL,
+  `code_country` char(3) NOT NULL,
   `Country_name` char(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -43,9 +43,9 @@ CREATE TABLE `Country` (
 --
 
 CREATE TABLE `Date_calendar` (
-  `Date_id` int(11) NOT NULL,
+  `id_date_cal` int(11) NOT NULL,
   `Date` date NOT NULL,
-  `Medal_ceremony` tinyint(1) NOT NULL
+  `medal_ceremony_date_cal` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,9 +55,9 @@ CREATE TABLE `Date_calendar` (
 --
 
 CREATE TABLE `Discipline` (
-  `Discipline_id` int(11) NOT NULL,
-  `Category` char(32) NOT NULL,
-  `Format_Discipline` char(32) NOT NULL
+  `id_disc` int(11) NOT NULL,
+  `category_disc` enum('Olympic', 'Paralympic') NOT NULL,
+  `format_disc` enum('Individual', 'Collective', 'Hybride') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -67,10 +67,10 @@ CREATE TABLE `Discipline` (
 --
 
 CREATE TABLE `Event` (
-  `Event_id` int(11) NOT NULL,
-  `Event_name` char(32) NOT NULL,
-  `Discipline_id` int(11) NOT NULL,
-  `Event_gender` enum('MAN','WOMAN') NOT NULL
+  `id_event` int(11) NOT NULL,
+  `name_event` char(32) NOT NULL,
+  `id_disc` int(11) NOT NULL,
+  `gender_event` enum('MAN','WOMAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,8 +80,8 @@ CREATE TABLE `Event` (
 --
 
 CREATE TABLE `Is_from` (
-  `Athlete_id` int(32) NOT NULL,
-  `Nationality_id` int(32) NOT NULL
+  `id_athlete` int(32) NOT NULL,
+  `id_nationality` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -93,9 +93,9 @@ CREATE TABLE `Is_from` (
 CREATE TABLE `Medal` (
   `Medal_id` int(11) NOT NULL,
   `Medal_type` enum('GOLD','SILVER','BRONZE') NOT NULL,
-  `Event_id` int(11) NOT NULL,
-  `Team_id` int(11),
-  `Athlete_id` int(11)
+  `id_event` int(11) NOT NULL,
+  `id_team` int(11),
+  `id_athlete` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -105,8 +105,9 @@ CREATE TABLE `Medal` (
 --
 
 CREATE TABLE `Nationality` (
-  `Nationality_id` int(11) NOT NULL,
-  `Nationality_name` char(32) NOT NULL
+  `id_nationality` int(11) NOT NULL,
+  `name_nationality` char(32) NOT NULL,
+  `code_country` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -116,13 +117,13 @@ CREATE TABLE `Nationality` (
 --
 
 CREATE TABLE `Record` (
-  `Record_id` int(11) NOT NULL,
-  `Record_stat` char(32) NOT NULL,
-  `Record_holder` int(11) NOT NULL,
-  `Record_date` date NOT NULL,
-  `Event_id` int(11) NOT NULL,
-  `Team_id` int(11),
-  `Athlete` int(11)
+  `id_record` int(11) NOT NULL,
+  `stat_record` char(32) NOT NULL,
+  `holder_record` int(11) NOT NULL,
+  `date_record` date NOT NULL,
+  `id_event` int(11) NOT NULL,
+  `id_team` int(11),
+  `id_athlete` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -132,10 +133,10 @@ CREATE TABLE `Record` (
 --
 
 CREATE TABLE `Site` (
-  `Site_id` int(11) NOT NULL,
-  `Creation_date` date,
-  `Adress` char(32) NOT NULL,
-  `Capacity` int(11) NOT NULL,
+  `id_site` int(11) NOT NULL,
+  `Creation_date_site` date,
+  `adress_site` char(32) NOT NULL,
+  `capacity_site` int(11) NOT NULL,
   `URL_site` char(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,9 +147,9 @@ CREATE TABLE `Site` (
 --
 
 CREATE TABLE `Team` (
-  `Team_id` int(11) NOT NULL,
-  `Team_size` int(11) NOT NULL,
-  `Country_code` char(3) NOT NULL
+  `id_team` int(11) NOT NULL,
+  `size_team` int(11) NOT NULL,
+  `code_country` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -158,8 +159,8 @@ CREATE TABLE `Team` (
 --
 
 CREATE TABLE `To_pertain_team` (
-  `Athlete_id` int(32) NOT NULL,
-  `Team_id` int(32) NOT NULL
+  `id_athlete` int(32) NOT NULL,
+  `id_team` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -169,8 +170,8 @@ CREATE TABLE `To_pertain_team` (
 --
 
 CREATE TABLE `To_Register_athlete` (
-  `Event_id` int(32) NOT NULL,
-  `Athlete_id` int(32) NOT NULL
+  `id_event` int(32) NOT NULL,
+  `id_athlete` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -180,8 +181,8 @@ CREATE TABLE `To_Register_athlete` (
 --
 
 CREATE TABLE `To_Register_team` (
-  `Event_id` int(32) NOT NULL,
-  `Team_id` int(32) NOT NULL
+  `id_event` int(32) NOT NULL,
+  `id_team` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -191,9 +192,9 @@ CREATE TABLE `To_Register_team` (
 --
 
 CREATE TABLE `To_Schedule` (
-  `Site_id` int(11) NOT NULL,
-  `Date_id` int(11) NOT NULL,
-  `Event_id` int(11) NOT NULL
+  `id_site` int(11) NOT NULL,
+  `id_date_cal` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -203,9 +204,9 @@ CREATE TABLE `To_Schedule` (
 --
 
 CREATE TABLE `To_Serve` (
-  `Site_id` int(11) NOT NULL,
-  `Transport_id` int(11) NOT NULL,
-  `Num_ligne` char(32) DEFAULT NULL
+  `id_site` int(11) NOT NULL,
+  `id_trans` int(11) NOT NULL,
+  `num_ligne` char(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -215,8 +216,8 @@ CREATE TABLE `To_Serve` (
 --
 
 CREATE TABLE `Transport` (
-  `Transport_name` char(32) NOT NULL,
-  `Transport_id` int(11) NOT NULL
+  `name_trans` char(32) NOT NULL,
+  `id_trans` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -227,26 +228,26 @@ CREATE TABLE `Transport` (
 -- Index pour la table `Athlete`
 --
 ALTER TABLE `Athlete`
-  ADD PRIMARY KEY (`Athlete_id`),
-  ADD KEY `FK_Athlete_Country_code` (`Country_code`);
+  ADD PRIMARY KEY (`id_athlete`),
+  ADD KEY `FK_Athlete_Country_code` (`code_country`);
 
 --
 -- Index pour la table `Country`
 --
 ALTER TABLE `Country`
-  ADD PRIMARY KEY (`Country_code`);
+  ADD PRIMARY KEY (`code_country`);
 
 --
 -- Index pour la table `Date_calendar`
 --
 ALTER TABLE `Date_calendar`
-  ADD PRIMARY KEY (`Date_id`);
+  ADD PRIMARY KEY (`id_date_cal`);
 
 --
 -- Index pour la table `Discipline`
 --
 ALTER TABLE `Discipline`
-  ADD PRIMARY KEY (`Discipline_id`),
+  ADD PRIMARY KEY (`id_disc`),
   ADD KEY `FK_Discipline_Date_start` (`Date_start`),
   ADD KEY `FK_Discipline_Date_end` (`Date_end`);
 
@@ -254,90 +255,91 @@ ALTER TABLE `Discipline`
 -- Index pour la table `Event`
 --
 ALTER TABLE `Event`
-  ADD PRIMARY KEY (`Event_id`),
-  ADD KEY `FK_Event_Discipline_id` (`Discipline_id`);
+  ADD PRIMARY KEY (`id_event`),
+  ADD KEY `FK_id_event_disc` (`id_disc`);
 
 --
 -- Index pour la table `Is_from`
 --
 ALTER TABLE `Is_from`
-  ADD PRIMARY KEY (`Athlete_id`,`Nationality_id`),
-  ADD KEY `FK_Is_from_Nationality_id` (`Nationality_id`);
+  ADD PRIMARY KEY (`id_athlete`,`id_nationality`),
+  ADD KEY `FK_Is_from_id_nationality` (`id_nationality`);
 
 --
 -- Index pour la table `Medal`
 --
 ALTER TABLE `Medal`
   ADD PRIMARY KEY (`Medal_id`),
-  ADD KEY `FK_Medal_Event_id` (`Event_id`);
+  ADD KEY `FK_Medal_id_event` (`id_event`);
 
 --
 -- Index pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  ADD PRIMARY KEY (`Nationality_id`);
+  ADD PRIMARY KEY (`id_nationality`);
 
 --
 -- Index pour la table `Record`
 --
 ALTER TABLE `Record`
-  ADD PRIMARY KEY (`Record_id`),
-  ADD KEY `FK_Record_Event_id` (`Event_id`);
+  ADD PRIMARY KEY (`id_record`),
+  ADD KEY `FK_id_record_event` (`id_event`),
+  ADD KEY `FK_id_record_team`;
 
 --
 -- Index pour la table `Site`
 --
 ALTER TABLE `Site`
-  ADD PRIMARY KEY (`Site_id`);
+  ADD PRIMARY KEY (`id_site`);
 
 --
 -- Index pour la table `Team`
 --
 ALTER TABLE `Team`
-  ADD PRIMARY KEY (`Team_id`),
-  ADD KEY `FK_Team_Country_code` (`Country_code`);
+  ADD PRIMARY KEY (`id_team`),
+  ADD KEY `FK_Team_Country_code` (`code_country`);
 
 --
 -- Index pour la table `To_pertain_team`
 --
 ALTER TABLE `To_pertain_team`
-  ADD PRIMARY KEY (`Athlete_id`,`Team_id`),
-  ADD KEY `FK_To_pertain_team_Team_id` (`Team_id`);
+  ADD PRIMARY KEY (`id_athlete`,`id_team`),
+  ADD KEY `FK_To_pertain_team_id_team` (`id_team`);
 
 --
 -- Index pour la table `To_Register_athlete`
 --
 ALTER TABLE `To_Register_athlete`
-  ADD PRIMARY KEY (`Event_id`,`Athlete_id`),
-  ADD KEY `FK_To_Register_athlete_Athlete_id` (`Athlete_id`);
+  ADD PRIMARY KEY (`id_event`,`id_athlete`),
+  ADD KEY `FK_To_Register_athlete_id_athlete` (`id_athlete`);
 
 --
 -- Index pour la table `To_Register_team`
 --
 ALTER TABLE `To_Register_team`
-  ADD PRIMARY KEY (`Event_id`,`Team_id`),
-  ADD KEY `FK_To_Register_team_Team_id` (`Team_id`);
+  ADD PRIMARY KEY (`id_event`,`id_team`),
+  ADD KEY `FK_To_Register_team_id_team` (`id_team`);
 
 --
 -- Index pour la table `To_Schedule`
 --
 ALTER TABLE `To_Schedule`
-  ADD PRIMARY KEY (`Site_id`,`Date_id`,`Event_id`),
-  ADD KEY `FK_To_Schedule_Date_id` (`Date_id`),
-  ADD KEY `FK_To_Schedule_Event_id` (`Event_id`);
+  ADD PRIMARY KEY (`id_site`,`id_date_cal`,`id_event`),
+  ADD KEY `FK_To_Schedule_id_date_cal` (`id_date_cal`),
+  ADD KEY `FK_To_Schedule_id_event` (`id_event`);
 
 --
 -- Index pour la table `To_Serve`
 --
 ALTER TABLE `To_Serve`
-  ADD PRIMARY KEY (`Site_id`,`Transport_id`),
-  ADD KEY `FK_To_Serve_Transport_id` (`Transport_id`);
+  ADD PRIMARY KEY (`id_site`,`id_trans`),
+  ADD KEY `FK_To_Serve_id_trans` (`id_trans`);
 
 --
 -- Index pour la table `Transport`
 --
 ALTER TABLE `Transport`
-  ADD PRIMARY KEY (`Transport_id`);
+  ADD PRIMARY KEY (`id_trans`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -347,25 +349,25 @@ ALTER TABLE `Transport`
 -- AUTO_INCREMENT pour la table `Athlete`
 --
 ALTER TABLE `Athlete`
-  MODIFY `Athlete_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_athlete` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Date_calendar`
 --
 ALTER TABLE `Date_calendar`
-  MODIFY `Date_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_date_cal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Discipline`
 --
 ALTER TABLE `Discipline`
-  MODIFY `Discipline_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_disc` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Event`
 --
 ALTER TABLE `Event`
-  MODIFY `Event_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Medal`
@@ -377,121 +379,129 @@ ALTER TABLE `Medal`
 -- AUTO_INCREMENT pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  MODIFY `Nationality_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nationality` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Record`
 --
 ALTER TABLE `Record`
-  MODIFY `Record_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_record` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Site`
 --
 ALTER TABLE `Site`
-  MODIFY `Site_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_site` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Team`
 --
 ALTER TABLE `Team`
-  MODIFY `Team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_team` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `Transport`
 --
 ALTER TABLE `Transport`
-  MODIFY `Transport_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_trans` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
+ALTER TABLE `Nationality`
+  ADD CONSTRAINT `FK_Nationality_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
+
 --
 -- Contraintes pour la table `Athlete`
 --
 ALTER TABLE `Athlete`
-  ADD CONSTRAINT `FK_Athlete_Country_code` FOREIGN KEY (`Country_code`) REFERENCES `Country` (`Country_code`);
+  ADD CONSTRAINT `FK_Athlete_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
 
 --
 -- Contraintes pour la table `Discipline`
 --
 ALTER TABLE `Discipline`
-  ADD CONSTRAINT `FK_Discipline_Date_end` FOREIGN KEY (`Date_end`) REFERENCES `Date_calendar` (`Date_id`),
-  ADD CONSTRAINT `FK_Discipline_Date_start` FOREIGN KEY (`Date_start`) REFERENCES `Date_calendar` (`Date_id`);
+  ADD CONSTRAINT `FK_Discipline_Date_end` FOREIGN KEY (`Date_end`) REFERENCES `Date_calendar` (`id_date_cal`),
+  ADD CONSTRAINT `FK_Discipline_Date_start` FOREIGN KEY (`Date_start`) REFERENCES `Date_calendar` (`id_date_cal`);
 
 --
 -- Contraintes pour la table `Event`
 --
 ALTER TABLE `Event`
-  ADD CONSTRAINT `FK_Event_Discipline_id` FOREIGN KEY (`Discipline_id`) REFERENCES `Discipline` (`Discipline_id`);
+  ADD CONSTRAINT `FK_id_event_disc` FOREIGN KEY (`id_disc`) REFERENCES `Discipline` (`id_disc`);
 
 --
 -- Contraintes pour la table `Is_from`
 --
 ALTER TABLE `Is_from`
-  ADD CONSTRAINT `FK_Is_from_Athlete_id` FOREIGN KEY (`Athlete_id`) REFERENCES `Athlete` (`Athlete_id`),
-  ADD CONSTRAINT `FK_Is_from_Nationality_id` FOREIGN KEY (`Nationality_id`) REFERENCES `Nationality` (`Nationality_id`);
+  ADD CONSTRAINT `FK_Is_from_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
+  ADD CONSTRAINT `FK_Is_from_id_nationality` FOREIGN KEY (`id_nationality`) REFERENCES `Nationality` (`id_nationality`);
 
 --
 -- Contraintes pour la table `Medal`
 --
 ALTER TABLE `Medal`
-  ADD CONSTRAINT `FK_Medal_Event_id` FOREIGN KEY (`Event_id`) REFERENCES `Event` (`Event_id`);
+  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
 
+ALTER TABLE `Medal`
+  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`);
+
+ALTER TABLE `Medal`
+  ADD CONSTRAINT `FK_Medal_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 --
 -- Contraintes pour la table `Nationality`
 --
 ALTER TABLE `Nationality`
-  ADD CONSTRAINT `Nationality_ibfk_1` FOREIGN KEY (`Nationality_id`) REFERENCES `Athlete` (`Athlete_id`);
+  ADD CONSTRAINT `Nationality_ibfk_1` FOREIGN KEY (`id_nationality`) REFERENCES `Athlete` (`id_athlete`);
 
 --
 -- Contraintes pour la table `Record`
 --
 ALTER TABLE `Record`
-  ADD CONSTRAINT `FK_Record_Event_id` FOREIGN KEY (`Event_id`) REFERENCES `Event` (`Event_id`);
+  ADD CONSTRAINT `FK_id_record_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
 
 --
 -- Contraintes pour la table `Team`
 --
 ALTER TABLE `Team`
-  ADD CONSTRAINT `FK_Team_Country_code` FOREIGN KEY (`Country_code`) REFERENCES `Country` (`Country_code`);
+  ADD CONSTRAINT `FK_Team_Country_code` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
 
 --
 -- Contraintes pour la table `To_pertain_team`
 --
 ALTER TABLE `To_pertain_team`
-  ADD CONSTRAINT `FK_To_pertain_team_Athlete_id` FOREIGN KEY (`Athlete_id`) REFERENCES `Athlete` (`Athlete_id`),
-  ADD CONSTRAINT `FK_To_pertain_team_Team_id` FOREIGN KEY (`Team_id`) REFERENCES `Team` (`Team_id`);
+  ADD CONSTRAINT `FK_To_pertain_id_team_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
+  ADD CONSTRAINT `FK_To_pertain_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 
 --
 -- Contraintes pour la table `To_Register_athlete`
 --
 ALTER TABLE `To_Register_athlete`
-  ADD CONSTRAINT `FK_To_Register_athlete_Athlete_id` FOREIGN KEY (`Athlete_id`) REFERENCES `Athlete` (`Athlete_id`),
-  ADD CONSTRAINT `FK_To_Register_athlete_Event_id` FOREIGN KEY (`Event_id`) REFERENCES `Event` (`Event_id`);
+  ADD CONSTRAINT `FK_To_Register_athlete_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
+  ADD CONSTRAINT `FK_To_Register_athlete_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
 
 --
 -- Contraintes pour la table `To_Register_team`
 --
 ALTER TABLE `To_Register_team`
-  ADD CONSTRAINT `FK_To_Register_team_Event_id` FOREIGN KEY (`Event_id`) REFERENCES `Event` (`Event_id`),
-  ADD CONSTRAINT `FK_To_Register_team_Team_id` FOREIGN KEY (`Team_id`) REFERENCES `Team` (`Team_id`);
+  ADD CONSTRAINT `FK_To_Register_team_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_To_Register_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 
 --
 -- Contraintes pour la table `To_Schedule`
 --
 ALTER TABLE `To_Schedule`
-  ADD CONSTRAINT `FK_To_Schedule_Date_id` FOREIGN KEY (`Date_id`) REFERENCES `Date_calendar` (`Date_id`),
-  ADD CONSTRAINT `FK_To_Schedule_Event_id` FOREIGN KEY (`Event_id`) REFERENCES `Event` (`Event_id`),
-  ADD CONSTRAINT `FK_To_Schedule_Site_id` FOREIGN KEY (`Site_id`) REFERENCES `Site` (`Site_id`);
+  ADD CONSTRAINT `FK_To_Schedule_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`),
+  ADD CONSTRAINT `FK_To_Schedule_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_To_Schedule_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`);
 
 --
 -- Contraintes pour la table `To_Serve`
 --
 ALTER TABLE `To_Serve`
-  ADD CONSTRAINT `FK_To_Serve_Site_id` FOREIGN KEY (`Site_id`) REFERENCES `Site` (`Site_id`),
-  ADD CONSTRAINT `FK_To_Serve_Transport_id` FOREIGN KEY (`Transport_id`) REFERENCES `Transport` (`Transport_id`);
+  ADD CONSTRAINT `FK_To_Serve_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`),
+  ADD CONSTRAINT `FK_To_Serve_id_trans` FOREIGN KEY (`id_trans`) REFERENCES `Transport` (`id_trans`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

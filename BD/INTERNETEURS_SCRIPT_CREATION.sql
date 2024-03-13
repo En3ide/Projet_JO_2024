@@ -1,6 +1,5 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
 
 --
 -- Base de données : `Projet_JO_2024`
@@ -92,8 +91,8 @@ CREATE TABLE `Medal` (
   `id_medal` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `id_event` int(11) NOT NULL,
-  `id_team` int(11),
   `id_athlete` int(11),
+  `id_team` int(11),
   `id_date_cal` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -108,7 +107,8 @@ CREATE TABLE `Record` (
   `stat_record` VARCHAR(32) NOT NULL,
   `holder_record` VARCHAR(32) NOT NULL,
   `date_record` date NOT NULL,
-  `id_event` int(11) NOT NULL
+  `id_event` int(11) NOT NULL,
+  `id_athlete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -119,8 +119,9 @@ CREATE TABLE `Record` (
 
 CREATE TABLE `Site` (
   `id_site` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `creation_date_site` date,
+  `name_site` VARCHAR(32) NOT NULL,
   `adress_site` VARCHAR(32) NOT NULL,
+  `creation_date_site` date,
   `capacity_site` int(11) NOT NULL,
   `URL_site` VARCHAR(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -264,8 +265,10 @@ ALTER TABLE `Medal`
 --
 ALTER TABLE `Record`
   ADD INDEX `IDX_Record_id_event` (`id_event`),
+  ADD INDEX `IDX_Record_id_athlete` (`id_athlete`),
 
-  ADD CONSTRAINT `FK_Record_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
+  ADD CONSTRAINT `FK_Record_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
+  ADD CONSTRAINT `FK_Record_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`);
 
 --
 -- Index pour la table `Team` et Contraintes pour la table `Team`
@@ -309,9 +312,9 @@ ALTER TABLE `To_Register_team`
 -- Index pour la table `To_Schedule` et Contraintes pour la table `To_Schedule`
 --
 ALTER TABLE `To_Schedule`
-  ADD INDEX `IDX_To_Schedule_id_date_cal` (`id_date_cal`),
-  ADD INDEX `IDX_To_Schedule_id_event` (`id_event`),
-  ADD INDEX `IDX_To_Schedule_id_site` (`id_site`),
+  -- ADD INDEX `IDX_To_Schedule_id_date_cal` (`id_date_cal`),
+  -- ADD INDEX `IDX_To_Schedule_id_event` (`id_event`),
+  -- ADD INDEX `IDX_To_Schedule_id_site` (`id_site`),
 
   ADD CONSTRAINT `FK_To_Schedule_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`),
   ADD CONSTRAINT `FK_To_Schedule_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),

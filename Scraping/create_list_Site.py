@@ -2,20 +2,34 @@ from bs4 import BeautifulSoup
 import requests, ast, sqlite3, re, locale
 from datetime import datetime
 
-mois_fr_to_en = {
-    'janvier': 'January',
-    'février': 'February',
-    'mars': 'March',
-    'avril': 'April',
-    'mai': 'May',
-    'juin': 'June',
-    'juillet': 'July',
-    'août': 'August',
-    'septembre': 'September',
-    'octobre': 'October',
-    'novembre': 'November',
-    'décembre': 'December'
-}
+mois_fr = [
+    'janvier',
+    'février',
+    'mars',
+    'avril',
+    'mai',
+    'juin',
+    'juillet',
+    'août',
+    'septembre',
+    'octobre',
+    'novembre',
+    'décembre'
+]
+mois_en = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
 
 url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
@@ -48,12 +62,19 @@ def recup_site():
                     if len(donne[1]) > 15:
                         attr_creation_date = re.search(r'\d{4}', donne[1]).group() + "-00-00"
                     elif len(donne[1]) > 10:
-                        date_obj = str(donne[1])
-                        for mois_fr, mois_en in mois_fr_to_en.items():
-                            date_obj = date_obj.replace(mois_fr.capitalize(), mois_en.capitalize())
-                        print(date_obj)
-                        date_obj = datetime.strptime(date_obj, "%d %B %Y")
-                        date_obj = date_obj.strftime("%Y-%m-%d")
+                        date_obj = str(str(donne[1]).lower())
+                        if len(date_obj.split()) == 3:
+                            for a in range(1,12):
+                                date_obj = date_obj.replace(mois_fr[a], mois_en[a])
+                            print(date_obj)
+                            date_obj = datetime.strptime(date_obj, "%d %B %Y")
+                            date_obj = date_obj.strftime("%Y-%m-%d")
+                        else:
+                            for a in range(1,12):
+                                date_obj = date_obj.replace(mois_fr[a], mois_en[a])
+                            print(date_obj)
+                            date_obj = datetime.strptime(date_obj, "%B %Y")
+                            date_obj = date_obj.strftime("00-%m-%d")
                         attr_creation_date = date_obj
                     elif len(donne[1]) < 6:
                         attr_creation_date = donne[1].replace(" ", "") + "-00-00"

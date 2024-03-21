@@ -314,7 +314,7 @@ ALTER TABLE `To_Schedule`
   ADD CONSTRAINT `FK_To_Schedule_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`);
 
 --
--- Index pour la table `To_Serve` et Contraintes pour la table `To_Serve`
+-- Index et Contraintes pour la table `To_Serve`
 --
 ALTER TABLE `To_Serve`
   -- ADD INDEX `IDX_To_Serve_id_trans` (`id_trans`),

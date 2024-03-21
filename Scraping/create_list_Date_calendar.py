@@ -20,12 +20,14 @@ def recup_date_dal():
 
     return date_list
 
+
 def send_site(result, bdd=""):
+
+    # Création de la requête SQL
     send = "INSERT INTO Date_calendar_table (date_cal, medal_ceremony_date_cal) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("date_cal") + "', '" +
             dic.get("medal_ceremony_date_cal") + "'),\n")
-
     send += send[:-2] + ";"
 
     if len(bdd) > 0:
@@ -37,6 +39,5 @@ def send_site(result, bdd=""):
         connexion.close()
     return(send)
 
-
-# Afficher le résultat de la fonction
-print(send_site(recup_date_dal()))
+if __name__ == "__main__":
+    print(send_site(recup_date_dal()))

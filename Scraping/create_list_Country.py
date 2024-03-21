@@ -1,15 +1,17 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3
 
+main_url = 'https://fr.wikipedia.org/wiki/ISO_3166-1'
+
 def recup_code_pays():
     # Renvoie un tableau [Num, Alpha-3, Alpha-2, Nom Français]
-    url = 'https://fr.wikipedia.org/wiki/ISO_3166-1'
-    reponse = requests.get(url)
+
+    reponse = requests.get(main_url)
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
 
         # Exemple : Extraire le tableau
-        tab = soup.find('table', class_=['wikitable','sortable','jquery-tablesorter'])
+        tab = soup.find('table', class_=['wikitable', 'sortable', 'jquery-tablesorter'])
 
         result = []
         tmp = []
@@ -22,7 +24,6 @@ def recup_code_pays():
                 attr_code_country = tmp[1]
                 attr_name_contry = tmp[4].replace("\n", "")
                 
-                #result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
                 result.append({"code_country": attr_code_country, "name_country": attr_name_contry})
 
         return(result)
@@ -30,13 +31,16 @@ def recup_code_pays():
         print(reponse.status_code)
         return([])
 
-#obsolète un peu
+
 def send_country_code(result, bdd=""):
+
+    # Création de la requête SQL
     send = "INSERT INTO Country_table (code_country, name_country) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("code_country") + "', '" +
             dic.get("name_country") + "'),\n")
     send += send[:-2] + ";"
+
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
         curseur = connexion.cursor()
@@ -46,4 +50,6 @@ def send_country_code(result, bdd=""):
         connexion.close()
     return(send)
 
-print(send_country_code(recup_code_pays()))
+
+if __name__ == "__main__":
+    print(send_country_code(recup_code_pays()))

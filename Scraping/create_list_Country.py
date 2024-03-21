@@ -13,10 +13,10 @@ def recup_code_pays():
 
         result = []
         tmp = []
-        for tr in tab.find_all('tr'):   # Extraire les ligne
+        for tr in tab.find_all('tr'):
             cells = tr.find_all('td')
-            content = [cell.text for cell in cells] # Extraire les cellules
-            tmp = ast.literal_eval(str(content)) # convertire en tab
+            content = [cell.text for cell in cells]
+            tmp = ast.literal_eval(str(content))
             if len(tmp) > 0:
                 
                 attr_code_country = tmp[1]
@@ -25,7 +25,6 @@ def recup_code_pays():
                 #result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
                 result.append({"code_country": attr_code_country, "name_country": attr_name_contry})
 
-        print(result[0])
         return(result)
     else:
         print(reponse.status_code)
@@ -33,18 +32,18 @@ def recup_code_pays():
 
 #obsolète un peu
 def send_country_code(result, bdd=""):
-    send = ""
-    for i in result:
-        send += "INSERT INTO Country ( Country_code, Country_name) VALUES ('"
-        + i.get("code_country") + "', '"
-        + i.get("name_country") + "');"
+    send = "INSERT INTO Country_table (code_country, name_country) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("code_country") + "', '" +
+            dic.get("name_country") + "'),\n")
+    send += send[:-2] + ";"
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
         curseur = connexion.cursor()
-        curseur.close()
         curseur.execute(send)
-        connexion.close()
         connexion.commit()
+        curseur.close()
+        connexion.close()
     return(send)
 
-print(recup_code_pays())
+print(send_country_code(recup_code_pays()))

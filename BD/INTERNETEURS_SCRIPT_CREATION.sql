@@ -72,18 +72,6 @@ CREATE TABLE `Event` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Is_from`
---
-
-CREATE TABLE `Is_from` (
-  `id_athlete` int(11) NOT NULL,
-  `code_country` char(3) NOT NULL,
-  PRIMARY KEY (`id_athlete`, `code_country`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `Medal`
 --
 
@@ -92,7 +80,6 @@ CREATE TABLE `Medal` (
   `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `id_event` int(11) NOT NULL,
   `id_athlete` int(11),
-  `id_team` int(11),
   `id_date_cal` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -105,10 +92,20 @@ CREATE TABLE `Medal` (
 CREATE TABLE `Record` (
   `id_record` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `stat_record` VARCHAR(32) NOT NULL,
-  `holder_record` VARCHAR(32) NOT NULL,
   `date_record` date NOT NULL,
   `id_event` int(11) NOT NULL,
   `id_athlete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Transport`
+--
+
+CREATE TABLE `Transport` (
+  `id_trans` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name_trans` VARCHAR(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -137,6 +134,18 @@ CREATE TABLE `Team` (
   `size_team` int(11) NOT NULL,
   `gender_team` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   `code_country` char(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Is_from`
+--
+
+CREATE TABLE `Is_from` (
+  `id_athlete` int(11) NOT NULL,
+  `code_country` char(3) NOT NULL,
+  PRIMARY KEY (`id_athlete`, `code_country`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -201,24 +210,10 @@ CREATE TABLE `To_Serve` (
   PRIMARY KEY (`id_site`, `id_trans`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `Transport`
---
-
-CREATE TABLE `Transport` (
-  `id_trans` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_trans` VARCHAR(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 --
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `Athlete` et Contraintes pour la table `Athlete`
+-- Index et Contraintes pour la table `Athlete`
 --
 ALTER TABLE `Athlete`
   ADD INDEX `IDX_Athlete_code_country` (`code_country`),
@@ -227,7 +222,7 @@ ALTER TABLE `Athlete`
 
 
 --
--- Index pour la table `Event` et Contraintes pour la table `Event`
+-- Index et Contraintes pour la table `Event`
 --
 ALTER TABLE `Event`
   ADD INDEX `IDX_Event_id_disc` (`id_disc`),
@@ -237,31 +232,19 @@ ALTER TABLE `Event`
   ADD CONSTRAINT `FK_Event_id_record` FOREIGN KEY (`id_record`) REFERENCES `Record` (`id_record`);
 
 --
--- Index pour la table `Is_from` et Contraintes pour la table `Is_from`
---
-ALTER TABLE `Is_from`
-  -- ADD INDEX `IDX_Is_from_id_athlete` (`id_athlete`),
-  -- ADD INDEX `IDX_Is_from_code_country` (`code_country`),
-
-  ADD CONSTRAINT `FK_Is_from_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_Is_from_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
-
---
--- Index pour la table `Medal` et Contraintes pour la table `Medal`
+-- Index et Contraintes pour la table `Medal`
 --
 ALTER TABLE `Medal`
   ADD INDEX `IDX_Medal_id_event` (`id_event`),
   ADD INDEX `IDX_Medal_id_athlete` (`id_athlete`),
-  ADD INDEX `IDX_Medal_id_team` (`id_team`),
   ADD INDEX `IDX_Medal_id_date_cal` (`id_date_cal`),
 
   ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
   ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_Medal_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`),
   ADD CONSTRAINT `FK_Medal_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`);
 
 --
--- Index pour la table `Record` et Contraintes pour la table `Record`
+-- Indexet Contraintes pour la table `Record`
 --
 ALTER TABLE `Record`
   ADD INDEX `IDX_Record_id_event` (`id_event`),
@@ -279,7 +262,17 @@ ALTER TABLE `Team`
   ADD CONSTRAINT `FK_Team_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
 
 --
--- Index pour la table `To_pertain_team` et Contraintes pour la table `To_pertain_team`
+-- Index et Contraintes pour la table `Is_from`
+--
+ALTER TABLE `Is_from`
+  -- ADD INDEX `IDX_Is_from_id_athlete` (`id_athlete`),
+  -- ADD INDEX `IDX_Is_from_code_country` (`code_country`),
+
+  ADD CONSTRAINT `FK_Is_from_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
+  ADD CONSTRAINT `FK_Is_from_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
+
+--
+-- Index et Contraintes pour la table `To_pertain_team`
 --
 ALTER TABLE `To_pertain_team`
   -- ADD INDEX `IDX_To_pertain_team_id_team` (`id_team`),
@@ -289,7 +282,7 @@ ALTER TABLE `To_pertain_team`
   ADD CONSTRAINT `FK_To_pertain_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 
 --
--- Index pour la table `To_Register_athlete` et Contraintes pour la table `To_Register_athlete`
+-- Index et Contraintes pour la table `To_Register_athlete`
 --
 ALTER TABLE `To_Register_athlete`
   -- ADD INDEX `IDX_To_Register_athlete_id_athlete` (`id_athlete`),
@@ -299,7 +292,7 @@ ALTER TABLE `To_Register_athlete`
   ADD CONSTRAINT `FK_To_Register_athlete_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
 
 --
--- Index pour la table `To_Register_team` et Contraintes pour la table `To_Register_team`
+-- Index et Contraintes pour la table `To_Register_team`
 --
 ALTER TABLE `To_Register_team`
   -- ADD INDEX `IDX_To_Register_team_id_team` (`id_team`),
@@ -309,7 +302,7 @@ ALTER TABLE `To_Register_team`
   ADD CONSTRAINT `FK_To_Register_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
 
 --
--- Index pour la table `To_Schedule` et Contraintes pour la table `To_Schedule`
+-- Index et Contraintes pour la table `To_Schedule`
 --
 ALTER TABLE `To_Schedule`
   -- ADD INDEX `IDX_To_Schedule_id_date_cal` (`id_date_cal`),

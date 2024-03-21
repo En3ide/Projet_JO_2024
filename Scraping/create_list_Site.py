@@ -48,7 +48,7 @@ def recup_site():
             if len(cells) > 3:
                 tmp = [cell for cell in cells]
                 
-                attr_name = tmp[0].text.replace("\n", "") + ' '+ tmp[1].text.replace("\n", "")
+                attr_name = tmp[0].text.replace("\n", "")# + ' '+ tmp[1].text.replace("\n", "")
                 attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
                 if attr_capacity in " -":

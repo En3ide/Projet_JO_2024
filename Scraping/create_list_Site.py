@@ -1,7 +1,21 @@
 from bs4 import BeautifulSoup
-import requests, ast, sqlite3
+import requests, ast, sqlite3, re, locale
 from datetime import datetime
 
+mois_fr_to_en = {
+    'janvier': 'January',
+    'février': 'February',
+    'mars': 'March',
+    'avril': 'April',
+    'mai': 'May',
+    'juin': 'June',
+    'juillet': 'July',
+    'août': 'August',
+    'septembre': 'September',
+    'octobre': 'October',
+    'novembre': 'November',
+    'décembre': 'December'
+}
 
 url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
@@ -31,10 +45,23 @@ def recup_site():
                 else:
                     attr_adress = attr_name
                 if donne[1] != None:
-                    date_obj = datetime.strptime(donne[1], "%d %B %Y")
-                    attr_creation_date = date_obj
+                    if len(donne[1]) > 15:
+                        attr_creation_date = re.search(r'\d{4}', donne[1]).group() + "-00-00"
+                    elif len(donne[1]) > 10:
+                        date_obj = str(donne[1])
+                        for mois_fr, mois_en in mois_fr_to_en.items():
+                            date_obj = date_obj.replace(mois_fr.capitalize(), mois_en.capitalize())
+                        print(date_obj)
+                        date_obj = datetime.strptime(date_obj, "%d %B %Y")
+                        date_obj = date_obj.strftime("%Y-%m-%d")
+                        attr_creation_date = date_obj
+                    elif len(donne[1]) < 6:
+                        attr_creation_date = donne[1].replace(" ", "") + "-00-00"
+                    elif len(donne[1]) <10:
+                        date_obj = donne[1].replace(" ", "").split("-")
+                        attr_creation_date = donne[1] + "-00-00"
                 else:
-                    attr_creation_date = ""
+                    attr_creation_date = "NULL"
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
         return(result)
     else:

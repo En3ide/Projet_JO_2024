@@ -12,7 +12,9 @@ def recup_date_dal():
     current_date = start_date
 
     while current_date <= end_date:
-        date_list.append({"date_cal": current_date.strftime("%d/%m/%Y"), "medal_ceremony_date_cal": False})
+        attr_date_cal = current_date.strftime("%d/%m/%Y")
+        attr_medal_cer = False
+        date_list.append({"date_cal": attr_date_cal, "medal_ceremony_date_cal": attr_medal_cer})
         current_date += timedelta(days=1)
 
     return date_list

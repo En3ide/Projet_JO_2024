@@ -18,7 +18,12 @@ def recup_code_pays():
             content = [cell.text for cell in cells]
             tmp = ast.literal_eval(str(content))
             if len(tmp) > 0:
-                result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
+                
+                attr_code_country = tmp[1]
+                attr_name_contry = tmp[4].replace("\n", "")
+                
+                #result.append([tmp[0], tmp[1], tmp[2], tmp[4].replace("\n", "")])
+                result.append({"code_country": attr_code_country, "name_country": attr_name_contry})
 
         print(result[0])
         return(result)
@@ -26,6 +31,7 @@ def recup_code_pays():
         print(reponse.status_code)
         return([])
 
+#obsolète un peu
 def send_country_code(result, bdd=""):
     send = ""
     for i in result:
@@ -39,4 +45,4 @@ def send_country_code(result, bdd=""):
         connexion.commit()
     return(send)
 
-print(send_country_code(recup_code_pays()))
+print(recup_code_pays())

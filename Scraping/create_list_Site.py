@@ -1,6 +1,18 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3
 
+def recup_adress_creation_date(url):
+    attr_adress, attr_creation_date = "", ""
+    
+    reponse = requests.get(url)
+    if reponse.status_code == 200:
+        soup = BeautifulSoup(reponse.text, 'html.parser')
+        table_info = soup.find('table', class_='infobox_v2 noarchive')
+        # g eu flemme vsy c bon
+        
+    return attr_adress, attr_creation_date
+        
+
 def recup_site():
     # Renvoie un tableau [Date, Adress, Capacité, URL du site]
     url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
@@ -17,12 +29,19 @@ def recup_site():
             cells = tr.find_all('td')
             if len(cells) > 3:
                 tmp = [cell for cell in cells]
-                result.append(["00-00-00",tmp[0].text.replace("\n", "")+' '+tmp[1].text.replace("\n", ""),tmp[3].text.replace('\xa0', '').replace("\n", ""), "https://fr.wikipedia.org/"+tmp[0].a['href']])# Creation_date Address capacity URL
+                
+                attr_name = tmp[0].text.replace("\n", "")+' '+tmp[1].text.replace("\n", "")
+                attr_url = "https://fr.wikipedia.org/"+tmp[0].a['href']
+                attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
+                attr_adress, attr_creation_date = "", "" #recup_adress_creation_date(attr_url)
+                
+                result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity": attr_capacity, "URL_site": attr_url})
         return(result)
     else:
         print("Echec de la request, code retour [ "+ reponse.status_code +" ]")
         return([])
 
+# obsolète un peu
 def send_site(result, bdd=""):
     send = ""
     for i in result:
@@ -36,4 +55,4 @@ def send_site(result, bdd=""):
         connexion.commit()
     return(send)
 
-print(send_site(recup_site()))
+print(recup_site())

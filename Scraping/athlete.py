@@ -31,3 +31,11 @@ def scraping_athlete(soup):
     param : Objet BeautifulSoup soup
     return : list(list) liste
     '''
+    liste = []
+    return liste
+
+def main():
+    '''
+    Fonction principale
+    '''
+    soup = contenue("")

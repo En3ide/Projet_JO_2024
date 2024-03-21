@@ -21,6 +21,8 @@ def recup_site():
                 attr_name = tmp[0].text.replace("\n", "") + ' '+ tmp[1].text.replace("\n", "")
                 attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
+                if attr_capacity in " -":
+                    attr_capacity = "NULL"
                 donne = recup_date_adress(attr_url)
                 if donne[0] != None:
                     attr_adress = donne[0]
@@ -83,8 +85,8 @@ def send_site(result, bdd=""):
     for dic in result:
         send += (" ('" + dic.get("name_site") + "', '" +
             dic.get("adress_site") + "', '" +
-            dic.get("creation_date_site") + "', '" +
-            dic.get("capacity_site") + "', '" +
+            dic.get("creation_date_site") + "', " +
+            dic.get("capacity_site") + ", '" +
             dic.get("URL_site") + "'),\n")
     send += send[:-2] + ";"
 

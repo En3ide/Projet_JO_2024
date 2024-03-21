@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3
 
-def recup_adress_creation_date(url):
-    attr_adress, attr_creation_date = "", ""
+def recup_adress_creation_date(nom, url):
+    attr_adress, attr_creation_date = nom, ""
     
     reponse = requests.get(url)
     if reponse.status_code == 200:
@@ -33,7 +33,7 @@ def recup_site():
                 attr_name = tmp[0].text.replace("\n", "")+' '+tmp[1].text.replace("\n", "")
                 attr_url = "https://fr.wikipedia.org/"+tmp[0].a['href']
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
-                attr_adress, attr_creation_date = "", "" #recup_adress_creation_date(attr_url)
+                attr_adress, attr_creation_date = recup_adress_creation_date(attr_name, attr_url)
                 
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity": attr_capacity, "URL_site": attr_url})
         return(result)

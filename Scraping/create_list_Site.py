@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3
+from datetime import datetime
+
 
 url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
@@ -29,7 +31,8 @@ def recup_site():
                 else:
                     attr_adress = attr_name
                 if donne[1] != None:
-                    attr_creation_date = donne[1] 
+                    date_obj = datetime.strptime(donne[1], "%d %B %Y")
+                    attr_creation_date = date_obj
                 else:
                     attr_creation_date = ""
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})

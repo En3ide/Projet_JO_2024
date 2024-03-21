@@ -45,7 +45,12 @@ def recup_site():
 def send_site(result, bdd=""):
     send = ""
     for i in result:
-        send += "INSERT INTO Site (Creation_date, Adress, Capacity, URL_site) VALUES ('"+i[0]+"', '"+ i[1] +"', "+ i[2] +", '"+i[3]+"');"
+        send += "INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES ('"
+        + result.get("name_site") +"', '"
+        + result.get("adress_site") +"', '"
+        + result.get("creation_date_site") +"', '"
+        + result.get("capacity_site") + "', '"
+        + result.get("URL_site") + "');"
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
         curseur = connexion.cursor()

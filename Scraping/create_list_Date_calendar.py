@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import sqlite3
 
 def recup_date_dal():
     # Date de début et de fin
@@ -18,6 +19,24 @@ def recup_date_dal():
         current_date += timedelta(days=1)
 
     return date_list
+
+def send_site(result, bdd=""):
+    send = ""
+    for i in result:
+        send += "INSERT INTO Site (Creation_date, Adress, Capacity, URL_site) VALUES ('"
+        + i[0]+ "', '"
+        + i[1] + "', "
+        + i[2] + ", '"
+        + i[3]+"');"
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.close()
+        curseur.execute(send)
+        connexion.close()
+        connexion.commit()
+    return(send)
+
 
 # Afficher le résultat de la fonction
 print(recup_date_dal())

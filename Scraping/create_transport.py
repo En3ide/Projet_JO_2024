@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests, ast, sqlite3, re, locale
 from datetime import datetime
 
-url = "https://olympics.com/fr/paris-2024/sites"
+url_tmp = "https://olympics.com/fr/paris-2024/sites"
 
 def recup_url_transp(url):
     reponse = requests.get(url)
@@ -17,4 +17,4 @@ def recup_url_transp(url):
         print(reponse.status_code)
         return([])
 
-recup_url_transp(url)
+recup_url_transp(url_tmp)

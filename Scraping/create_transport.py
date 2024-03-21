@@ -13,6 +13,8 @@ def recup_url_transp(url):
         # Extraction du tableau
         tab = soup.find_all('table', class_=['content-list-grid'])
         print("test3")
-        print(tab[0])
+    else:
+        print(reponse.status_code)
+        return([])
 
 recup_url_transp(url)

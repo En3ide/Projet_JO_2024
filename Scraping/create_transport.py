@@ -11,7 +11,7 @@ def recup_url_transp(url):
         soup = BeautifulSoup(reponse.text, 'html.parser')
 
         # Extraction du tableau
-        tab = soup.find_all('table', class_=['content-list-grid'])
+        #tab = soup.find_all('table', class_=['content-list-grid'])
         print("test3")
     else:
         print(reponse.status_code)

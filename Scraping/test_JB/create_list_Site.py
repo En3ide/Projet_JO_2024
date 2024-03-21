@@ -21,25 +21,54 @@ def recup_site():
                 attr_name = tmp[0].text.replace("\n", "") + ' '+ tmp[1].text.replace("\n", "")
                 attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
-                attr_adress, attr_creation_date = attr_name, "" #recup_adress_creation_date(attr_name, attr_url)
-                
+                donne = recup_date_adress(attr_url)
+                if donne[0] != None:
+                    attr_adress = donne[0]
+                else:
+                    attr_adress = attr_name
+                if donne[1] != None:
+                    attr_creation_date = donne[1] 
+                else:
+                    attr_creation_date = ""
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
         return(result)
     else:
         print(reponse.status_code)
         return([])
     
-def recup_adress_creation_date(nom, url):
-    attr_adress, attr_creation_date = nom, ""
-
+def recup_date_adress(url):
     reponse = requests.get(url)
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
-        table_info = soup.find('tbody')
-        ligne = table_info.find_all(text=lambda text: text and 'Adresse' in text)
-        print(ligne)
-    return attr_adress, attr_creation_date
+        return collect_adress(soup), collect_date(soup)
         
+
+
+def collect_adress(n):
+    table_info = n.find('tbody')
+    if "Adresse" in str(table_info):
+        for tr in table_info.find_all("tr"):
+            if "Adresse" in str(tr):
+                td = tr.find_all("td")
+                return [t for t in td ][0].text.replace("\n", "")
+    return
+
+def collect_date(n):
+    tbody = n.find_all('tbody')
+    for i in tbody:
+        if "Création" in tbody:
+            for tr in tbody.find_all("tr"):
+                if "Création" in str(tr):
+                    td = tr.find_all("td")
+                    return [t for t in td][0].text.replace("\n", "")
+    for i in tbody:
+        if "Début de construction" in tbody:
+            for tr in tbody.find_all("tr"):
+                if "Début de construction" in str(tr):
+                    td = tr.find_all("td")
+                    return [t for t in td][0].text.replace("\n", "")
+    return
+
 
 def send_site(result, bdd=""):
 
@@ -63,5 +92,4 @@ def send_site(result, bdd=""):
     return(send)
 
 if __name__ == "__main__":
-    #print(send_site(recup_site()))
-    print(recup_adress_creation_date("stade","https://fr.wikipedia.org/wiki/Stade_Roland-Garros"))
+    print(send_site(recup_site()))

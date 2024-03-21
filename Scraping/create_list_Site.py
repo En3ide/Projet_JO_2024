@@ -7,7 +7,7 @@ def recup_adress_creation_date(nom, url):
     reponse = requests.get(url)
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
-        table_info = soup.find('table', class_='infobox_v2 noarchive')
+        table_info = soup.find('tbody')
         # g eu flemme vsy c bon
         
     return attr_adress, attr_creation_date
@@ -60,4 +60,5 @@ def send_site(result, bdd=""):
         connexion.commit()
     return(send)
 
-print(recup_site())
+#print(recup_site())
+print(recup_adress_creation_date(Stade,"https://fr.wikipedia.org/wiki/Stade_Roland-Garros"))

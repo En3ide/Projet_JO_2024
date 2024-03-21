@@ -13,10 +13,10 @@ def recup_code_pays():
 
         result = []
         tmp = []
-        for tr in tab.find_all('tr'):
+        for tr in tab.find_all('tr'):   # Extraire les ligne
             cells = tr.find_all('td')
-            content = [cell.text for cell in cells]
-            tmp = ast.literal_eval(str(content))
+            content = [cell.text for cell in cells] # Extraire les cellules
+            tmp = ast.literal_eval(str(content)) # convertire en tab
             if len(tmp) > 0:
                 
                 attr_code_country = tmp[1]
@@ -35,7 +35,9 @@ def recup_code_pays():
 def send_country_code(result, bdd=""):
     send = ""
     for i in result:
-        send += "INSERT INTO Country ( Country_code, Country_name) VALUES ('" + i[1] + "', '" + i[3] + "');"
+        send += "INSERT INTO Country ( Country_code, Country_name) VALUES ('"
+        + i.get("code_country") + "', '"
+        + i.get("name_country") + "');"
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
         curseur = connexion.cursor()

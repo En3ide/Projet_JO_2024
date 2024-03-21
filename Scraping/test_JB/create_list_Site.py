@@ -56,15 +56,21 @@ def collect_adress(n):
 def collect_date(n):
     tbody = n.find_all('tbody')
     for i in tbody:
-        if "Création" in tbody:
-            for tr in tbody.find_all("tr"):
+        if "Création" in str(i):
+            for tr in i.find_all("tr"):
                 if "Création" in str(tr):
                     td = tr.find_all("td")
                     return [t for t in td][0].text.replace("\n", "")
     for i in tbody:
-        if "Début de construction" in tbody:
-            for tr in tbody.find_all("tr"):
+        if "Début de construction" in str(i):
+            for tr in i.find_all("tr"):
                 if "Début de construction" in str(tr):
+                    td = tr.find_all("td")
+                    return [t for t in td][0].text.replace("\n", "")
+    for i in tbody:
+        if "Ouverture" in str(i):
+            for tr in i.find_all("tr"):
+                if "Ouverture" in str(tr):
                     td = tr.find_all("td")
                     return [t for t in td][0].text.replace("\n", "")
     return

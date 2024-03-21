@@ -14,29 +14,30 @@ def recup_date_dal():
 
     while current_date <= end_date:
         attr_date_cal = current_date.strftime("%d/%m/%Y")
-        attr_medal_cer = False
+        attr_medal_cer = str(False)
         date_list.append({"date_cal": attr_date_cal, "medal_ceremony_date_cal": attr_medal_cer})
         current_date += timedelta(days=1)
 
     return date_list
 
+
 def send_site(result, bdd=""):
-    send = ""
-    for i in result:
-        send += "INSERT INTO Site (Creation_date, Adress, Capacity, URL_site) VALUES ('"
-        + i[0]+ "', '"
-        + i[1] + "', "
-        + i[2] + ", '"
-        + i[3]+"');"
+
+    # Création de la requête SQL
+    send = "INSERT INTO Date_calendar_table (date_cal, medal_ceremony_date_cal) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("date_cal") + "', '" +
+            dic.get("medal_ceremony_date_cal") + "'),\n")
+    send += send[:-2] + ";"
+
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
         curseur = connexion.cursor()
-        curseur.close()
         curseur.execute(send)
-        connexion.close()
         connexion.commit()
+        curseur.close()
+        connexion.close()
     return(send)
 
-
-# Afficher le résultat de la fonction
-print(recup_date_dal())
+if __name__ == "__main__":
+    print(send_site(recup_date_dal()))

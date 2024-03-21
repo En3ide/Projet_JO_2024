@@ -24,3 +24,10 @@ def contenue(url):
     cont = requete.text # contenue brut de l'url, cad balise, script, commentaire
     soup = BeautifulSoup(cont,"html.parser") #contenue de l'url, cad uniquement html (balise)
     return soup
+
+def scraping_athlete(soup):
+    '''
+    Retourne la liste de liste des athletes 
+    param : Objet BeautifulSoup soup
+    return : list(list) liste
+    '''

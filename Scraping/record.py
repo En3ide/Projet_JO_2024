@@ -27,9 +27,9 @@ def contenue(url):
 
 def scraping_athletisme(soup):
     '''
-    Retourne la liste de dictionnaire de althletisme 
-    param : Objet BeautifulSoup
-    return : list(dict)
+    Retourne la liste de liste de althletisme 
+    param : Objet BeautifulSoup soup
+    return : list(list) liste
     '''
     liste = []
     tables = soup.find_all("table")

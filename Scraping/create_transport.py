@@ -5,6 +5,7 @@ from datetime import datetime
 url_tmp = "https://olympics.com/fr/paris-2024/sites"
 
 def recup_url_transp(url):
+    print("test1")
     reponse = requests.get(url)
     print("test2")
     if reponse.status_code == 200:

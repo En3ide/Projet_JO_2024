@@ -28,7 +28,7 @@ def send_site(result, bdd=""):
     for dic in result:
         send += ("('" + dic.get("date_cal") + "', '" +
             dic.get("medal_ceremony_date_cal") + "'),\n")
-    send += send[:-2] + ";"
+    send = send[:-2] + ";"
 
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)

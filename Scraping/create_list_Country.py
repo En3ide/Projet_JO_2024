@@ -19,7 +19,6 @@ def recup_country():
             cells = tr.find_all('td')
             content = [cell.text for cell in cells]
             tmp = ast.literal_eval(str(content))
-            print("\n", tmp, "\n")
             if len(tmp) > 0:
                 
                 attr_code_country = tmp[1]
@@ -40,7 +39,7 @@ def send_country(result, bdd=""):
     for dic in result:
         send += ("('" + dic.get("code_country") + "', '" +
             dic.get("name_country") + "'),\n")
-    send += send[:-2] + ";"
+    send = send[:-2] + ";"
 
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)
@@ -49,8 +48,9 @@ def send_country(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print(send)
     return(send)
 
 
 if __name__ == "__main__":
-    print(send_country(recup_country()))
+    send_country(recup_country())

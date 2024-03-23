@@ -1,6 +1,5 @@
 import re
 from datetime import datetime
-from dateutil import parser
 
 mois_fr = [
     'janvier',
@@ -38,7 +37,7 @@ def date_convert(chaine):
         if len(chaine) > 15:
             attr_creation_date = re.search(r'\d{4}', chaine).group() + "-00-00"
         elif len(chaine) > 10:
-            date_obj = str(str(chaine).lower())
+            date_obj = str(str(chaine).lower()).replace("1er", "1")
             if len(date_obj.split()) == 3:
                 for a in range(1,12):
                         date_obj = date_obj.replace(mois_fr[a], mois_en[a])
@@ -87,36 +86,64 @@ months = {
     "december": "12"
 }
 
+def trouver_dates(chaine):
+    pattern = r'\b(\d{1,4}[-/]\d{1,2}[-/]\d{1,2})\b|\b(\d{1,2}\s?\d{0,2}\s?\d{2,4})\b'
+    dates = re.findall(pattern, chaine)
+    return [date for groups in dates for date in groups if date]
+
 def retirer_mois(chaine):
     chaine_lower = chaine.lower()
     for month_name, month_number in months.items():
         chaine_lower = chaine_lower.replace(month_name, month_number)
-    chaine_cleaned = re.sub(r'(?<!\d)[^\d]+(?!\d)', ' ', chaine_lower)
-    
-    return chaine_cleaned
+
+    segments = re.split(r'[\(\)]', chaine_lower)
+    extracted_dates = []
+    for segment in segments:
+        dates = trouver_dates(segment)
+        if dates:
+            extracted_dates.extend(dates)
+
+    if len(extracted_dates) == 1:
+        extracted_dates.append('')
+
+    return tuple(extracted_dates)
+
+def convert_in_date_format(chaine):
+    parts = chaine.split()
+    year = None
+    month = None
+    day = None
+
+    if len(parts) == 1:
+        year = parts[0]
+    elif len(parts) == 3:
+        day, month, year = parts
+    elif len(parts) == 2:  # Ajout d'une condition pour gérer le cas de deux parties
+        month, year = parts
+
+    if year:
+        year = year.zfill(4)
+    if month:
+        month = month.zfill(2)
+    if day:
+        day = day.zfill(2)
+
+    return f"{year}-{month or '00'}-{day or '00'}"
+
+def convert_date(date):
+    rep = "NULL"
+    if date is not None:
+        premiere_date = retirer_mois(date)[0]
+        premiere_date = re.sub(r"(?<=\b)(\d\s)", lambda match: "0" + match.group(1), premiere_date.strip())
+        if premiere_date:
+            rep = convert_in_date_format(premiere_date)
+            #print(date, " -> ", premiere_date, " : ", rep)
+    return rep
 
 
-def convert_date(input_date):
-    try:
-        # Vérifier si la chaîne de date est 'None'
-        if input_date.lower() == 'none':
-            return None
-        
-        # Remplacer les noms de mois par les chiffres correspondants
-        for month_name, month_number in months.items():
-            input_date = input_date.replace(month_name, month_number)
-        
-        # Supprimer toutes les lettres de la chaîne
-        input_date = ''.join(filter(str.isdigit, input_date))
 
-        # Analyser la date en utilisant la bibliothèque dateutil.parser
-        parsed_date = parser.parse(input_date, fuzzy=True)
-
-        # Formater la date en AAAA/MM/JJ
-        formatted_date = parsed_date.strftime("%Y/%m/%d")
-        return formatted_date
-    except Exception as e:
-        print(f"Erreur lors de la conversion de la date : {e}")
-        return None
-
-print(retirer_mois('2024 (JOP)juillet 2025 (grand public)'))
+# convert_date('2024 (JOP)juillet 2025 (grand public)')
+# convert_date("01 janvier 2024 07 octobre 2024")
+# convert_date('2024')
+# convert_date('3 juillet 2025 (grand public)')
+# convert_date('juillet 2025')

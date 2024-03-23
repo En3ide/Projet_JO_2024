@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3, re, locale
 from datetime import datetime
-from date_convert import date_convert
+from date_convert import date_convert, convert_date
 
 main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
@@ -59,7 +59,6 @@ def recup_site():
                 
                 attr_name = tmp[0].text.replace("\n", "") # + ' '+ tmp[1].text.replace("\n", "")
                 attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
-                print(attr_url)
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
                 if attr_capacity in " -":
                     attr_capacity = "NULL"
@@ -68,7 +67,7 @@ def recup_site():
                     attr_adress = donnee[0]
                 else:
                     attr_adress = attr_name
-                attr_creation_date = date_convert(donnee[1])
+                attr_creation_date = convert_date(donnee[1])
              
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
         return(result)
@@ -86,7 +85,7 @@ def send_site(result, bdd=""):
             dic.get("creation_date_site") + "', " +
             dic.get("capacity_site") + ", '" +
             dic.get("URL_site") + "'),\n")
-    send += send[:-2] + ";"
+    send = send[:-2] + ";"
 
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)

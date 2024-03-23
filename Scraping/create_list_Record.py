@@ -6,7 +6,7 @@
 from bs4 import BeautifulSoup
 import requests, sqlite3
 import re
-from date_convert import date_convert
+from date_convert import date_convert, convert_date
 
 ##### Code #####
 main_url_athletisme = "https://fr.wikipedia.org/wiki/Records_olympiques_d%27athl%C3%A9tisme"
@@ -47,13 +47,21 @@ def remove_progression_from_chaine(ch):
     index = ch.index('Progression')
     return ch[0:index]
 
-def formatage_event_record(chaine):
+def formatage_name_event_record(chaine):
     '''
     Renvoie la chaine formaté pour retirer les espaces avant "km" "m" et entre les chiffres
     param : (str) chaine -> chaine de caractere
     return : (str) chaine formaté
     '''
     return re.sub(r'(\d+)\s+(\S)', r'\1\2', chaine)
+
+def formatage_stat_record(chaine):
+    '''
+    Renvoie la chaine formaté pour retirer les espaces entre les chiffres
+    param : (str) chaine -> chaine de caractere
+    return : (str) chaine formaté
+    '''
+    return re.sub(r'(?<=\d)\s(?=\d)', '', chaine).replace("\n", "")
 
 def scraping_athletisme(soup):
     '''
@@ -74,11 +82,11 @@ def scraping_athletisme(soup):
                 content.pop(-1)
 
                 # Info dispo : [Discipline, Athlète, Pays, Perfomance, Date, Lieu]
-                attr_stat_record = content[3].replace(" ", "").replace("\xa0291", "")
-                attr_date_record = date_convert(content[4])
+                attr_stat_record = formatage_stat_record(content[3])
+                attr_date_record = convert_date(content[4])
                 attr_id_event = "NULL"
                 attr_id_athlete = "NULL"
-                nom_event = formatage_event_record(content[0])
+                nom_event = formatage_name_event_record(content[0])
                 nom_athlete = content[1]
 
                 liste.append({"stat_record" : attr_stat_record, "date_record" : attr_date_record, "id_event" : attr_id_event, 
@@ -103,11 +111,11 @@ def scraping_natation(soup):
                 content.pop(-1)
 
                 # Info dispo : [Discipline, Temps, Athlète, Nationalité, Date, Lieu, Information]
-                attr_stat_record = content[1].replace(" ", "").replace("\xa0291", "")
-                attr_date_record = date_convert(content[4])
+                attr_stat_record = formatage_stat_record(content[1])
+                attr_date_record = convert_date(content[4])
                 attr_id_event = "NULL"
                 attr_id_athlete = "NULL"
-                nom_event = formatage_event_record(content[0])
+                nom_event = formatage_name_event_record(content[0])
                 nom_athlete = content[2]
 
                 liste.append({"stat_record" : attr_stat_record, "date_record" : attr_date_record, "id_event" : attr_id_event, 
@@ -133,7 +141,7 @@ def send_record(result, bdd=""):
             dic.get("date_record") + "', '" +
             dic.get("id_event") + "', " +
             dic.get("id_athlete") + "'),\n")
-    send += send[:-2] + ";"
+    send = send[:-2] + ";"
 
     if len(bdd) > 0:
         connexion = sqlite3.connect(bdd)

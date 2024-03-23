@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import sqlite3
 
-def recup_date_dal():
+def recup_date_cal():
     # Date de début et de fin
     start_date = datetime(2024, 7, 26)
     end_date = datetime(2024, 8, 11)
@@ -40,4 +40,4 @@ def send_site(result, bdd=""):
     return(send)
 
 if __name__ == "__main__":
-    print(send_site(recup_date_dal()))
+    print(send_site(recup_date_cal()))

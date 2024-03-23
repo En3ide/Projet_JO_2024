@@ -63,7 +63,7 @@ def recup_site():
                 if attr_capacity in " -":
                     attr_capacity = "NULL"
                 donnee = recup_date_adress(attr_url)
-                if donnee[0] != None:
+                if donnee[0] is not None:
                     attr_adress = donnee[0]
                 else:
                     attr_adress = attr_name
@@ -80,10 +80,20 @@ def send_site(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Site_table (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES\n"
     for dic in result:
+        date_is_null = dic.get("creation_date_site") == "NULL"
         send += (" ('" + dic.get("name_site") + "', '" +
-            dic.get("adress_site") + "', '" +
-            dic.get("creation_date_site") + "', " +
-            dic.get("capacity_site") + ", '" +
+            dic.get("adress_site"))
+        if date_is_null:
+            send += "', "
+        else:
+            send += "', '"
+        send += dic.get("creation_date_site")
+        if date_is_null:
+            send += ", "
+        else:
+            send += "', "
+
+        send += (dic.get("capacity_site") + ", '" +
             dic.get("URL_site") + "'),\n")
     send = send[:-2] + ";"
 

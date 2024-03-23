@@ -38,17 +38,17 @@ def date_convert(donne):
             date_obj = str(str(donne).lower())
             if len(date_obj.split()) == 3:
                 for a in range(1,12):
-                    date_obj = date_obj.replace(mois_fr[a], mois_en[a])
-                    print(date_obj)
-                    date_obj = datetime.strptime(date_obj, "%d %B %Y")
-                    date_obj = date_obj.strftime("%Y-%m-%d")
+                        date_obj = date_obj.replace(mois_fr[a], mois_en[a])
+                print(date_obj)
+                date_obj = datetime.strptime(date_obj, "%d %B %Y")
+                date_obj = date_obj.strftime("%Y-%m-%d")
             else:
                 for a in range(1,12):
                     date_obj = date_obj.replace(mois_fr[a], mois_en[a])
-                    print(date_obj)
-                    date_obj = datetime.strptime(date_obj, "%B %Y")
-                    date_obj = date_obj.strftime("00-%m-%d")
-                    attr_creation_date = date_obj
+                print(date_obj)
+                date_obj = datetime.strptime(date_obj, "%B %Y")
+                date_obj = date_obj.strftime("00-%m-%d")
+            attr_creation_date = date_obj
         elif len(donne) < 6:
             attr_creation_date = donne.replace(" ", "") + "-00-00"
         elif len(donne) <10:
@@ -58,4 +58,4 @@ def date_convert(donne):
         attr_creation_date = "NULL"
     return attr_creation_date
 
-print(date_convert('15 mars 1987'))
+print(date_convert('15 june 2008'))

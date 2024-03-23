@@ -3,8 +3,8 @@ import requests, ast, sqlite3
 
 main_url = 'https://fr.wikipedia.org/wiki/ISO_3166-1'
 
-def recup_code_pays():
-    # Renvoie un tableau [Num, Alpha-3, Alpha-2, Nom Français]
+def recup_country():
+    # Info du tableau (tmp) [Num, Alpha-3, Alpha-2, Code subdivisions, Nom Français, NOM ISO, Nom langue originale, Indépendant]
 
     reponse = requests.get(main_url)
     if reponse.status_code == 200:
@@ -19,6 +19,7 @@ def recup_code_pays():
             cells = tr.find_all('td')
             content = [cell.text for cell in cells]
             tmp = ast.literal_eval(str(content))
+            print("\n", tmp, "\n")
             if len(tmp) > 0:
                 
                 attr_code_country = tmp[1]
@@ -32,7 +33,7 @@ def recup_code_pays():
         return([])
 
 
-def send_country_code(result, bdd=""):
+def send_country(result, bdd=""):
 
     # Création de la requête SQL
     send = "INSERT INTO Country_table (code_country, name_country) VALUES\n"
@@ -52,4 +53,4 @@ def send_country_code(result, bdd=""):
 
 
 if __name__ == "__main__":
-    print(send_country_code(recup_code_pays()))
+    print(send_country(recup_country()))

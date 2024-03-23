@@ -1,102 +1,16 @@
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3, re, locale
 from datetime import datetime
+from date_convert import date_convert
 
-mois_fr = [
-    'janvier',
-    'février',
-    'mars',
-    'avril',
-    'mai',
-    'juin',
-    'juillet',
-    'août',
-    'septembre',
-    'octobre',
-    'novembre',
-    'décembre'
-]
-mois_en = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-]
+main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
-url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
-
-def recup_site():
-    reponse = requests.get(url)
-    if reponse.status_code == 200:
-        soup = BeautifulSoup(reponse.text, 'html.parser')
-
-        # Extraction du tableau
-        tab = soup.find_all('table', class_=['wikitable','sortable','jquery-tablesorter'])
-
-        result = []
-        tmp = []
-        for tr in tab[3].find_all('tr'):
-            cells = tr.find_all('td')
-            if len(cells) > 3:
-                tmp = [cell for cell in cells]
-                
-                attr_name = tmp[0].text.replace("\n", "")# + ' '+ tmp[1].text.replace("\n", "")
-                attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
-                attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
-                if attr_capacity in " -":
-                    attr_capacity = "NULL"
-                donne = recup_date_adress(attr_url)
-                if donne[0] != None:
-                    attr_adress = donne[0]
-                else:
-                    attr_adress = attr_name
-                if donne[1] != None:
-                    if len(donne[1]) > 15:
-                        attr_creation_date = re.search(r'\d{4}', donne[1]).group() + "-00-00"
-                    elif len(donne[1]) > 10:
-                        date_obj = str(str(donne[1]).lower())
-                        if len(date_obj.split()) == 3:
-                            for a in range(1,12):
-                                date_obj = date_obj.replace(mois_fr[a], mois_en[a])
-                            print(date_obj)
-                            date_obj = datetime.strptime(date_obj, "%d %B %Y")
-                            date_obj = date_obj.strftime("%Y-%m-%d")
-                        else:
-                            for a in range(1,12):
-                                date_obj = date_obj.replace(mois_fr[a], mois_en[a])
-                            print(date_obj)
-                            date_obj = datetime.strptime(date_obj, "%B %Y")
-                            date_obj = date_obj.strftime("00-%m-%d")
-                        attr_creation_date = date_obj
-                    elif len(donne[1]) < 6:
-                        attr_creation_date = donne[1].replace(" ", "") + "-00-00"
-                    elif len(donne[1]) <10:
-                        date_obj = donne[1].replace(" ", "").split("-")
-                        attr_creation_date = donne[1] + "-00-00"
-                else:
-                    attr_creation_date = "NULL"
-                result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
-        return(result)
-    else:
-        print(reponse.status_code)
-        return([])
-    
 def recup_date_adress(url):
     reponse = requests.get(url)
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
         return collect_adress(soup), collect_date(soup)
         
-
-
 def collect_adress(n):
     table_info = n.find('tbody')
     if "Adresse" in str(table_info):
@@ -128,7 +42,40 @@ def collect_date(n):
                     return [t for t in td][0].text.replace("\n", "")
     return
 
+def recup_site():
+    reponse = requests.get(main_url)
+    if reponse.status_code == 200:
+        soup = BeautifulSoup(reponse.text, 'html.parser')
 
+        # Extraction du tableau
+        tab = soup.find_all('table', class_=['wikitable','sortable','jquery-tablesorter'])
+
+        result = []
+        tmp = []
+        for tr in tab[3].find_all('tr'):
+            cells = tr.find_all('td')
+            if len(cells) > 3:
+                tmp = [cell for cell in cells]
+                
+                attr_name = tmp[0].text.replace("\n", "") # + ' '+ tmp[1].text.replace("\n", "")
+                attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
+                print(attr_url)
+                attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
+                if attr_capacity in " -":
+                    attr_capacity = "NULL"
+                donnee = recup_date_adress(attr_url)
+                if donnee[0] != None:
+                    attr_adress = donnee[0]
+                else:
+                    attr_adress = attr_name
+                attr_creation_date = date_convert(donnee[1])
+             
+                result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
+        return(result)
+    else:
+        print(reponse.status_code)
+        return([])
+    
 def send_site(result, bdd=""):
 
     # Création de la requête SQL

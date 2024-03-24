@@ -68,7 +68,7 @@ def obtenir_epreuves(url):
             #Obligée de le faire manuellement celui ci
             elif title_sport == "Cyclisme sur route":
                 epreuves.append("Epreuves contre la montre (femmes/hommes)")
-                epreuves.append("Epreuves en ligne (femmes/hommes")
+                epreuves.append("Epreuves en ligne (femmes/hommes)")
                 return epreuves
             
             elif title_sport == "Gymnastique artistique":
@@ -155,6 +155,16 @@ def obtenir_epreuves(url):
                         epreuves.append(li.text.strip())
                     epreuves[-1] = epreuves[-1][0:epreuves[-1].index(')')+1]
                 return  epreuves
+            
+            elif title_sport == "Natation":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    if li.text.strip() == "Relais mixte 4x100m quatre nages":
+                        epreuves.append("Relais 4x100m quatre nages (mixte)")
+                    else :
+                        epreuves.append(li.text.strip())
+                    epreuves[-1] = epreuves[-1][0:epreuves[-1].index(')')+1]
+                return  epreuves
                 
             # Cas général.
             else:                
@@ -165,13 +175,38 @@ def obtenir_epreuves(url):
                 
             #En boxe les catégories de poids ont pas encore été défini
 
-def get_table_event(l_event, cat = "O"):
+def get_table_event(l_event):
     """[nom_sport, eprv1, eprv2...]"""
     table = []
     for sport in l_event:
-        dico = {}
-        for event in sport:
-            pass
+        for i in range(1,len(sport)):
+            nom_event = sport[i][0:sport[i].index('(')-1]
+            genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')
+            for g in genre:
+                dico = {}
+                dico['name_event'] = nom_event
+                
+                #Trouver si c'est une épreuve collective ou non
+                for mot in MOT_EQUIPE:
+                    if mot in nom_event:
+                        dico['format_event'] = "Collective"
+                if 'format_event' not in dico.keys():
+                    if 'équipe' in g:
+                        dico['format_event'] = "Collective"
+                    else:
+                        dico['format_event'] = "Individual"
+                
+                #Connaitre si c'est une épreuve hommes, femmes, ou mixte
+                if "femmes" in g:
+                    dico['gender_event'] = "Femme"
+                elif "hommes" in g:
+                    dico['gender_event'] = "Homme"
+                else:
+                    dico['gender_event'] = "Mixte"
+                dico['#id_disc'] = sport[0]
+                table.append(dico)
+                
+    return table
             
 
 def main():
@@ -184,6 +219,11 @@ def main():
         print(f"--- {l_epreuves[-1][0]} ---")
         for i in range(1,len(l_epreuves[-1])):
             print(l_epreuves[-1][i])
-    if __name__ == "__main__":
+
+    table = get_table_event(l_epreuves)
+    for event in table:
+        print(event)
+
+if __name__ == "__main__":
     main()
 

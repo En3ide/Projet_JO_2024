@@ -9,6 +9,7 @@ START TRANSACTION;
 -- Structure de la table `Athlete`
 --
 
+DROP TABLE IF EXISTS `Athlete`;
 CREATE TABLE `Athlete` (
   `id_athlete` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_athlete` VARCHAR(32) NOT NULL,
@@ -24,6 +25,7 @@ CREATE TABLE `Athlete` (
 -- Structure de la table `Country`
 --
 
+DROP TABLE IF EXISTS `Country`;
 CREATE TABLE `Country` (
   `code_country` char(3) NOT NULL PRIMARY KEY,
   `name_country` VARCHAR(32) NOT NULL
@@ -35,6 +37,7 @@ CREATE TABLE `Country` (
 -- Structure de la table `Date_calendar`
 --
 
+DROP TABLE IF EXISTS `Date_calendar`;
 CREATE TABLE `Date_calendar` (
   `id_date_cal` int(11) PRIMARY KEY AUTO_INCREMENT,
   `date_cal` date NOT NULL,
@@ -47,6 +50,7 @@ CREATE TABLE `Date_calendar` (
 -- Structure de la table `Discipline`
 --
 
+DROP TABLE IF EXISTS `Discipline`;
 CREATE TABLE `Discipline` (
   `id_disc` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_fr_disc` VARCHAR(32) NOT NULL,
@@ -60,6 +64,7 @@ CREATE TABLE `Discipline` (
 -- Structure de la table `Event`
 --
 
+DROP TABLE IF EXISTS `Event`;
 CREATE TABLE `Event` (
   `id_event` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_event` VARCHAR(32) NOT NULL,
@@ -75,6 +80,7 @@ CREATE TABLE `Event` (
 -- Structure de la table `Medal`
 --
 
+DROP TABLE IF EXISTS `Medal`;
 CREATE TABLE `Medal` (
   `id_medal` int(11) PRIMARY KEY AUTO_INCREMENT,
   `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
@@ -89,6 +95,7 @@ CREATE TABLE `Medal` (
 -- Structure de la table `Record`
 --
 
+DROP TABLE IF EXISTS `Record`;
 CREATE TABLE `Record` (
   `id_record` int(11) PRIMARY KEY AUTO_INCREMENT,
   `stat_record` VARCHAR(32) NOT NULL,
@@ -103,6 +110,7 @@ CREATE TABLE `Record` (
 -- Structure de la table `Transport`
 --
 
+DROP TABLE IF EXISTS `Transport`;
 CREATE TABLE `Transport` (
   `id_trans` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_trans` VARCHAR(32) enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
@@ -114,6 +122,7 @@ CREATE TABLE `Transport` (
 -- Structure de la table `Site`
 --
 
+DROP TABLE IF EXISTS `Site`;
 CREATE TABLE `Site` (
   `id_site` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_site` VARCHAR(32) NOT NULL,
@@ -129,6 +138,7 @@ CREATE TABLE `Site` (
 -- Structure de la table `Team`
 --
 
+DROP TABLE IF EXISTS `Team`;
 CREATE TABLE `Team` (
   `id_team` int(11) PRIMARY KEY AUTO_INCREMENT,
   `size_team` int(11) NOT NULL,
@@ -142,6 +152,7 @@ CREATE TABLE `Team` (
 -- Structure de la table `Is_from`
 --
 
+DROP TABLE IF EXISTS `Is_from`;
 CREATE TABLE `Is_from` (
   `id_athlete` int(11) NOT NULL,
   `code_country` char(3) NOT NULL,
@@ -154,6 +165,7 @@ CREATE TABLE `Is_from` (
 -- Structure de la table `To_pertain_team`
 --
 
+DROP TABLE IF EXISTS `To_pertain_team`;
 CREATE TABLE `To_pertain_team` (
   `id_athlete` int(11) NOT NULL,
   `id_team` int(11) NOT NULL,
@@ -166,6 +178,7 @@ CREATE TABLE `To_pertain_team` (
 -- Structure de la table `To_Register_athlete`
 --
 
+DROP TABLE IF EXISTS `To_Register_athlete`;
 CREATE TABLE `To_Register_athlete` (
   `id_event` int(11) NOT NULL,
   `id_athlete` int(11) NOT NULL,
@@ -178,6 +191,7 @@ CREATE TABLE `To_Register_athlete` (
 -- Structure de la table `To_Register_team`
 --
 
+DROP TABLE IF EXISTS `To_Register_team`;
 CREATE TABLE `To_Register_team` (
   `id_event` int(11) NOT NULL,
   `id_team` int(11) NOT NULL,
@@ -190,6 +204,7 @@ CREATE TABLE `To_Register_team` (
 -- Structure de la table `To_Schedule`
 --
 
+DROP TABLE IF EXISTS `To_Schedule`;
 CREATE TABLE `To_Schedule` (
   `id_site` int(11) NOT NULL,
   `id_date_cal` int(11) NOT NULL,
@@ -203,6 +218,7 @@ CREATE TABLE `To_Schedule` (
 -- Structure de la table `To_Serve`
 --
 
+DROP TABLE IF EXISTS `To_Serve`;
 CREATE TABLE `To_Serve` (
   `id_site` int(11) NOT NULL,
   `id_trans` int(11) NOT NULL,

@@ -117,11 +117,12 @@ def recup_transp_v3(url):
                     lis = sec.find_all('li')
                     if lis != []:
                         for li in lis:
-                            ensemble += li.text
-                        print(ensemble)
+                            ensemble += " " + li.text
+                        print("Li = \n"+ensemble)
                 print('test information trans')
                 ensemble += sec.text
                 ensemble = ensemble.replace("\n", "")
+                ensemble = ensemble.replace(ensemble[ensemble.find(") (")+2:ensemble.find(") (")+ensemble.find(")")], "")
                 print("Debut : \n"+ensemble+"\nFin")
                 if "» (" in ensemble:
                     #print("sec = "+sec.text)
@@ -147,13 +148,58 @@ def recup_transp_v3(url):
     print("\n\n"+str(result))
     return result
 
+def recup_transp_v4(url):
+    #print('test 1')
+    reponse = requests.get(url, headers=HEADERS)
+    #print('test 2')
+    result = []
+    if reponse.status_code == 200:
+        #print('test request reçu')
+        soup = BeautifulSoup(reponse.text, 'html.parser')
+        section = soup.find_all('section', class_='text-block')
+        for sec in section:
+            ensemble = ""
+            #print('test3\n'+sec.text)
+            if 'INFORMATIONS SUR LES TRANSPORTS' in sec.text:
+                if "li" in str(sec):
+                    lis = sec.find_all('li')
+                    if lis != []:
+                        for li in lis:
+                            result.extend(recup_info(li))
+                secs = sec.find_all('p')
+                for sec in secs:
+                    result.extend(recup_info(sec))
+    print(result)
+    return result
+
+def recup_info(sec):
+    result = []
+    temp = dict
+    if "» (" in str(sec):
+        #print("sec = "+sec.text)
+        sec = sec.text
+        #sec = sec.replace(sec[sec.find(") (")+2:sec.find(") (")+sec.find(")")], "")
+        tmp = ""
+        contient_donne = True
+        while contient_donne == True:
+            #print('test contient <<')
+            if sec.find("» (") != -1:
+                sec = sec.replace(sec[:-sec[::-1].find("«")-1], "")
+                tmp = sec[sec.find("«")+2:sec.find("»")-1]
+                tmp2 = sec[sec.find("» (")+3:sec.find(")")]
+                if ", " in tmp2:
+                    tmp2 = tmp2.split(", ")
+                else:
+                    tmp2 = [tmp2]
+                temp = {"name": tmp, "number": tmp2}
+                result.append(temp)
+                sec = sec.replace(sec[sec.find("«")+2:sec.find(")")-1], "")
+            else:
+                contient_donne = False
+    return result
 #recup_url_transp(url_tmp)
 test = "https://olympics.com/fr/paris-2024/sites/parc-des-princes"
 #recup_transp(test)
 #recup_transp_v2(test)
-recup_transp_v3(test)
-"""chaine = "Les 27, 28 et 30 juillet 2024, une ligne de bus « Paris 2024 » directe et dédié aux spectateurs sera mise en place depuis la station « Charles-de-Gaulle – Etoile » (RER A, Métro 1, Métro 2, Métro 6)"
-chaine = chaine.replace(chaine[:-chaine[::-1].find("«")-1], "")
-print(chaine)
-print(chaine[chaine.find("«")+2:chaine.find("»")-1])
-print(chaine[chaine.find("» (")+2:chaine.find(")")+1])"""
+recup_transp_v4(test)
+#recup_transp_v3(test)

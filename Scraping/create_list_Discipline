@@ -1,0 +1,58 @@
+###################
+# Script de scraping table Discipline
+###################
+
+##### Import #####
+import requests, html2text
+from bs4 import BeautifulSoup
+
+##### Code #####
+def get_calendar_url():
+    main_url = "https://www.paris2024.org/fr/calendrier-sports-olympiques/"
+    search_url = "calendrier-sports-olympique"
+
+    # Récupérer le contenu de la page web
+    response = requests.get(main_url)
+
+    # Vérifier si la requête a réussi (code 200)
+    if response.status_code == 200:
+        # Utiliser BeautifulSoup pour parser le contenu HTML
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        a_tag = [a for a in soup.find_all('a', href=True) if search_url in a.get('href')]
+
+        # Vérifier si la balise <a> a été trouvée
+        if a_tag is not []:
+            # Récupérer l'URL (href)
+            return a_tag[0].get('href')
+        else:
+            print("Balise <a> non trouvée.")
+    else:
+        print(f"La requête a échoué avec le code d'état {response.status_code}.")
+
+def get_list_olympic():
+    response = requests.get(get_calendar_url())
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Exemple : Extraire le tableau
+        h = html2text.HTML2Text()
+        h.body_width = 0  # Désactiver la coupe de texte
+        h.single_line_break = True  # Utiliser une seule ligne pour les sauts de ligne
+
+        # Convertir le HTML en texte brut avec la mise en forme
+        text_content = h.handle(response.text)
+        
+        text_content = text_content.replace("l", "")
+    
+
+def recup_discipline():
+    pass
+
+def send_discipline():
+    pass
+
+
+if __name__ == "__main__":
+    #print(send_discipline(recup_discipline()))
+    print(get_calendar_url())

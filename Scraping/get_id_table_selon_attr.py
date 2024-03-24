@@ -8,7 +8,7 @@ from create_list_Date_calendar import *
 
 ##### Code #####
 
-def get_id(nom_table, **kwargs):
+def get_id_table(nom_table, **kwargs):
     table_dict = None
 
     if nom_table == "Site":

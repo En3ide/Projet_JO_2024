@@ -126,5 +126,9 @@ def send_site(result, bdd=""):
         connexion.close()
     return(send)
 
+
+
 test = recup_url_transp(url_tmp)
-print(dic_to_table(test))
+test = dic_to_table(test)
+
+def 

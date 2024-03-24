@@ -86,6 +86,7 @@ def send_country(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne) VALUES\n"
     for dic in result:
+        verif_site(dic.get("name_site"), )
         send += ("('" + dic.get("code_country") + "', '" +
             dic.get("name_country") + "'),\n")
     send = send[:-2] + ";"

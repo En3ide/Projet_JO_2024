@@ -10,12 +10,12 @@ START TRANSACTION;
 --
 
 CREATE TABLE `Athlete` (
-  `id_athlete` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_athlete` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_athlete` VARCHAR(32) NOT NULL,
   `firstname_athlete` VARCHAR(32) NOT NULL,
-  `birthday_athlete` date NOT NULL,
+  `birthday_athlete` date DEFAULT NULL,
   `gender_athlete` enum('MAN', 'WOMAN') NOT NULL,
-  `code_country` char(3)
+  `code_country` char(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -36,9 +36,9 @@ CREATE TABLE `Country` (
 --
 
 CREATE TABLE `Date_calendar` (
-  `id_date_cal` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_date_cal` int(11) PRIMARY KEY AUTO_INCREMENT,
   `date_cal` date NOT NULL,
-  `medal_ceremony_date_cal` tinyint(1) NOT NULL
+  `medal_ceremony_date_cal` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -48,9 +48,9 @@ CREATE TABLE `Date_calendar` (
 --
 
 CREATE TABLE `Discipline` (
-  `id_disc` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_disc` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_fr_disc` VARCHAR(32) NOT NULL,
-  `name_an_disc` VARCHAR(32) NOT NULL,
+  `name_an_disc` VARCHAR(32),
   `category_disc` enum('OLYMPIC', 'PARALYMPIC') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,12 +61,12 @@ CREATE TABLE `Discipline` (
 --
 
 CREATE TABLE `Event` (
-  `id_event` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_event` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_event` VARCHAR(32) NOT NULL,
-  `format_disc` enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
+  `format_event` enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
   `gender_event` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   `id_disc` int(11) NOT NULL,
-  `id_record` int(11)
+  `id_record` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -76,11 +76,11 @@ CREATE TABLE `Event` (
 --
 
 CREATE TABLE `Medal` (
-  `id_medal` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_medal` int(11) PRIMARY KEY AUTO_INCREMENT,
   `type_medal` enum('GOLD','SILVER','BRONZE') NOT NULL,
   `id_event` int(11) NOT NULL,
-  `id_athlete` int(11),
-  `id_date_cal` int(11)
+  `id_athlete` int(11) DEFAULT NULL,
+  `id_date_cal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -90,11 +90,11 @@ CREATE TABLE `Medal` (
 --
 
 CREATE TABLE `Record` (
-  `id_record` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_record` int(11) PRIMARY KEY AUTO_INCREMENT,
   `stat_record` VARCHAR(32) NOT NULL,
-  `date_record` date NOT NULL,
+  `date_record` date,
   `id_event` int(11) NOT NULL,
-  `id_athlete` int(11)
+  `id_athlete` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -104,8 +104,8 @@ CREATE TABLE `Record` (
 --
 
 CREATE TABLE `Transport` (
-  `id_trans` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name_trans` VARCHAR(32) NOT NULL
+  `id_trans` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `name_trans` VARCHAR(32) enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -115,12 +115,12 @@ CREATE TABLE `Transport` (
 --
 
 CREATE TABLE `Site` (
-  `id_site` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_site` int(11) PRIMARY KEY AUTO_INCREMENT,
   `name_site` VARCHAR(32) NOT NULL,
   `adress_site` VARCHAR(32) NOT NULL,
-  `creation_date_site` date,
-  `capacity_site` int(11) NOT NULL,
-  `URL_site` VARCHAR(255)
+  `creation_date_site` date DEFAULT NULL,
+  `capacity_site` int(11) DEFAULT NULL,
+  `URL_site` VARCHAR(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -130,10 +130,10 @@ CREATE TABLE `Site` (
 --
 
 CREATE TABLE `Team` (
-  `id_team` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id_team` int(11) PRIMARY KEY AUTO_INCREMENT,
   `size_team` int(11) NOT NULL,
   `gender_team` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
-  `code_country` char(3)
+  `code_country` char(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -206,7 +206,8 @@ CREATE TABLE `To_Schedule` (
 CREATE TABLE `To_Serve` (
   `id_site` int(11) NOT NULL,
   `id_trans` int(11) NOT NULL,
-  `num_ligne` VARCHAR(32) DEFAULT NULL,
+  `num_ligne` VARCHAR(32) NOT NULL,
+  `station_name` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`id_site`, `id_trans`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -219,7 +220,6 @@ ALTER TABLE `Athlete`
   ADD INDEX `IDX_Athlete_code_country` (`code_country`),
 
   ADD CONSTRAINT `FK_Athlete_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`) ON DELETE SET NULL;
-
 
 --
 -- Index et Contraintes pour la table `Event`

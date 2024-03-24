@@ -1,8 +1,13 @@
+###################
+# Script de scraping table Date_calendar
+###################
+
+##### Import #####
 from bs4 import BeautifulSoup
-import requests, ast, sqlite3, re, locale
-from datetime import datetime
+import requests, sqlite3
 from date_convert import date_convert, convert_date
 
+##### Code #####
 main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
 
 def recup_date_adress(url):

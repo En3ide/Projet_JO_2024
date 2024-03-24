@@ -1,6 +1,12 @@
+###################
+# Script de scraping table Country
+###################
+
+##### Import #####
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3
 
+##### Code #####
 main_url = 'https://fr.wikipedia.org/wiki/ISO_3166-1'
 
 def recup_country():
@@ -48,7 +54,7 @@ def send_country(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
-    print(send)
+
     return(send)
 
 

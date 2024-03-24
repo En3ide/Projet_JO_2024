@@ -81,4 +81,23 @@ def recup_info(sec):
                 contient_donne = False
     return result
 
+def send_country(result, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("code_country") + "', '" +
+            dic.get("name_country") + "'),\n")
+    send = send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    print(send)
+    return(send)
+
 recup_url_transp(url_tmp)

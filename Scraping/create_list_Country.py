@@ -53,4 +53,4 @@ def send_country(result, bdd=""):
 
 
 if __name__ == "__main__":
-    send_country(recup_country())
+    print(send_country(recup_country()))

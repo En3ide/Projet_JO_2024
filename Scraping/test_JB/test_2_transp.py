@@ -31,8 +31,7 @@ def recup_url_transp(url):
         print('Fini !!!')
         return([])
 
-# Récupère les ligne contenant les information d'un site
-# Renvoie un tableau avec dict des valeur Nom station et Num ligne des site
+
 def recup_transp(url):
     #print('test 1')
     reponse = requests.get(url, headers=HEADERS)
@@ -56,9 +55,6 @@ def recup_transp(url):
     #print(result)
     return result
 
-
-# Découpe les ligne "" << nom station >> (Num ligne 1, Num ligne 2, Num ligne 3, Num ligne 4) ""
-# [{"name": "nom station", "number": ["Num ligne 1", "Num ligne 2", "Num ligne 3"]}]
 def recup_info(sec):
     result = []
     temp = dict

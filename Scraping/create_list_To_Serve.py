@@ -86,4 +86,25 @@ def recup_info(sec):
                 contient_donne = False
     return result
 
+def send_site(result, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT INTO Site_table (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES\n"
+    for dic in result:
+        send += (" ('" + dic.get("name_site") + "', '" +
+            dic.get("adress_site") + "', '" +
+            dic.get("creation_date_site") + "', '" +
+            dic.get("capacity_site") + "', '" +
+            dic.get("URL_site") + "'),\n")
+    send += send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    return(send)
+
 recup_url_transp(url_tmp)

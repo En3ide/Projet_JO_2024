@@ -48,7 +48,7 @@ def send_country(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
-    print(send)
+
     return(send)
 
 

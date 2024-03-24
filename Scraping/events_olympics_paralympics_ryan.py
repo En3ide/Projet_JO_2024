@@ -127,15 +127,43 @@ def obtenir_epreuves(url):
                         epreuves.append(f"{li.text.strip()[2:]} (hommes)")
                     else :
                         epreuves.append(f"{li.text.strip()[2:]} (femmes)")
-                return  epreuves    
+                return  epreuves
             
+            elif title_sport == "Voile":
+                l_li = divs[i+2].find_all('li')
+                genre = ["femmes","hommes","mixte"]
+                i = 0
+                for li in l_li:
+                    epr = li.text.strip()
+                    epreuves.append(f"{epr[epr.index(':')+2:]} ({genre[i]})")
+                    i+=1
+                
+                return  epreuves
+            
+            elif title_sport == "Natation artistique":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(f"{li.text.strip()} (mixte)")
+                return  epreuves
+            
+            elif title_sport == "Athlétisme":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    if li.text.strip() == "Marche sur un marathon en relais mixte":
+                        epreuves.append("Marche sur un marathon en relais (mixte)")
+                    else :
+                        epreuves.append(li.text.strip())
+                    epreuves[-1] = epreuves[-1][0:epreuves[-1].index(')')+1]
+                return  epreuves
+                
             # Cas général.
             else:                
                 l_li = divs[i+2].find_all('li')
                 for li in l_li:
                     epreuves.append(li.text.strip())
                 return  epreuves
-    #En boxe les catégories de poids ont pas encore été défini
+                
+            #En boxe les catégories de poids ont pas encore été défini
 
 def get_table_event(l_event, cat = "O"):
     """[nom_sport, eprv1, eprv2...]"""
@@ -156,10 +184,6 @@ def main():
         print(f"--- {l_epreuves[-1][0]} ---")
         for i in range(1,len(l_epreuves[-1])):
             print(l_epreuves[-1][i])
-    print(len(pages_sports_olympiques_fr))
-    
-        
-    print(len(pages_sports_paralympiques_fr))
-if __name__ == "__main__":
+    if __name__ == "__main__":
     main()
 

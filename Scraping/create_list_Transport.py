@@ -4,6 +4,7 @@ from datetime import datetime
 
 url_tmp = "https://olympics.com/fr/paris-2024/sites"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
+
 def recup_url_transp(url):
     print("test1")
     reponse = requests.get(url, headers=HEADERS)
@@ -21,46 +22,17 @@ def recup_url_transp(url):
                 if href != None:
                     #print(href)
                     print(href.split("/")[-1])
-                    print(recup_transp_v2(href))
-                    result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp_v2(href)})
+                    print(recup_transp(href))
+                    if len(recup_transp(href)) >= 1:
+                        result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp(href)})
+        print("Fini !!!")
     else:
-        print(reponse.status_code)
+        #print(reponse.status_code)
         print('Fini !!!')
         return([])
 
-def recup_transp(url):
-    reponse = requests.get(url, headers=HEADERS)
-    result = []
-    if reponse.status_code == 200:
-        soup = BeautifulSoup(reponse.text, 'html.parser')
-        section = soup.find_all('section', class_='text-block')
-        for sec in section:
-            #print('test3\n'+sec.text)
-            if 'INFORMATIONS SUR LES TRANSPORTS' in sec.text:
-                p = sec.find('p')
-                p = p.replace(") et", "),")
-                for part in p.text.split('),'):
-                    print(part)
-                    if 'gare' in part:
-                        if ", " in part:
-                            tmp = part[part.find('(')+1:].split(", ")
-                        else:
-                            tmp = [part[part.find('(')+1:].replace(")", "").replace(".", "")]
-                        result.append({"type": "gare",
-                                       "name" : part[part.find('«')+2:part.find('»')-1],
-                                       "number":  tmp})
-                    if 'station' in part:
-                        if ", " in part:
-                            tmp = part[part.find('(')+1:].replace(")", "").replace(".", "").split(", ")
-                        else:
-                            tmp = [part[part.find('(')+1:].replace(")", "").replace(".", "")]
-                        result.append({"type": "station",
-                                       "name": part[part.find('«')+2:part.find('»')-1],
-                                        "number": tmp })
-    #print(result)
-    return result
 
-def recup_transp_v2(url):
+def recup_transp(url):
     #print('test 1')
     reponse = requests.get(url, headers=HEADERS)
     #print('test 2')
@@ -70,30 +42,44 @@ def recup_transp_v2(url):
         soup = BeautifulSoup(reponse.text, 'html.parser')
         section = soup.find_all('section', class_='text-block')
         for sec in section:
+            ensemble = ""
             #print('test3\n'+sec.text)
             if 'INFORMATIONS SUR LES TRANSPORTS' in sec.text:
-                #print('test information trans')
-                p = sec.find('p')
-                p = p.text
-                contient_donne = True
-                while contient_donne == True:
-                    #print('test contient <<')
-                    if p.find('«') != -1 and p.find(')') != -1:
-                        ligne = p[p.find('«'):p.find(')')+1]
-                        p = p.replace(ligne, "")
-                        if ", " in ligne[ligne.find('(')+1:ligne.find(')')]:
-                            tmp = ligne[ligne.find('(')+1:ligne.find(')')].split(', ')
-                        else:
-                            tmp = [ligne[ligne.find('(')+1:ligne.find(')')]]
-                        temp = {"name": ligne[ligne.find("«")+2:ligne.find("»")-1], "number": tmp}
-                        print(temp)
-                        result.append(temp)
-                    else:
-                        contient_donne = False      
+                if "li" in str(sec):
+                    lis = sec.find_all('li')
+                    if lis != []:
+                        for li in lis:
+                            result.extend(recup_info(li))
+                secs = sec.find_all('p')
+                for sec in secs:
+                    result.extend(recup_info(sec))
     #print(result)
     return result
 
+def recup_info(sec):
+    result = []
+    temp = dict
+    if "» (" in str(sec):
+        #print("sec = "+sec.text)
+        sec = sec.text
+        #sec = sec.replace(sec[sec.find(") (")+2:sec.find(") (")+sec.find(")")], "")
+        tmp = ""
+        contient_donne = True
+        while contient_donne == True:
+            #print('test contient <<')
+            if sec.find("» (") != -1:
+                sec = sec.replace(sec[:-sec[::-1].find("«")-1], "")
+                tmp = sec[sec.find("«")+2:sec.find("»")-1]
+                tmp2 = sec[sec.find("» (")+3:sec.find(")")]
+                if ", " in tmp2:
+                    tmp2 = tmp2.split(", ")
+                else:
+                    tmp2 = [tmp2]
+                temp = {"name": tmp, "number": tmp2}
+                result.append(temp)
+                sec = sec.replace(sec[sec.find("«")+2:sec.find(")")-1], "")
+            else:
+                contient_donne = False
+    return result
+
 recup_url_transp(url_tmp)
-test = "https://olympics.com/fr/paris-2024/sites/la-concorde"
-#recup_transp(test)
-#recup_transp_v2(test)

@@ -1,6 +1,12 @@
+###################
+# Script de trouver et formater une date (AAAA-MM-JJ) dans une chaîne bizarre
+###################
+
+##### Import #####
 import re
 from datetime import datetime
 
+##### Code #####
 mois_fr = [
     'janvier',
     'février',

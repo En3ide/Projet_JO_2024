@@ -1,5 +1,5 @@
 ###################
-# Script de scraping table Date_calendar
+# Script de avoir l'id d'une table selon ses attributs
 ###################
 
 ##### Import #####
@@ -8,10 +8,6 @@ from create_list_Date_calendar import *
 
 ##### Code #####
 
-# def get_id_site(**kwargs):
-
-
-    
 def get_id(nom_table, **kwargs):
     table_dict = None
 

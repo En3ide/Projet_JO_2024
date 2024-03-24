@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 ASSO_SPORTS_O = [(0,36),(1,0),(2,2),(3,3),(4,4),(5,5),(6,7),(7,6),(8,9),(9,8),(10,12),(11,10),(12,11),(13,31),(14,13),(15,14),(16,15)\
                ,(17,16),(18,17),(19,18),(20,20),(21,21),(22,22),(23,24),(24,1),(25,25),(26,38),(27,35),(28,34),(29,32),(30,32),(31,37),\
                  (32,39),(33,40),(34,29),(35,28),(36,27),(37,26),(38,30),(39,19),(40,23),(41,41),(42,42),(43,43)]
+
+ASSO_SPORTS_P = [(0,2),(1,1),(2,4),(3,17),(4,5),(5,7),(6,8),(7,9),(8,10),(9,11),(10,13),(11,12),(12,6),(13,14),(14,16),(15,15),(16,19),(17,18)\
+                 ,(18,22),(19,0),(20,3),(21,20),(22,21)]
 def obtenir_sports_olympiques_fr():
     sports_olympiques = []
     # Récupération des sports des Jeux Olympiques de Paris 2024
@@ -90,7 +93,7 @@ def associate_sports(l_en,l_fr,association):
         res.append((l_en[sport[0]],l_fr[sport[1]]))
     return res
 
-def get_table_disciplines(l_en,l_fr,association,cat == "P"):
+def get_table_disciplines(l_en,l_fr,association,cat = "P"):
     res = []
     if cat == "O":
         cate = "Olympics"
@@ -104,13 +107,17 @@ def get_table_disciplines(l_en,l_fr,association,cat == "P"):
 def main():
     sports_olympiques_en = obtenir_sports_olympiques_en()
     sports_olympiques_fr = obtenir_sports_olympiques_fr()
-    sports_paralympiques = obtenir_sports_paralympiques_en()
+    sports_paralympiques_en = obtenir_sports_paralympiques_en()
+    sports_paralympiques_fr = obtenir_sports_paralympiques_fr()
+    t = Translator(to_lang='fr')
+    table_O = get_table_disciplines(sports_olympiques_en,sports_olympiques_fr,ASSO_SPORTS_O,"O")
+    table_P = get_table_disciplines(sports_paralympiques_en, sports_paralympiques_fr, ASSO_SPORTS_P)
     
-    table = get_table_disciplines(sports_olympiques_en,sports_olympiques_fr,ASSO_SPORTS_O,"O")
-    #sports = associate_fr_en(sports_olympiques_en, "Olympic")
-    sports = associate_sports(sports_olympiques_en,sports_olympiques_fr,ASSO_SPORTS_O)
-    print("Sports des Jeux Olympiques de Paris 2024:")
+    table = table_O + table_P
+    
+    print("Sports des Jeux Olympiques/Paralympiques de Paris 2024:")
     for sport in range(len(table)):
         print(f"{sport}: {table[sport]}")
+
 if __name__ == "__main__":
     main()

@@ -47,6 +47,27 @@ list_record = [{'name_athlete' : 'Bolt' , 'firstname_athlete' : 'Usain', 'birthd
                {'name_athlete' : 'Slupianek' , 'firstname_athlete' : 'Ilona', 'birthday_athlete' : '1956-09-24', "gender_athlete" : "Femme", "code_country" : "DEU"},
                {'name_athlete' : 'Hellmann' , 'firstname_athlete' : 'Martina', 'birthday_athlete' : '1960-12-12', "gender_athlete" : "Femme", "code_country" : "DEU"},
                {'name_athlete' : 'Włodarczyk' , 'firstname_athlete' : 'Anita', 'birthday_athlete' : '1985-08-08', "gender_athlete" : "Femme", "code_country" : "POL"},
-               {'name_athlete' : 'Menéndez' , 'firstname_athlete' : 'Olisdeilys', 'birthday_athlete' : '1979-11-14', "gender_athlete" : "Femme", "code_country" : "CUB"},]  # list de dict où chaque clé représente un attribut de la table record
+               {'name_athlete' : 'Menéndez' , 'firstname_athlete' : 'Olisdeilys', 'birthday_athlete' : '1979-11-14', "gender_athlete" : "Femme", "code_country" : "CUB"},
+               {'name_athlete' : 'Dressel' , 'firstname_athlete' : 'Caeleb', 'birthday_athlete' : '1996-08-16', "gender_athlete" : "Homme", "code_country" : "USA"},
+               {'name_athlete' : 'Phelps' , 'firstname_athlete' : 'Michael', 'birthday_athlete' : '1985-06-30', "gender_athlete" : "Homme", "code_country" : "USA"},
+               {'name_athlete' : 'Yang' , 'firstname_athlete' : 'Sun', 'birthday_athlete' : '1991-12-01', "gender_athlete" : "Homme", "code_country" : "CHN"},
+               {'name_athlete' : 'Romanchuk' , 'firstname_athlete' : 'Mykhailo', 'birthday_athlete' : '1996-08-07', "gender_athlete" : "Homme", "code_country" : "UKR"},
+               {'name_athlete' : 'Murphy' , 'firstname_athlete' : 'Ryan', 'birthday_athlete' : '1965-11-09', "gender_athlete" : "Homme", "code_country" : "USA"},
+               {'name_athlete' : 'Rylov' , 'firstname_athlete' : 'Evgeny', 'birthday_athlete' : '1996-09-23', "gender_athlete" : "Homme", "code_country" : "RUS"},
+               {'name_athlete' : 'Peaty' , 'firstname_athlete' : 'Adam', 'birthday_athlete' : '1994-12-28', "gender_athlete" : "Homme", "code_country" : "GBR"},
+               {'name_athlete' : 'Stubblety-Cook' , 'firstname_athlete' : 'Zac', 'birthday_athlete' : '1999-01-04', "gender_athlete" : "Homme", "code_country" : "AUS"},
+               {'name_athlete' : 'Schooling' , 'firstname_athlete' : 'Joseph', 'birthday_athlete' : '1995-06-16', "gender_athlete" : "Homme", "code_country" : "SGP"},
+               {'name_athlete' : 'Milák' , 'firstname_athlete' : 'Kristóf', 'birthday_athlete' : '2000-02-20', "gender_athlete" : "Homme", "code_country" : "HUN"},
+               {'name_athlete' : 'McKeon' , 'firstname_athlete' : 'Emma', 'birthday_athlete' : '1994-05-24', "gender_athlete" : "Femme", "code_country" : "AUS"},
+               {'name_athlete' : 'Titmus' , 'firstname_athlete' : 'Ariarne', 'birthday_athlete' : '2000-09-07', "gender_athlete" : "Femme", "code_country" : "AUS"},
+               {'name_athlete' : 'Ledecky' , 'firstname_athlete' : 'Katie', 'birthday_athlete' : '1997-03-17', "gender_athlete" : "Femme", "code_country" : "USA"},
+               {'name_athlete' : 'McKeown' , 'firstname_athlete' : 'Kaylee', 'birthday_athlete' : '2001-07-11', "gender_athlete" : "Femme", "code_country" : "AUS"},
+               {'name_athlete' : 'Franklin' , 'firstname_athlete' : 'Missy', 'birthday_athlete' : '1995-05-10', "gender_athlete" : "Femme", "code_country" : "USA"},
+               {'name_athlete' : 'King' , 'firstname_athlete' : 'Lilly', 'birthday_athlete' : '1997-02-10', "gender_athlete" : "Femme", "code_country" : "USA"},
+               {'name_athlete' : 'Schoenmaker' , 'firstname_athlete' : 'Tatjana', 'birthday_athlete' : '1997-07-09', "gender_athlete" : "Femme", "code_country" : "ZAF"},
+               {'name_athlete' : 'Sjöström' , 'firstname_athlete' : 'Sarah', 'birthday_athlete' : '1993-08-17', "gender_athlete" : "Femme", "code_country" : "SWE"},
+               {'name_athlete' : 'Yufei' , 'firstname_athlete' : 'Zhang', 'birthday_athlete' : '1998-04-19', "gender_athlete" : "Femme", "code_country" : "CHN"},
+               {'name_athlete' : 'Hosszú' , 'firstname_athlete' : 'Katinka', 'birthday_athlete' : '1985-05-03', "gender_athlete" : "Femme", "code_country" : "HUN"}]  # list de dict où chaque clé représente un attribut de la table record
+
 def recup_athlete():
     return list_record

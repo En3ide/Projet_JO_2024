@@ -1,0 +1,22 @@
+###################
+# Script de scraping table Discipline
+###################
+
+##### Import #####
+import requests, html2text
+from bs4 import BeautifulSoup
+
+##### Code #####
+
+
+
+def recup_discipline():
+    pass
+
+def send_discipline():
+    pass
+
+
+if __name__ == "__main__":
+    #print(send_discipline(recup_discipline()))
+    pass

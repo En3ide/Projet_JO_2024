@@ -1,5 +1,5 @@
 ###################
-# Script de scraping Record
+# Script de scraping table Record
 ###################
 
 ##### Import #####

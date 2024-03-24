@@ -1,5 +1,5 @@
 ###################
-# Script de scraping Athlete
+# Script de scraping table Athlete
 ###################
 
 ##### Import #####

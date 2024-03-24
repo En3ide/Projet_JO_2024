@@ -1,5 +1,11 @@
+###################
+# Script de scraping table Transport
+###################
+
+##### Import #####
 import sqlite3
 
+##### Code #####
 list_transport = ['TRAIN', 'TRAMWAY', 'BUS', 'METRO']
 
 def recup_transport():

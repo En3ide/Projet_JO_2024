@@ -15,7 +15,7 @@ CREATE TABLE `Athlete` (
   `firstname_athlete` VARCHAR(32) NOT NULL,
   `birthday_athlete` date NOT NULL,
   `gender_athlete` enum('MAN', 'WOMAN') NOT NULL,
-  `code_country` char(3) NOT NULL
+  `code_country` char(3)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,7 +66,7 @@ CREATE TABLE `Event` (
   `format_disc` enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
   `gender_event` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   `id_disc` int(11) NOT NULL,
-  `id_record` int(11) NOT NULL
+  `id_record` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -94,7 +94,7 @@ CREATE TABLE `Record` (
   `stat_record` VARCHAR(32) NOT NULL,
   `date_record` date NOT NULL,
   `id_event` int(11) NOT NULL,
-  `id_athlete` int(11) NOT NULL
+  `id_athlete` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -133,7 +133,7 @@ CREATE TABLE `Team` (
   `id_team` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `size_team` int(11) NOT NULL,
   `gender_team` enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
-  `code_country` char(3) NOT NULL
+  `code_country` char(3)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -218,7 +218,7 @@ CREATE TABLE `To_Serve` (
 ALTER TABLE `Athlete`
   ADD INDEX `IDX_Athlete_code_country` (`code_country`),
 
-  ADD CONSTRAINT `FK_Athlete_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
+  ADD CONSTRAINT `FK_Athlete_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`) ON DELETE SET NULL;
 
 
 --
@@ -228,8 +228,8 @@ ALTER TABLE `Event`
   ADD INDEX `IDX_Event_id_disc` (`id_disc`),
   ADD INDEX `IDX_Event_id_record` (`id_record`),
 
-  ADD CONSTRAINT `FK_Event_id_disc` FOREIGN KEY (`id_disc`) REFERENCES `Discipline` (`id_disc`),
-  ADD CONSTRAINT `FK_Event_id_record` FOREIGN KEY (`id_record`) REFERENCES `Record` (`id_record`);
+  ADD CONSTRAINT `FK_Event_id_disc` FOREIGN KEY (`id_disc`) REFERENCES `Discipline` (`id_disc`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Event_id_record` FOREIGN KEY (`id_record`) REFERENCES `Record` (`id_record`) ON DELETE SET NULL;
 
 --
 -- Index et Contraintes pour la table `Medal`
@@ -239,9 +239,9 @@ ALTER TABLE `Medal`
   ADD INDEX `IDX_Medal_id_athlete` (`id_athlete`),
   ADD INDEX `IDX_Medal_id_date_cal` (`id_date_cal`),
 
-  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
-  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_Medal_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`);
+  ADD CONSTRAINT `FK_Medal_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Medal_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`) ON DELETE SET NULL,
+  ADD CONSTRAINT `FK_Medal_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`) ON DELETE SET NULL;
 
 --
 -- Indexet Contraintes pour la table `Record`
@@ -250,8 +250,8 @@ ALTER TABLE `Record`
   ADD INDEX `IDX_Record_id_event` (`id_event`),
   ADD INDEX `IDX_Record_id_athlete` (`id_athlete`),
 
-  ADD CONSTRAINT `FK_Record_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
-  ADD CONSTRAINT `FK_Record_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`);
+  ADD CONSTRAINT `FK_Record_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Record_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`) ON DELETE SET NULL;
 
 --
 -- Index pour la table `Team` et Contraintes pour la table `Team`
@@ -259,7 +259,7 @@ ALTER TABLE `Record`
 ALTER TABLE `Team`
   ADD INDEX `IDX_Team_code_country` (`code_country`),
 
-  ADD CONSTRAINT `FK_Team_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
+  ADD CONSTRAINT `FK_Team_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`) ON DELETE SET NULL;
 
 --
 -- Index et Contraintes pour la table `Is_from`
@@ -268,8 +268,8 @@ ALTER TABLE `Is_from`
   -- ADD INDEX `IDX_Is_from_id_athlete` (`id_athlete`),
   -- ADD INDEX `IDX_Is_from_code_country` (`code_country`),
 
-  ADD CONSTRAINT `FK_Is_from_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_Is_from_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`);
+  ADD CONSTRAINT `FK_Is_from_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_Is_from_code_country` FOREIGN KEY (`code_country`) REFERENCES `Country` (`code_country`) ON DELETE CASCADE;
 
 --
 -- Index et Contraintes pour la table `To_pertain_team`
@@ -278,8 +278,8 @@ ALTER TABLE `To_pertain_team`
   -- ADD INDEX `IDX_To_pertain_team_id_team` (`id_team`),
   -- ADD INDEX `IDX_To_pertain_team_id_athlete` (`id_athlete`),
 
-  ADD CONSTRAINT `FK_To_pertain_team_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_To_pertain_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
+  ADD CONSTRAINT `FK_To_pertain_team_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_pertain_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`) ON DELETE CASCADE;
 
 --
 -- Index et Contraintes pour la table `To_Register_athlete`
@@ -288,8 +288,8 @@ ALTER TABLE `To_Register_athlete`
   -- ADD INDEX `IDX_To_Register_athlete_id_athlete` (`id_athlete`),
   -- ADD INDEX `IDX_To_Register_athlete_id_event` (`id_event`),
 
-  ADD CONSTRAINT `FK_To_Register_athlete_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK_To_Register_athlete_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`);
+  ADD CONSTRAINT `FK_To_Register_athlete_id_athlete` FOREIGN KEY (`id_athlete`) REFERENCES `Athlete` (`id_athlete`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_Register_athlete_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`) ON DELETE CASCADE;
 
 --
 -- Index et Contraintes pour la table `To_Register_team`
@@ -298,8 +298,8 @@ ALTER TABLE `To_Register_team`
   -- ADD INDEX `IDX_To_Register_team_id_team` (`id_team`),
   -- ADD INDEX `IDX_To_Register_team_id_event` (`id_event`),
 
-  ADD CONSTRAINT `FK_To_Register_team_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
-  ADD CONSTRAINT `FK_To_Register_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`);
+  ADD CONSTRAINT `FK_To_Register_team_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_Register_team_id_team` FOREIGN KEY (`id_team`) REFERENCES `Team` (`id_team`) ON DELETE CASCADE;
 
 --
 -- Index et Contraintes pour la table `To_Schedule`
@@ -309,9 +309,9 @@ ALTER TABLE `To_Schedule`
   -- ADD INDEX `IDX_To_Schedule_id_event` (`id_event`),
   -- ADD INDEX `IDX_To_Schedule_id_site` (`id_site`),
 
-  ADD CONSTRAINT `FK_To_Schedule_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`),
-  ADD CONSTRAINT `FK_To_Schedule_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`),
-  ADD CONSTRAINT `FK_To_Schedule_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`);
+  ADD CONSTRAINT `FK_To_Schedule_id_date_cal` FOREIGN KEY (`id_date_cal`) REFERENCES `Date_calendar` (`id_date_cal`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_Schedule_id_event` FOREIGN KEY (`id_event`) REFERENCES `Event` (`id_event`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_Schedule_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`) ON DELETE CASCADE;
 
 --
 -- Index et Contraintes pour la table `To_Serve`
@@ -320,7 +320,7 @@ ALTER TABLE `To_Serve`
   -- ADD INDEX `IDX_To_Serve_id_trans` (`id_trans`),
   -- ADD INDEX `IDX_To_Serve_id_site` (`id_site`),
 
-  ADD CONSTRAINT `FK_To_Serve_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`),
-  ADD CONSTRAINT `FK_To_Serve_id_trans` FOREIGN KEY (`id_trans`) REFERENCES `Transport` (`id_trans`);
+  ADD CONSTRAINT `FK_To_Serve_id_site` FOREIGN KEY (`id_site`) REFERENCES `Site` (`id_site`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_To_Serve_id_trans` FOREIGN KEY (`id_trans`) REFERENCES `Transport` (`id_trans`) ON DELETE CASCADE;
 
 COMMIT;

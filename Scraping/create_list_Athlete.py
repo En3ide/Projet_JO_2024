@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 import ast
 
 ##### Code #####
-list_record = []  # Dict où chaque clé représente un attribut de la table record
+list_record = []  # list de dict où chaque clé représente un attribut de la table record
 
 def contenue(url):
     '''
@@ -25,17 +25,25 @@ def contenue(url):
     soup = BeautifulSoup(cont,"html.parser") #contenue de l'url, cad uniquement html (balise)
     return soup
 
-def scraping_athlete(soup):
+def scraping_usain_bolt(soup):
     '''
     Retourne la liste de liste des athletes 
     param : Objet BeautifulSoup soup
     return : list(list) liste
     '''
     liste = []
-    return liste
+    tables = soup.find_all("table")
+    for tr in tables[0].find_all("tr"):
+        cells = tr.find_all('td')
+        content = [cell.text for cell in cells]
+        print(content)
 
 def main():
     '''
     Fonction principale
     '''
-    soup = contenue("")
+    # Usain bolt
+    soup = contenue("https://fr.wikipedia.org/wiki/Usain_Bolt")
+    print(scraping_usain_bolt(soup))
+
+main()

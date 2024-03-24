@@ -111,5 +111,8 @@ def send_site(result, bdd=""):
         connexion.close()
     return(send)
 
+def create_sql():
+    return send_site(recup_site())
+
 if __name__ == "__main__":
-    print(send_site(recup_site()))
+    send_site(recup_site())

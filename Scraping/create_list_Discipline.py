@@ -1,4 +1,4 @@
-import requests
+import requests, sqlite3
 from bs4 import BeautifulSoup
 
 ASSO_SPORTS_O = [(0,36), (1,0), (2,2), (3,3), (4,4), (5,5), (6,7), (7,6), (8,9), (9,8), (10,12), (11,10), (12,11), (13,31), (14,13), (15,14), (16,15)\
@@ -16,7 +16,7 @@ def obtenir_sports_olympiques_fr():
         # Trouver tous les divs avec la classe 'block-classic-editor'
         divs = soup.find_all('div', class_='block-classic-editor')
         # Les sports se trouvent dans le 4 et 6 div de cette classe
-        targeted_div = [divs[3],divs[5]]
+        targeted_div = [divs[3], divs[5]]
         for div in targeted_div:
             # Trouver tous les tags 'a' à l'intérieur du div de cette classe
             noms_sports = div.find_all('a')
@@ -55,7 +55,7 @@ def obtenir_sports_olympiques_en():
         # Trouver tous les divs avec la classe 'block-classic-editor'
         divs = soup.find_all('div', class_='block-classic-editor')
         # Les sports se trouvent dans le 4 et 6 div de cette classe
-        targeted_div = [divs[1],divs[3]]
+        targeted_div = [divs[1], divs[3]]
         for div in targeted_div:
             # Trouver tous les tags 'a' à l'intérieur du div de cette classe
             noms_sports = div.find_all('a')
@@ -86,36 +86,56 @@ def obtenir_sports_paralympiques_en():
                 
     return sports_paralympiques
 
-def associate_sports(l_en,l_fr,association):
+def associate_sports(l_en, l_fr, association):
     res = []
     for sport in association:
         res.append((l_en[sport[0]],l_fr[sport[1]]))
     return res
 
-def get_table_disciplines(l_en,l_fr,association,cat = "P"):
+def get_table_disciplines(l_en, l_fr, association, cat = "P"):
     res = []
     if cat == "O":
         cate = "Olympics"
     else:
         cate = "Paralympics"
-    l_sports = associate_sports(l_en,l_fr,association)
+    l_sports = associate_sports(l_en, l_fr, association)
     for sport in l_sports:
-        res.append({'name_fr_disc':sport[1],'name_an_disc':sport[0],'category_disc':cate})
+        res.append({'name_fr_disc':sport[1].lower(), 'name_an_disc':sport[0].lower(), 'category_disc':cate})
     return res
 
-def main():
+def recup_discipline():
     sports_olympiques_en = obtenir_sports_olympiques_en()
     sports_olympiques_fr = obtenir_sports_olympiques_fr()
     sports_paralympiques_en = obtenir_sports_paralympiques_en()
     sports_paralympiques_fr = obtenir_sports_paralympiques_fr()
-    table_O = get_table_disciplines(sports_olympiques_en,sports_olympiques_fr,ASSO_SPORTS_O,"O")
+    table_O = get_table_disciplines(sports_olympiques_en,sports_olympiques_fr, ASSO_SPORTS_O,"O")
     table_P = get_table_disciplines(sports_paralympiques_en, sports_paralympiques_fr, ASSO_SPORTS_P)
     
     table = table_O + table_P
     
-    print("Sports des Jeux Olympiques/Paralympiques de Paris 2024:")
-    for sport in range(len(table)):
-        print(f"{sport}: {table[sport]}")
+    return table
+
+def send_discipline(result, bdd=""):
+    # Création de la requête SQL
+    send = "INSERT INTO Discipline_table (name_fr_disc, name_an_disc, category_disc) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("name_fr_disc") + "', '" +
+            dic.get("name_an_disc") + "', '" +
+            dic.get("category_disc") + "'),\n")
+    send = send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    return(send)
+
+def create_sql():
+    return send_discipline(recup_discipline())
 
 if __name__ == "__main__":
-    main()
+    send_discipline(recup_discipline())
+    

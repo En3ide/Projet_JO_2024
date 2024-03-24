@@ -10,6 +10,11 @@ from create_list_Athlete import *
 ##### Code #####
 
 def get_id_table(nom_table, **kwargs):
+    '''
+    Retourne l'id de l'élément de la table nom_table avec kwargs (cle:valeur) comme attribut
+    str, cle:valeur -> int
+    ex: print(get_id("Site", name_site="Arena Paris Nord"))
+    '''
     table_dict = None
 
     if nom_table == "Site":
@@ -32,6 +37,13 @@ def get_id_table(nom_table, **kwargs):
     return None
 
 def get_id_athlete(*args):
+    '''
+    Renvoie un dictionnaire nom_athlete:id d'athlètes
+    str -> id / [str, str] -> id
+    ex :
+    get_id_athlete("Usain Bolt", "Elaine Thompson-Herah", "Bob Beamon")
+    get_id_athlete(["Usain Bolt", "1986-08-21"], ["Elaine Thompson-Herah", "1992-06-28"], ["Bob Beamon", "1946-08-29"])
+    '''
     rep = {}
     if isinstance(args[0], str):
         for nom_athlete in args:
@@ -46,6 +58,4 @@ def get_id_athlete(*args):
 
 
 if __name__ == "__main__":
-    #print(get_id("Site", name_site="Arena Paris Nord"))
-    print(get_id_athlete("Usain Bolt", "Elaine Thompson-Herah", "Bob Beamon"))
-    print(get_id_athlete(["Usain Bolt", "1986-08-21"], ["Elaine Thompson-Herah", "1992-06-28"], ["Bob Beamon", "1946-08-29"]))
+    pass

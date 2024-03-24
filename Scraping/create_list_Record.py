@@ -152,6 +152,8 @@ def send_record(result, bdd=""):
         connexion.close()
     return(send)
 
+def create_sql():
+    return send_record(recup_record())
 
 if __name__ == "__main__":
-    print(send_record(recup_record()))
+    send_record(recup_record())

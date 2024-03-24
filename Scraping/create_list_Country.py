@@ -57,6 +57,8 @@ def send_country(result, bdd=""):
 
     return(send)
 
+def create_sql():
+    return send_country(recup_country())
 
 if __name__ == "__main__":
-    print(send_country(recup_country()))
+    send_country(recup_country())

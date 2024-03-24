@@ -32,5 +32,8 @@ def send_transport(result, bdd=""):
 
     return(send)
 
+def create_sql():
+    return send_transport(recup_transport())
+
 if __name__ == "__main__":
-    print(send_transport(recup_transport()))
+    send_transport(recup_transport())

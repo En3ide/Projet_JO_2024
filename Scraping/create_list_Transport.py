@@ -26,6 +26,7 @@ def recup_url_transp(url):
                     if len(recup_transp(href)) >= 1:
                         result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp(href)})
         print("Fini !!!")
+        return result
     else:
         #print(reponse.status_code)
         print('Fini !!!')

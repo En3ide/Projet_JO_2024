@@ -12,8 +12,8 @@ START TRANSACTION;
 DROP TABLE IF EXISTS `Athlete`;
 CREATE TABLE `Athlete` (
   `id_athlete` int(11) PRIMARY KEY AUTO_INCREMENT,
-  `name_athlete` VARCHAR(32) NOT NULL,
   `firstname_athlete` VARCHAR(32) NOT NULL,
+  `name_athlete` VARCHAR(32) NOT NULL,
   `birthday_athlete` date DEFAULT NULL,
   `gender_athlete` enum('MAN', 'WOMAN') NOT NULL,
   `code_country` char(3) DEFAULT NULL

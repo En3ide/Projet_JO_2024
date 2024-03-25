@@ -73,6 +73,7 @@ list_record = [{'name_athlete' : 'Bolt' , 'firstname_athlete' : 'Usain', 'birthd
                 {'firstname_athlete': 'Katinka', 'name_athlete': 'Hosszú', 'birthday_athlete': '1985-05-03', 'gender_athlete': 'Femme', 'code_country': 'HUN'}]
 
 def recup_athlete():
+    print('[',datetime.now().time(),'] ', "Recup Athlete fini !!!")
     return list_record
 
 def send_athlete(result, bdd=""):

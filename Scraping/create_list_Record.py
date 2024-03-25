@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import requests, sqlite3
 import re
 from date_convert import date_convert, convert_date
+from datetime import datetime
 
 ##### Code #####
 main_url_athletisme = "https://fr.wikipedia.org/wiki/Records_olympiques_d%27athl%C3%A9tisme"
@@ -121,7 +122,7 @@ def recup_record():
     # Scraping pour natation
     soup = get_content_url(main_url_natation)
     liste += scraping_natation(soup)
-
+    print('[',datetime.now().time(),'] ', "Recup Record fini !!!")
     return liste
 
 def send_record(result, bdd=""):

@@ -77,7 +77,6 @@ def main(file_sql):
         #send_event(event) + "\n" +
         send_date_calendar(date_calendar)
     )
-    print(sql[11740:11850])
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(sql)
     print('[',datetime.now().time(),'] ', "Création des données fini !!")

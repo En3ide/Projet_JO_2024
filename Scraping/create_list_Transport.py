@@ -13,6 +13,7 @@ def recup_transport():
     result = []
     for transport in list_transport:
         result.append({"name_trans": transport})
+    print('[',datetime.now().time(),'] ', "Recup transport fini !!!")
     return result
 
 def send_transport(result, bdd=""):
@@ -30,7 +31,7 @@ def send_transport(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
-
+    print('[',datetime.now().time(),'] ', "sql transport fini !!!")
     return(send)
 
 def create_sql():

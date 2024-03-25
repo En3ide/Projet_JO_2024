@@ -175,4 +175,4 @@ def send_To_Serve(result, bdd=""):
     return(send)
 
 if __name__ == '__main__':
-    print(send_To_Serve(dic_to_table(recup_url_transp(url_tmp))))
+    print(send_To_Serve(dic_to_table(recup_url_transp())))

@@ -41,7 +41,6 @@ def recup_date_adress(url):
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
         return collect_adress(soup), collect_date(soup)
-        
 
 
 def collect_adress(n):

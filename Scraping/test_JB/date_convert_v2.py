@@ -1,4 +1,4 @@
-import re
+import re, ast
 from datetime import datetime
 
 mois_fr = [

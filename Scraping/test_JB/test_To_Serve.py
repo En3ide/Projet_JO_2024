@@ -126,4 +126,44 @@ def send_site(result, bdd=""):
         connexion.close()
     return(send)
 
-print(get_id_table("Site", name_site="Stade de Marseille"))
+"""test = recup_url_transp(url_tmp)
+with open("test_transport", "w") as f:
+    for ligne in test:
+        f.write(str(ligne)+"\n")"""
+#test = dic_to_table(test)
+
+from create_list_Site import *
+from create_list_Date_calendar import *
+def get_id_table(nom_table, **kwargs):
+    table_dict = None
+
+    if nom_table == "Site":
+        table_dict = recup_site()
+    if nom_table == "Date_calendar":
+        table_dict = recup_date_calendar()
+    
+    if table_dict is not None:
+        for dict in table_dict:
+            find = True
+            for cle, valeur in kwargs.items():
+                if " de " in valeur:
+                    valeur = valeur.replace(" de ", " ")
+                if " des " in valeur:
+                    valeur = valeur.replace(" des ", " ")
+
+                valeur = valeur.split(" ")
+                temp = 0
+                for val in valeur:
+                    if val in dict.get(cle):
+                        temp +=1
+                if temp < 2:
+                    find = False
+                    break
+            if find:
+                return table_dict.index(dict)+1
+    return None
+
+with open("test_site_tttt", "r") as f:
+    ligne = f.readlines()
+print(ligne)
+# print(get_id_table("Site", name_site="Stade de Marseille"))

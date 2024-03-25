@@ -21,6 +21,10 @@ def installer_requirements(fichier_requirements):
     - bool: True si l'installation s'est déroulée avec succès, False sinon
     """
     try:
+        subprocess.check_call(["python.exe", "-m", "pip", "install", "--upgrade", "pip"])
+    except subprocess.CalledProcessError as e:
+        print("Python.exe introuvable !!!")
+    try:
         subprocess.check_call(["pip", "install", "-r", fichier_requirements])
         print('[',datetime.now().time(),'] ', "Installation des dépendances réussie.")
         return True
@@ -86,7 +90,7 @@ def main(file_sql):
         send_athlete(athlete) + "\n\n" +
         send_country(country) + "\n\n" +
         send_discipline(discipline) + "\n\n" +
-        send_record(record, event, athlete) + "\n\n" +
+        #send_record(record, event, athlete) + "\n\n" +
         send_date_calendar(date_calendar)+ "\n\n" +
         send_to_serve(to_serve, site) + "\n\n" +
         #send_event(event, discipline, record) + "\n" +

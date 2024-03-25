@@ -127,7 +127,7 @@ def recup_record():
 
 def send_record(result, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO Record_table (stat_record, date_record, id_event, id_athlete) VALUES\n"
+    send = "INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("stat_record") + "', '" +
             dic.get("date_record") + "', '" +

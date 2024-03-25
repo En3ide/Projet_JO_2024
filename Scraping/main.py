@@ -16,7 +16,6 @@ if __name__ == "__main__":
         discipline = pool.apply(recup_discipline)
         record = pool.apply(recup_record)
         date_calendar = pool.apply(recup_date_calendar)
-    print(site)
     sql_To_Serve = send_To_Serve(transport)
-    print(transport)
+    
     print(athlete)

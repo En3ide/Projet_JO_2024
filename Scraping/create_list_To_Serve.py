@@ -153,12 +153,11 @@ def get_id_site(table_dict, cle, valeur):
                     return table_dict.index(dic)+1
     return None
 
-def send_To_Serve(result, bdd=""):
+def send_To_Serve(transport, site, bdd=""):
 
     # Création de la requête SQL
-    site = recup_site()
     send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
-    for dic in result:
+    for dic in transport:
         id = get_id_site(site, "name_site" ,dic.get("name_site"))
         send += (" (" + str(id) + ", " +
             str(dic.get("id_trans")) + ", '" +

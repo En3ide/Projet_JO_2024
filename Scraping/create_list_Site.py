@@ -3,12 +3,14 @@
 ###################
 
 ##### Import #####
+from get_id_table_selon_attr import *
 from bs4 import BeautifulSoup
 import requests, sqlite3
 from date_convert import date_convert, convert_date
 
 ##### Code #####
 main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
+file_name = "site.json"
 
 def recup_date_adress(url):
     reponse = requests.get(url)
@@ -75,6 +77,8 @@ def recup_site():
                 attr_creation_date = convert_date(donnee[1])
              
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
+        print("Recup_site Fini !!!")
+        data_to_json(result, file_name)
         return(result)
     else:
         print(reponse.status_code)

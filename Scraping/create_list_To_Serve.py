@@ -1,13 +1,22 @@
+###################
+# Script de scraping table Date_calendar
+###################
+
+##### Import #####
 from bs4 import BeautifulSoup
 import requests, ast, sqlite3, re, locale
 from datetime import datetime
+from create_list_Site import *
+from get_id_table_selon_attr import *
 
-url_tmp = "https://olympics.com/fr/paris-2024/sites"
+##### Code #####
+main_url= "https://olympics.com/fr/paris-2024/sites"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
+file_name = "transport.json"
 
-def recup_url_transp(url):
+def recup_url_transp():
     #print("test1")
-    reponse = requests.get(url, headers=HEADERS)
+    reponse = requests.get(main_url, headers=HEADERS)
     #print("test2")
     if reponse.status_code == 200:
         soup = BeautifulSoup(reponse.text, 'html.parser')
@@ -25,17 +34,20 @@ def recup_url_transp(url):
                     #print(recup_transp(href))
                     if len(recup_transp(href)) >= 1:
                         result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp(href)})
-        print("Fini !!!")
+        print("Recup_url_transp Fini !!")
+        data_to_json(result, file_name)
         return result
     else:
         #print(reponse.status_code)
         print('Fini !!!')
         return([])
 
-# Récupère les ligne contenant les information d'un site
-# Renvoie un tableau avec dict des valeur Nom station et Num ligne des site
+
 def recup_transp(url):
-    #print('test 1')
+    '''
+    Récupère les ligne contenant les information d'un site
+    Renvoie un tableau avec dict des valeur Nom station et Num ligne des site
+    '''
     reponse = requests.get(url, headers=HEADERS)
     #print('test 2')
     result = []
@@ -61,6 +73,10 @@ def recup_transp(url):
 # Découpe les ligne "" << nom station >> (Num ligne 1, Num ligne 2, Num ligne 3, Num ligne 4) ""
 # [{"name": "nom station", "number": ["Num ligne 1", "Num ligne 2", "Num ligne 3"]}]
 def recup_info(sec):
+    '''
+    Découpe les ligne ""<< nom station >> (Num ligne 1, Num ligne 2, Num ligne 3, Num ligne 4) ""
+    [{"name": "nom station", "number": ["Num ligne 1", "Num ligne 2", "Num ligne 3"]}]
+    '''
     result = []
     temp = dict
     if "» (" in str(sec):
@@ -89,6 +105,14 @@ def recup_info(sec):
 
 
 def dic_to_table(result):
+    '''
+    modifie le resulta de recup_url_transp pour créer en avance les entité de la table
+    exemple "Stade Delcroix | station mérise | [RER C, RER D, RER M]"
+    devient "Nom site       | id_transport   | num_ligne | nom_station"
+            "Stade Delcroix | 1 | RER C | station mérise"
+            "Stade Delcroix | 1 | RER D | station mérise"
+            "Stade Delcroix | 1 | RER M | station mérise"
+    '''
     tab = []
     for site in result:
         for station in site.get("transport"):
@@ -107,23 +131,19 @@ def dic_to_table(result):
 def get_id_site(table_dict, cle, valeur):
     if table_dict is not None:
         valeur = valeur.lower()
-        if " de " in valeur:
-            valeur = valeur.replace(" de ", " ")
-        if " des " in valeur:
-            valeur = valeur.replace(" des ", " ")
+        valeur = valeur.replace(" de ", " ")
+        valeur = valeur.replace(" des ", " ")
         valeur = valeur.split(" ")
         print("Valeur = " + str(valeur))
         for dic in table_dict:
             if dic != None:
                 tmp1 = dic.get(cle).lower()
-                if " de " in tmp1:
-                    tmp1 = tmp1.replace(" de ", " ")
-                if " des " in tmp1:
-                    tmp1 = tmp1.replace(" des ", " ")
+                tmp1 = tmp1.replace(" de ", " ")
+                tmp1 = tmp1.replace(" des ", " ")
                 temp = 0
                 for val in valeur:
                     if val in str(tmp1):
-                        print("oui")
+                        #print("oui")
                         temp +=1
                 if temp >= 2:
                     return table_dict.index(dic)+1
@@ -134,7 +154,7 @@ def send_To_Serve(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
     for dic in result:
-        id = get_id_site(result, "name_site" ,dic.get("name_site"))
+        id = get_id_site(recup_site(), "name_site" ,dic.get("name_site"))
         send += (" (" + str(id) + ", " +
             str(dic.get("id_trans")) + ", '" +
             dic.get("num_ligne") + "', '" +

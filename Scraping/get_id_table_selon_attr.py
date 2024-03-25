@@ -6,6 +6,7 @@
 from create_list_Site import *
 from create_list_Date_calendar import *
 from create_list_Athlete import *
+import json
 
 ##### Code #####
 
@@ -56,6 +57,16 @@ def get_id_athlete(*args):
             rep[list[0]] = get_id_table("Athlete", firstname_athlete=split_name[0], name_athlete=split_name[1], birthday_athlete=birth)
     return rep
 
+
+def data_to_json(data, file_name):
+    with open(file_name, "w") as f:
+        json.dump(data, f)
+    return file_name
+
+def json_to_data(data, file_name):
+    with open(file_name, "r") as f:
+        data = json.load(f)
+    return data
 
 if __name__ == "__main__":
     pass

@@ -3,6 +3,7 @@
 ###################
 
 ##### Import #####
+from get_id_table_selon_attr import *
 import sqlite3
 
 ##### Code #####

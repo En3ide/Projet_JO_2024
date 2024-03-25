@@ -8,6 +8,7 @@ import requests, sqlite3
 import re
 from date_convert import date_convert, convert_date
 from datetime import datetime
+from get_id_table_selon_attr import get_dic_id_table
 
 ##### Code #####
 main_url_athletisme = "https://fr.wikipedia.org/wiki/Records_olympiques_d%27athl%C3%A9tisme"
@@ -125,14 +126,20 @@ def recup_record():
     print('[',datetime.now().time(),'] ', "Recup Record fini !!!")
     return liste
 
-def send_record(result, bdd=""):
+def get_id_event():
+    pass
+
+def send_record(result, event_table, athlete_table, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES\n"
     for dic in result:
+        id_event = get_dic_id_table(event_table, )
+        athlete_name = dic.get("athlete").split(" ")
+        id_athlete = get_dic_id_table(athlete_table, firstname_athlete=athlete_name[0], name_athlete=athlete_name[0])
         send += ("('" + dic.get("stat_record") + "', '" +
             dic.get("date_record") + "', '" +
-            dic.get("id_event") + "', " +
-            dic.get("id_athlete") + "'),\n")
+            id_event + "', " +
+            id_athlete + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

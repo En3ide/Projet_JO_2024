@@ -368,8 +368,7 @@ def get_table_event(l_event):
                     dico['gender_event'] = "Homme"
                 else:
                     dico['gender_event'] = "Mixte"
-                dico['id_disc'] = "NULL"
-                dico['id_record'] = "NULL"
+                dico['discipline'] = sport[0].lower()
                 table.append(dico)
                 
     return table

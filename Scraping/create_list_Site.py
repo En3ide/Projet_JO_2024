@@ -77,8 +77,8 @@ def recup_site():
                 attr_creation_date = convert_date(donnee[1])
              
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
-        print("Recup_site Fini !!!")
-        data_to_json(result, file_name)
+        #print("Recup_site Fini !!!")
+        #data_to_json(result, file_name)
         return(result)
     else:
         print(reponse.status_code)

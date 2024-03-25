@@ -1,51 +1,51 @@
-{'name_event': '100m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '100m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '200m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '200m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '400m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '400m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '800m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '800m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '1\u202f500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '1\u202f500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '5\u202f000m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '5\u202f000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '10\u202f000m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '10\u202f000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '400m haies', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '400m haies', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '3000m steeple', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '3000m steeple', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut en hauteur', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut en hauteur', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut à la perche', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut à la perche', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut en longueur', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Saut en longueur', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Triple saut', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Triple saut', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de poids', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de poids', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de disque', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de disque', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de marteau', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de marteau', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de javelot', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Lancer de javelot', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Décathlon', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Heptathlon', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '110m haies', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': '100m haies', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '20km marche', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': '20km marche', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Marche sur un marathon en relais', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Athlétisme'}
-{'name_event': 'Marathon', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Athlétisme'}
-{'name_event': 'Marathon', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Athlétisme'}
+{'name_event': '100m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '100m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '200m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '200m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '400m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '400m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '800m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '800m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '1\u202f500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '1\u202f500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '5\u202f000m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '5\u202f000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '10\u202f000m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '10\u202f000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '400m haies', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '400m haies', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '3000m steeple', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '3000m steeple', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Relais 4x400m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut en hauteur', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut en hauteur', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut Ã  la perche', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut Ã  la perche', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut en longueur', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Saut en longueur', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Triple saut', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Triple saut', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de poids', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de poids', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de disque', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de disque', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de marteau', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de marteau', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de javelot', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Lancer de javelot', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'DÃ©cathlon', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Heptathlon', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '110m haies', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '100m haies', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '20km marche', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': '20km marche', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Marche sur un marathon en relais', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Marathon', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'AthlÃ©tisme'}
+{'name_event': 'Marathon', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'AthlÃ©tisme'}
 {'name_event': 'Skiff', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Aviron'}
 {'name_event': 'Skiff', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Aviron'}
 {'name_event': 'Deux de pointe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Aviron'}
@@ -58,41 +58,41 @@
 {'name_event': 'Quatre de couple', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Aviron'}
 {'name_event': 'Huit de pointe', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Aviron'}
 {'name_event': 'Huit de pointe', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Aviron'}
-{'name_event': 'Deux de couple poids léger', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Aviron'}
-{'name_event': 'Deux de couple poids léger', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Aviron'}
+{'name_event': 'Deux de couple poids lÃ©ger', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Aviron'}
+{'name_event': 'Deux de couple poids lÃ©ger', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Aviron'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Badminton'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Badminton'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Badminton'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Badminton'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Badminton'}
-{'name_event': 'Tournoi à 12 équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Basketball'}
-{'name_event': 'Tournoi à 12 équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Basketball'}
-{'name_event': 'Tournoi à 8 équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Basketball 3×3'}
-{'name_event': 'Tournoi à 8 équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Basketball 3×3'}
-{'name_event': 'C-1 1000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'C-1 200m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'C-2 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'C-2 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-1 1000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-1 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-2 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-2 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-4 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-4 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë sprint'}
-{'name_event': 'K-1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë-kayak slalom'}
-{'name_event': 'K-1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë-kayak slalom'}
-{'name_event': 'C-1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë-kayak slalom'}
-{'name_event': 'C-1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë-kayak slalom'}
-{'name_event': 'Kayak cross', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Canoë-kayak slalom'}
-{'name_event': 'Kayak cross', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Canoë-kayak slalom'}
+{'name_event': 'Tournoi Ã  12 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Basketball'}
+{'name_event': 'Tournoi Ã  12 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Basketball'}
+{'name_event': 'Tournoi Ã  8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Basketball 3Ã—3'}
+{'name_event': 'Tournoi Ã  8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Basketball 3Ã—3'}
+{'name_event': 'C-1 1000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'C-1 200m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'C-2 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'C-2 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-1 1000m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-1 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-2 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-2 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-4 500m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-4 500m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ« sprint'}
+{'name_event': 'K-1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ«-kayak slalom'}
+{'name_event': 'K-1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ«-kayak slalom'}
+{'name_event': 'C-1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ«-kayak slalom'}
+{'name_event': 'C-1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ«-kayak slalom'}
+{'name_event': 'Kayak cross', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'CanoÃ«-kayak slalom'}
+{'name_event': 'Kayak cross', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'CanoÃ«-kayak slalom'}
 {'name_event': 'Vitesse individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Vitesse individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
-{'name_event': 'Vitesse par équipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
-{'name_event': 'Vitesse par équipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
+{'name_event': 'Vitesse par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
+{'name_event': 'Vitesse par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Keirin', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Keirin', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
-{'name_event': 'Poursuite par équipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
-{'name_event': 'Poursuite par équipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
+{'name_event': 'Poursuite par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
+{'name_event': 'Poursuite par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Omnium', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Omnium', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Cyclisme sur piste'}
 {'name_event': 'Madison', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Cyclisme sur piste'}
@@ -107,50 +107,50 @@
 {'name_event': 'BMX racing', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'BMX racing'}
 {'name_event': 'Cross-country', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Mountain Bike'}
 {'name_event': 'Cross-country', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Mountain Bike'}
-{'name_event': 'Epée individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
-{'name_event': 'Epée individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
+{'name_event': 'EpÃ©e individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
+{'name_event': 'EpÃ©e individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
 {'name_event': 'Fleuret individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
 {'name_event': 'Fleuret individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
 {'name_event': 'Sabre individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
 {'name_event': 'Sabre individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
-{'name_event': 'Epée par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
-{'name_event': 'Epée par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
-{'name_event': 'Fleuret par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
-{'name_event': 'Fleuret par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
-{'name_event': 'Sabre par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
-{'name_event': 'Sabre par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
+{'name_event': 'EpÃ©e par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
+{'name_event': 'EpÃ©e par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
+{'name_event': 'Fleuret par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
+{'name_event': 'Fleuret par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
+{'name_event': 'Sabre par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime'}
+{'name_event': 'Sabre par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime'}
 {'name_event': 'Tournoi de football', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Football'}
 {'name_event': 'Tournoi de football', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Football'}
 {'name_event': 'Tournoi de golf individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Golf'}
 {'name_event': 'Tournoi de golf individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Golf'}
-{'name_event': 'Concours par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Concours par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Concours général', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Concours général', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Concours par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Concours par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Concours gÃ©nÃ©ral', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Concours gÃ©nÃ©ral', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Exercices au sol', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Exercices au sol', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Saut', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Saut', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Barres asymétriques', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Barres asymÃ©triques', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Poutre', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Cheval d’arçons', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Cheval dâ€™arÃ§ons', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Anneaux', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
-{'name_event': 'Barres parallèles', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
+{'name_event': 'Barres parallÃ¨les', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Barre fixe', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Gymnastique artistique'}
 {'name_event': 'Concours des ensembles', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Gymnastique rythmique'}
 {'name_event': 'Concours individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Gymnastique rythmique'}
 {'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Trampoline'}
 {'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Trampoline'}
-{'name_event': '49kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Haltérophilie'}
-{'name_event': '59kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Haltérophilie'}
-{'name_event': '71kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Haltérophilie'}
-{'name_event': '81kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Haltérophilie'}
-{'name_event': '+81kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Haltérophilie'}
-{'name_event': '61kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Haltérophilie'}
-{'name_event': '73kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Haltérophilie'}
-{'name_event': '89kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Haltérophilie'}
-{'name_event': '102kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Haltérophilie'}
-{'name_event': '+102kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Haltérophilie'}
+{'name_event': '49kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '59kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '71kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '81kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '+81kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '61kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '73kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '89kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '102kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'HaltÃ©rophilie'}
+{'name_event': '+102kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'HaltÃ©rophilie'}
 {'name_event': 'Tournoi de handball', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Handball'}
 {'name_event': 'Tournoi de handball', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Handball'}
 {'name_event': 'Tournoi de hockey', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Hockey'}
@@ -169,7 +169,7 @@
 {'name_event': 'Tournois -90kg individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Judo'}
 {'name_event': 'Tournois -100kg individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Judo'}
 {'name_event': 'Tournois +100kg individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Judo'}
-{'name_event': 'Tournois par équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Judo'}
+{'name_event': 'Tournois par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Judo'}
 {'name_event': 'Lutte libre -50kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
 {'name_event': 'Lutte libre -53kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
 {'name_event': 'Lutte libre -57kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
@@ -182,16 +182,16 @@
 {'name_event': 'Lutte libre -86kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Lutte'}
 {'name_event': 'Lutte libre -97kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Lutte'}
 {'name_event': 'Lutte libre -125kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -60kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -67kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -77kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -87kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -97kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Lutte gréco-romaine -130kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
-{'name_event': 'Compétition individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Pentathlon moderne'}
-{'name_event': 'Compétition individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Pentathlon moderne'}
-{'name_event': 'Tournoi de rugby à 7', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Rugby'}
-{'name_event': 'Tournoi de rugby à 7', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Rugby'}
+{'name_event': 'Lutte grÃ©co-romaine -60kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'Lutte grÃ©co-romaine -67kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'Lutte grÃ©co-romaine -77kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'Lutte grÃ©co-romaine -87kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'Lutte grÃ©co-romaine -97kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'Lutte grÃ©co-romaine -130kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Lutte'}
+{'name_event': 'CompÃ©tition individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Pentathlon moderne'}
+{'name_event': 'CompÃ©tition individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Pentathlon moderne'}
+{'name_event': 'Tournoi de rugby Ã  7', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Rugby'}
+{'name_event': 'Tournoi de rugby Ã  7', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Rugby'}
 {'name_event': '50m nage libre', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Natation'}
 {'name_event': '50m nage libre', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Natation'}
 {'name_event': '100m nage libre', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Natation'}
@@ -236,20 +236,20 @@
 {'name_event': 'Natation marathon, 10km', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Natation marathon'}
 {'name_event': 'Tremplin haut-vol 10m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
 {'name_event': 'Tremplin haut-vol 10m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
-{'name_event': 'Tremplin haut-vol 10m synchronisé', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
-{'name_event': 'Tremplin haut-vol 10m synchronisé', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
+{'name_event': 'Tremplin haut-vol 10m synchronisÃ©', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
+{'name_event': 'Tremplin haut-vol 10m synchronisÃ©', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
 {'name_event': 'Tremplin 3m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
 {'name_event': 'Tremplin 3m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
-{'name_event': 'Tremplin 3m synchronisé', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
-{'name_event': 'Tremplin 3m synchronisé', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
+{'name_event': 'Tremplin 3m synchronisÃ©', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Plongeon'}
+{'name_event': 'Tremplin 3m synchronisÃ©', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Plongeon'}
 {'name_event': 'Tournoi de water-polo', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Water-polo'}
 {'name_event': 'Tournoi de water-polo', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Water-polo'}
-{'name_event': 'Concours complet individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
-{'name_event': 'Concours complet par équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
-{'name_event': 'Dressage individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
-{'name_event': 'Dressage par équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
-{'name_event': 'Saut d’obstacle individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
-{'name_event': 'Saut d’obstacle par équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports équestres'}
+{'name_event': 'Concours complet individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
+{'name_event': 'Concours complet par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
+{'name_event': 'Dressage individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
+{'name_event': 'Dressage par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
+{'name_event': 'Saut dâ€™obstacle individuel', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
+{'name_event': 'Saut dâ€™obstacle par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Sports Ã©questres'}
 {'name_event': '-58kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Taekwondo'}
 {'name_event': '-68kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Taekwondo'}
 {'name_event': '-80kg', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Taekwondo'}
@@ -265,15 +265,15 @@
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tennis'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tennis de table'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tennis de table'}
-{'name_event': 'Par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Tennis de table'}
-{'name_event': 'Par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Tennis de table'}
+{'name_event': 'Par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Tennis de table'}
+{'name_event': 'Par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Tennis de table'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tennis de table'}
-{'name_event': 'Pistolet à air comprimé 10m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
-{'name_event': 'Pistolet à air comprimé 10m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
-{'name_event': 'Pistolet à air comprimé 10m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir'}
-{'name_event': 'Carabine à air comprimé 10m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
-{'name_event': 'Carabine à air comprimé 10m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
-{'name_event': 'Carabine à air comprimé 10m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir'}
+{'name_event': 'Pistolet Ã  air comprimÃ© 10m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
+{'name_event': 'Pistolet Ã  air comprimÃ© 10m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
+{'name_event': 'Pistolet Ã  air comprimÃ© 10m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir'}
+{'name_event': 'Carabine Ã  air comprimÃ© 10m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
+{'name_event': 'Carabine Ã  air comprimÃ© 10m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
+{'name_event': 'Carabine Ã  air comprimÃ© 10m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir'}
 {'name_event': 'Carabine 50m 3 positions', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
 {'name_event': 'Carabine 50m 3 positions', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
 {'name_event': 'Skeet olympique', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
@@ -283,25 +283,25 @@
 {'name_event': 'Fosse olympique', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
 {'name_event': 'Pistolet rapide 25m', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir'}
 {'name_event': 'Pistolet rapide 25m', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir'}
-{'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir à l’arc'}
-{'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir à l’arc'}
-{'name_event': 'Par équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Tir à l’arc'}
-{'name_event': 'Par équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Tir à l’arc'}
-{'name_event': 'Par équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir à l’arc'}
+{'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tir Ã  lâ€™arc'}
+{'name_event': 'Individuel', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tir Ã  lâ€™arc'}
+{'name_event': 'Par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Tir Ã  lâ€™arc'}
+{'name_event': 'Par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Tir Ã  lâ€™arc'}
+{'name_event': 'Par Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tir Ã  lâ€™arc'}
 {'name_event': 'Epreuve individuelle', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Triathlon'}
 {'name_event': 'Epreuve individuelle', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Triathlon'}
 {'name_event': 'Epreuve de relais', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Triathlon'}
-{'name_event': 'dériveur solitaire ILCA 6, skiff 49er FX, Planche à voile IQ foil, formula kite.', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Voile'}
-{'name_event': 'dériveur solitaire ILCA 7, skiff 49er, Planche à voile IQ foil, formula kite.', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Voile'}
-{'name_event': 'multicoque mixte Nacra 17 à foils, dériveur double mixte – 470.', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Voile'}
+{'name_event': 'dÃ©riveur solitaire ILCA 6, skiff 49er FX, Planche Ã  voile IQ foil, formula kite.', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Voile'}
+{'name_event': 'dÃ©riveur solitaire ILCA 7, skiff 49er, Planche Ã  voile IQ foil, formula kite.', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Voile'}
+{'name_event': 'multicoque mixte Nacra 17 Ã  foils, dÃ©riveur double mixte â€“ 470.', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Voile'}
 {'name_event': 'Tournoi de volleyball', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Volleyball'}
 {'name_event': 'Tournoi de volleyball', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Volleyball'}
 {'name_event': 'Tournoi de volleyball de plage', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Volleyball de plage'}
 {'name_event': 'Tournoi de volleyball de plage', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Volleyball de plage'}
 {'name_event': 'Battle B-girls', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Breaking'}
 {'name_event': 'Battle B-boys', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Breaking'}
-{'name_event': 'Combiné bloc-difficulté', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escalade sportive'}
-{'name_event': 'Combiné bloc-difficulté', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escalade sportive'}
+{'name_event': 'CombinÃ© bloc-difficultÃ©', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escalade sportive'}
+{'name_event': 'CombinÃ© bloc-difficultÃ©', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escalade sportive'}
 {'name_event': 'Vitesse', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escalade sportive'}
 {'name_event': 'Vitesse', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escalade sportive'}
 {'name_event': 'Skateboard\xa0park', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Skateboard'}
@@ -321,64 +321,64 @@
 {'name_event': 'Equipe BC1-2', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Boccia'}
 {'name_event': 'Equipe BC3', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Boccia'}
 {'name_event': 'Equipe BC4', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Boccia'}
-{'name_event': 'Tournoi B1 de 8 équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Cécifoot'}
-{'name_event': 'Epée catégorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Epée catégorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Epée catégorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Epée catégorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Epée par équipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Epée par équipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret catégorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret catégorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret catégorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret catégorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret par équipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Fleuret par équipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Sabre catégorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Sabre catégorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Sabre catégorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Sabre catégorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
-{'name_event': 'Tournoi 8 équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Goalball'}
-{'name_event': 'Tournoi 8 équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Goalball'}
-{'name_event': '100m T11, T12, T13, T34, T35, T36, T37, T38, T44, T47, T53, T54, T63, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '100m T11, T12, T13, T34, T35, T36, T37, T38, T44, T47, T53, T54, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '100m  T51, T52', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '200m T35, T37, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '200m T35, T37, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '200m  T11, T12, T36, T47', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '200m  T51', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '400m T11, T12, T13, T20, T37, T38, T47, T53, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '400m T11, T12, T13, T20, T37, T38, T47, T53, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '400m  T36, T52, T62', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '800m T34, T53, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '800m T34, T53, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '1500m T11, T13, T20, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '1500m T11, T13, T20, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '1500m  T38, T46', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '5000m T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': '5000m T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': '5000m  T11, T13', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Marathon T12, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Marathon T12, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Saut en longueur T11, T12, T20, T37, T38, T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Saut en longueur T11, T12, T20, T37, T38, T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Saut en longueur  T13, T36', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de massue F32', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de massue F32', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de massue  F51', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Saut en hauteur T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de disque F11, F64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de disque F11, F64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de disque  F38, F41, F53, F55, F57', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de disque  F37, F52, F56', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de javelot F13, F34, F46, F54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de javelot F13, F34, F46, F54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de javelot  F56', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de javelot  F38, F41, F57, F64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de poids F12, F20, F32, F33, F34, F35, F37, F40, FR41, F46, F57', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de poids F12, F20, F32, F33, F34, F35, F37, F40, FR41, F46, F57', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
-{'name_event': 'Lancer de poids  F11, F36 , F53, F55, F63', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlétisme'}
+{'name_event': 'Tournoi B1 de 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'CÃ©cifoot'}
+{'name_event': 'EpÃ©e catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'EpÃ©e catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'EpÃ©e catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'EpÃ©e catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'EpÃ©e par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'EpÃ©e par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Fleuret par Ã©quipe', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Sabre catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Sabre catÃ©gorie A', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Sabre catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Sabre catÃ©gorie B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Escrime fauteuil'}
+{'name_event': 'Tournoi 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Goalball'}
+{'name_event': 'Tournoi 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Goalball'}
+{'name_event': '100m T11, T12, T13, T34, T35, T36, T37, T38, T44, T47, T53, T54, T63, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '100m T11, T12, T13, T34, T35, T36, T37, T38, T44, T47, T53, T54, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '100m  T51, T52', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '200m T35, T37, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '200m T35, T37, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '200m  T11, T12, T36, T47', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '200m  T51', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '400m T11, T12, T13, T20, T37, T38, T47, T53, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '400m T11, T12, T13, T20, T37, T38, T47, T53, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '400m  T36, T52, T62', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '800m T34, T53, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '800m T34, T53, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '1500m T11, T13, T20, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '1500m T11, T13, T20, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '1500m  T38, T46', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '5000m T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '5000m T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': '5000m  T11, T13', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Relais 4x100m', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Marathon T12, T54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Marathon T12, T54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Saut en longueur T11, T12, T20, T37, T38, T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Saut en longueur T11, T12, T20, T37, T38, T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Saut en longueur  T13, T36', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de massue F32', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de massue F32', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de massue  F51', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Saut en hauteur T47, T63, T64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de disque F11, F64', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de disque F11, F64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de disque  F38, F41, F53, F55, F57', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de disque  F37, F52, F56', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de javelot F13, F34, F46, F54', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de javelot F13, F34, F46, F54', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de javelot  F56', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de javelot  F38, F41, F57, F64', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de poids F12, F20, F32, F33, F34, F35, F37, F40, FR41, F46, F57', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de poids F12, F20, F32, F33, F34, F35, F37, F40, FR41, F46, F57', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
+{'name_event': 'Lancer de poids  F11, F36 , F53, F55, F63', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para athlÃ©tisme'}
 {'name_event': 'Skiff PR1, M1X, W1x', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para aviron'}
 {'name_event': 'Deux de couple PR2 Mix2x', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para aviron'}
 {'name_event': 'Deux de couple PR3 Mix2x', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para aviron'}
@@ -399,16 +399,16 @@
 {'name_event': 'Double WH1-2', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Para badminton'}
 {'name_event': 'Double SL3-SU5', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para badminton'}
 {'name_event': 'Double SH6', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para badminton'}
-{'name_event': 'KL1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoë'}
-{'name_event': 'KL1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoë'}
-{'name_event': 'KL2', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoë'}
-{'name_event': 'KL2', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoë'}
-{'name_event': 'KL3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoë'}
-{'name_event': 'KL3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoë'}
-{'name_event': 'VL2', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoë'}
-{'name_event': 'VL2', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoë'}
-{'name_event': 'VL3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoë'}
-{'name_event': 'VL3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoë'}
+{'name_event': 'KL1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'KL1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'KL2', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'KL2', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'KL3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'KL3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'VL2', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'VL2', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'VL3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para canoÃ«'}
+{'name_event': 'VL3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para canoÃ«'}
 {'name_event': 'Course sur route C1-2-3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur route'}
 {'name_event': 'Course sur route C1-2-3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur route'}
 {'name_event': 'Course sur route C4-5', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur route'}
@@ -442,9 +442,9 @@
 {'name_event': 'Contre la montre T1-2', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur route'}
 {'name_event': 'Contre la montre B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur route'}
 {'name_event': 'Contre la montre B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur route'}
-{'name_event': 'Relais par équipe H1-5', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para cyclisme sur route'}
-{'name_event': 'Kilomètre C1-2-3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
-{'name_event': 'Kilomètre C4-5', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
+{'name_event': 'Relais par Ã©quipe H1-5', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para cyclisme sur route'}
+{'name_event': 'KilomÃ¨tre C1-2-3', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
+{'name_event': 'KilomÃ¨tre C4-5', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': '500m C1-2-3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': '500m C4-5', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': 'Poursuite C1-2-3', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
@@ -455,22 +455,22 @@
 {'name_event': 'Poursuite C4', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': 'Poursuite C5', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': 'Poursuite C5', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
-{'name_event': 'Kilomètre B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
-{'name_event': 'Kilomètre B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
+{'name_event': 'KilomÃ¨tre B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
+{'name_event': 'KilomÃ¨tre B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': 'Poursuite B', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para cyclisme sur piste'}
 {'name_event': 'Poursuite B', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para cyclisme sur piste'}
-{'name_event': 'Sprint par équipe C1-5', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para cyclisme sur piste'}
-{'name_event': 'Grand Prix individuel grade I', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix individuel grade II', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix individuel grade III', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix individuel grade IV', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix individuel grade V', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix par équipe – Open', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix libre individuel grade I', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix libre individuel grade II', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix libre individuel grade III', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix libre individuel grade IV', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
-{'name_event': 'Grand Prix libre individuel grade V', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para équitation (para dressage)'}
+{'name_event': 'Sprint par Ã©quipe C1-5', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para cyclisme sur piste'}
+{'name_event': 'Grand Prix individuel grade I', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix individuel grade II', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix individuel grade III', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix individuel grade IV', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix individuel grade V', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix par Ã©quipe â€“ Open', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix libre individuel grade I', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix libre individuel grade II', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix libre individuel grade III', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix libre individuel grade IV', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
+{'name_event': 'Grand Prix libre individuel grade V', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para Ã©quitation (para dressage)'}
 {'name_event': '-41kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para powerlifting'}
 {'name_event': '-45kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para powerlifting'}
 {'name_event': '-50kg', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para powerlifting'}
@@ -554,20 +554,20 @@
 {'name_event': 'Double MD4, MD8, MD14, MD18', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Para tennis de table'}
 {'name_event': 'Double WD5, WD10, WD14, WD20', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Para tennis de table'}
 {'name_event': 'Double XD7, XD17', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para tennis de table'}
-{'name_event': 'Individuel W1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir à l’arc'}
-{'name_event': 'Individuel W1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir à l’arc'}
-{'name_event': 'Individuel W1', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para tir à l’arc'}
-{'name_event': 'R1 10m Carabine à air «\u202fDebout\u202f» SH1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R2 10m Carabine à air «\u202fDebout\u202f» SH1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R3 10m Carabine à air «\u202fCouché\u202f» SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
+{'name_event': 'Individuel W1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir Ã  lâ€™arc'}
+{'name_event': 'Individuel W1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir Ã  lâ€™arc'}
+{'name_event': 'Individuel W1', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Para tir Ã  lâ€™arc'}
+{'name_event': 'R1 10m Carabine Ã  air Â«\u202fDebout\u202fÂ» SH1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R2 10m Carabine Ã  air Â«\u202fDebout\u202fÂ» SH1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R3 10m Carabine Ã  air Â«\u202fCouchÃ©\u202fÂ» SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
 {'name_event': 'R7 50m Carabine 3 Positions SH1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir sportif'}
 {'name_event': 'R8 50m Carabine 3 Positions SH1', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R4 10m Carabine à air «\u202fDebout\u202f» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R5 10m Carabine à air «\u202fCouché\u202f» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R6 50m Carabine «\u202fCouché\u202f» SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
-{'name_event': 'R9 50m Carabine «\u202fCouché\u202f» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
-{'name_event': 'P1 10m Pistolet à air SH1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir sportif'}
-{'name_event': 'P2 10m Pistolet à air SH1\xa0', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R4 10m Carabine Ã  air Â«\u202fDebout\u202fÂ» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R5 10m Carabine Ã  air Â«\u202fCouchÃ©\u202fÂ» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R6 50m Carabine Â«\u202fCouchÃ©\u202fÂ» SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
+{'name_event': 'R9 50m Carabine Â«\u202fCouchÃ©\u202fÂ» SH2', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
+{'name_event': 'P1 10m Pistolet Ã  air SH1', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para tir sportif'}
+{'name_event': 'P2 10m Pistolet Ã  air SH1\xa0', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para tir sportif'}
 {'name_event': 'Pistolet 25m SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
 {'name_event': 'P4 Pistolet 50m SH1', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Para tir sportif'}
 {'name_event': 'PTWC', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para triathlon'}
@@ -581,12 +581,12 @@
 {'name_event': 'PTS5', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para triathlon'}
 {'name_event': 'PTVI', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Para triathlon'}
 {'name_event': 'PTVI', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Para triathlon'}
-{'name_event': 'Tournoi 8 équipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Rugby fauteuil'}
+{'name_event': 'Tournoi 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Rugby fauteuil'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Femme', '#id_disc': 'Tennis fauteuil'}
 {'name_event': 'Simple', 'format_event': 'Individual', 'gender_event': 'Homme', '#id_disc': 'Tennis fauteuil'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Tennis fauteuil'}
 {'name_event': 'Double', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Tennis fauteuil'}
 {'name_event': 'Simple quad', 'format_event': 'Individual', 'gender_event': 'Mixte', '#id_disc': 'Tennis fauteuil'}
 {'name_event': 'Double quad', 'format_event': 'Collective', 'gender_event': 'Mixte', '#id_disc': 'Tennis fauteuil'}
-{'name_event': 'Tournoi 8 équipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Volleyball assis'}
-{'name_event': 'Tournoi 8 équipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Volleyball assis'}
+{'name_event': 'Tournoi 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Femme', '#id_disc': 'Volleyball assis'}
+{'name_event': 'Tournoi 8 Ã©quipes', 'format_event': 'Collective', 'gender_event': 'Homme', '#id_disc': 'Volleyball assis'}

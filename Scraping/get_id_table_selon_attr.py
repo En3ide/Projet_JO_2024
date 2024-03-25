@@ -14,7 +14,7 @@ def get_id_table(nom_table, **kwargs):
     '''
     Retourne l'id de l'élément de la table nom_table avec kwargs (cle:valeur) comme attribut
     str, cle:valeur -> int
-    ex: print(get_id("Site", name_site="Arena Paris Nord"))
+    ex: print(get_id_table("Site", name_site="Arena Paris Nord"))
     '''
     table_dict = None
 
@@ -69,4 +69,4 @@ def json_to_data(data, file_name):
     return data
 
 if __name__ == "__main__":
-    pass
+    print(get_id_table("Site", name_site="Arena Paris Nord"))

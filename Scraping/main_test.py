@@ -57,10 +57,10 @@ def main(file_sql):
             record = json_to_data(json+"record.json")
         else:
             record = pool.apply(recup_record)
-        """if os.path.exists(json+"event.json"):
-            event = json_to_data(json+"event.json")
+        if os.path.exists(json+"event.json"):
+            event = [] #json_to_data(json+"event.json")
         else:
-            event = pool.apply(recup_event)"""
+            event = [] #pool.apply(recup_event)
         if os.path.exists(json+"date_calendar.json"):
             date_calendar = json_to_data(json+"date_calendar.json")
         else:
@@ -81,8 +81,8 @@ def main(file_sql):
         send_athlete(athlete) + "\n" +
         send_country(country) + "\n" +
         send_discipline(discipline) + "\n" +
-        send_record(record) + "\n" +
-        #send_event(event) + "\n" +
+        send_record(record, event, athlete) + "\n" +
+        #send_event(event, discipline, record) + "\n" +
         send_date_calendar(date_calendar)
     )
     with open(file_sql, "w", encoding="utf-8") as f:

@@ -3,7 +3,7 @@ INSERT INTO Transport (name_trans) VALUES
 ('TRAMWAY'),
 ('BUS'),
 ('METRO');
-INSERT INTO Site_table (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES
+INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES
  ('Seine', 'Seine', NULL, 600000, 'https://fr.wikipedia.org//wiki/Seine_%C3%A0_Paris'),
  ('Stade de France', 'ZAC du Cornillon Nord93200 Saint-Denis,  France', '1995-00-00', 77083, 'https://fr.wikipedia.org//wiki/Stade_de_France'),
  ('Village olympique de Saint-Denis', 'Village olympique de Saint-Denis', NULL, NULL, 'https://fr.wikipedia.org//wiki/Village_olympique_de_Saint-Denis'),
@@ -125,7 +125,7 @@ INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES
  (12, 4, 'Métro 10', 'Porte d’Auteuil'),
  (5, 4, 'Métro 9', 'Alma Marceau'),
  (None, 1, 'RER C', 'Pont de l’Alma');
-INSERT INTO Athlete_table (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES
+INSERT INTO Athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES
 ('Usain', 'Bolt', '1986-08-21', Homme', JAM'),
 ('Elaine', 'Thompson-Herah', '1992-06-28', Femme', JAM'),
 ('Bob', 'Beamon', '1946-08-29', Homme', USA'),
@@ -186,7 +186,7 @@ INSERT INTO Athlete_table (firstname_athlete, name_athlete, birthday_athlete, ge
 ('Sarah', 'Sjöström', '1993-08-17', Femme', SWE'),
 ('Zhang', 'Yufei', '1998-04-19', Femme', CHN'),
 ('Katinka', 'Hosszú', '1985-05-03', Femme', HUN');
-INSERT INTO Country_table (code_country, name_country) VALUES
+INSERT INTO Country (code_country, name_country) VALUES
 ('AFG', ' Afghanistan'),
 ('ZAF', ' Afrique du Sud'),
 ('ALA', ' Îles Åland'),
@@ -436,7 +436,7 @@ INSERT INTO Country_table (code_country, name_country) VALUES
 ('YEM', ' Yémen'),
 ('ZMB', ' Zambie'),
 ('ZWE', ' Zimbabwe');
-INSERT INTO Discipline_table (name_fr_disc, name_an_disc, category_disc) VALUES
+INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
 ('tir à l’arc', 'archery', 'Olympic'),
 ('athlétisme', 'athletics', 'Olympic'),
 ('badminton', 'badminton', 'Olympic'),
@@ -505,7 +505,7 @@ INSERT INTO Discipline_table (name_fr_disc, name_an_disc, category_disc) VALUES
 ('escrime fauteuil', 'wheelchair fencing', 'Paralympic'),
 ('rugby fauteuil', 'wheelchair rugby', 'Paralympic'),
 ('tennis fauteuil', 'wheelchair tennis', 'Paralympic');
-INSERT INTO Record_table (stat_record, date_record, id_event, id_athlete) VALUES
+INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES
 ('9 s 63', '2012-08-05', 'NULL', NULL'),
 ('19 s 30', '2008-08-20', 'NULL', NULL'),
 ('43 s 03', '2016-08-15', 'NULL', NULL'),
@@ -577,7 +577,7 @@ INSERT INTO Record_table (stat_record, date_record, id_event, id_athlete) VALUES
 ('2 min 3 s 86', '2021-07-29', 'NULL', NULL'),
 ('2 min 6 s 58', '2016-08-09', 'NULL', NULL'),
 ('4 min 26 s 36', '2016-08-06', 'NULL', NULL');
-INSERT INTO `Date_calendar_table` (date_cal, medal_ceremony_date_cal) VALUES
+INSERT INTO Date_calendar (date_cal, medal_ceremony_date_cal) VALUES
 ('2024-07-26', False),
 ('2024-07-27', True),
 ('2024-07-28', True),

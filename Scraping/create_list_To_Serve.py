@@ -8,6 +8,7 @@ import requests, ast, sqlite3, re, locale
 from datetime import datetime
 from create_list_Site import *
 from get_id_table_selon_attr import *
+from datetime import datetime
 
 ##### Code #####
 main_url= "https://olympics.com/fr/paris-2024/sites"
@@ -34,7 +35,7 @@ def recup_url_transp():
                     #print(recup_transp(href))
                     if len(recup_transp(href)) >= 1:
                         result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp(href)})
-        print("Recup_url_transp Fini !!")
+        print('[',datetime.now().time(),'] ', "Recup_To_serve Fini !!")
         data_to_json(result, file_name)
         return result
     else:
@@ -174,6 +175,7 @@ def send_to_serve(transport, site, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "send_to_serve Fini !!!")
     return(send)
 
 if __name__ == '__main__':

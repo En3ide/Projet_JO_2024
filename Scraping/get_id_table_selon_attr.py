@@ -52,12 +52,12 @@ def get_dic_id_table(liste_dic, **kwargs):
     return "NULL"
 
 def data_to_json(data, file_name):
-    with open(file_name, "w") as f:
+    with open(file_name, "w", encoding="utf-8") as f:
         json.dump(data, f)
     return file_name
 
 def json_to_data(data, file_name):
-    with open(file_name, "r") as f:
+    with open(file_name, "r", encoding="utf-8") as f:
         data = json.load(f)
     return data
 

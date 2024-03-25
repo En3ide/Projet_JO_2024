@@ -12,7 +12,6 @@ import requests, ast, sqlite3, re, locale
 ##### Code #####
 main_url= "https://olympics.com/fr/paris-2024/sites"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
-file_name = "transport.json"
 
 def recup_url_transp(athlete, country):
     result = []
@@ -20,10 +19,10 @@ def recup_url_transp(athlete, country):
         result.append({"id_athlete": ath.index(), "code_country": ath.get("code_country")})
         for country in ath.get("code_country"):
             result.append({"id_athlete": ath.index(), "code_country": country})
-    print('[',datetime.now().time(),'] ', "sql Record fini !!!")
+    print('[',datetime.now().time(),'] ', "sql Is_from fini !!!")
     return result
 
-def send_is_from(is_from):
+def send_is_from(result):
         # Création de la requête SQL
     send = "INSERT INTO Is_from (id_athlete, ) VALUES\n"
     for dic in result:

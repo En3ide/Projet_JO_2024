@@ -175,7 +175,7 @@ def send_to_serve(transport, site, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
-    print('[',datetime.now().time(),'] ', "send_to_serve Fini !!!")
+    print('[',datetime.now().time(),'] ', "sql to_serve Fini !!!")
     return(send)
 
 if __name__ == '__main__':

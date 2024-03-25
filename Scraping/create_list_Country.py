@@ -32,7 +32,7 @@ def recup_country():
                 attr_name_contry = tmp[4].replace("\n", "")
                 
                 result.append({"code_country": attr_code_country, "name_country": attr_name_contry})
-        print('[',datetime.now().time(),'] ', "recup_country Fini !!!")
+        print('[',datetime.now().time(),'] ', "Recup_country Fini !!!")
         return(result)
     else:
         print(reponse.status_code)
@@ -55,7 +55,7 @@ def send_country(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
-    print('[',datetime.now().time(),'] ', "send_country Fini !!!")
+    print('[',datetime.now().time(),'] ', "sql country Fini !!!")
     return(send)
 
 def create_sql():

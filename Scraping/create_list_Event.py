@@ -347,7 +347,7 @@ def get_table_event(l_event):
             genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')
             for g in genre:
                 dico = {}
-                dico['name_event'] = str(nom_event)
+                dico['name_event'] = nom_event.replace("\u202f", "")
                 
                 #Trouver si c'est une épreuve collective ou non
                 for mot in MOT_EQUIPE:
@@ -385,13 +385,14 @@ def recup_event():
     return get_table_event(l_epreuves)
 
 def send_event(result, bdd=""):
+    print(result)
 
     # Création de la requête SQL
     send = "INSERT INTO Event_list (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
-        send += ("('" + dic.get("name_event") + "', '" +
+        send += ("('" + dic.get('name_event') + "', '" +
             dic.get("format_event") + "', '" +
-            dic.get("gender_event") + "', " +
+            dic.get("gender_event") + "', '" +
             dic.get("id_event") + "', " +
             dic.get("id_record") + "'),\n")
     send = send[:-2] + ";"

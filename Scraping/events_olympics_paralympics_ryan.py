@@ -120,6 +120,7 @@ def obtenir_epreuves(url):
                 for li in l_li:
                     epreuves.append(f"Lutte gréco-romaine {li.text.strip()} (femmes)")
                 return  epreuves
+            
             elif title_sport == "Taekwondo":
                 l_li = divs[i+2].find_all('li')
                 for li in l_li:
@@ -165,10 +166,164 @@ def obtenir_epreuves(url):
                         epreuves.append(li.text.strip())
                     epreuves[-1] = epreuves[-1][0:epreuves[-1].index(')')+1]
                 return  epreuves
+            
+            elif title_sport == "Boccia":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace("femmes-hommes","femmes/hommes"))
+                for i in range(4,len(epreuves)):
+                    epreuves[i] = epreuves[i].replace(' mixte','') +' (mixte)'
+                    
+                return  epreuves
+            
+            elif title_sport == "Cécifoot":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace(" masculin","") + " (hommes)")
+                return  epreuves
+            
+            elif title_sport == "Escrime fauteuil":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace("femmes, hommes","femmes/hommes"))
+                return  epreuves
+            
+            elif title_sport == "Para athlétisme":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    txt = li.text.strip()
+                    if txt == "Relais mixte 4x100m":
+                        epreuves.append(txt.replace(' mixte','') + ' (mixte)')
+                    else:
+                        if 'T' in txt:
+                            name_event = txt[0:txt.index('T')]
+                            reste = txt[txt.index('T'):]
+                        else:
+                            name_event = txt[0:txt.index('F')]
+                            reste = txt[txt.index('F'):]
+                        epr = reste.split('.')
+                        for ep in epr:
+                            if ep != "":
+                                epreuves.append(f"{name_event}{ep}".replace("femmes-hommes","femmes/hommes"))
+                return  epreuves
+                
+            elif title_sport == "Para aviron":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip())
+                epreuves[1] = epreuves[1].replace(" (men’s)","").replace(" (women’s)",'') + ' (mixte)'
+                return  epreuves
+            
             elif title_sport == "Para badminton":
                 l_li = divs[i+3].find_all('li')
                 for li in l_li:
+                    epreuves.append(li.text.strip().replace('dames-hommes','femmes/hommes'))
+                for epr in range(len(epreuves)-2,len(epreuves)):
+                    epreuves[epr] = epreuves[epr].replace('mixte ','') + ' (mixte)'
+                return  epreuves
+            
+            elif title_sport == "Para canoë":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace('-','/'))
+                return  epreuves
+            
+            elif title_sport == "Para cyclisme sur route":                
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace('femmes-hommes','femmes/hommes'))
+                epreuves[-1] = epreuves[-1].replace('mixte ','') + ' (mixte)'
+                return  epreuves
+            
+            elif title_sport == "Para cyclisme sur piste":
+                l = divs[i+2:i+15]
+                for div in l:
+                    epreuves.append(div.find('p').text.strip().replace('femmes-hommes','femmes/hommes'))
+                return epreuves
+            
+            elif title_sport == "Para équitation (para dressage)":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(f"{li.text.strip()} (mixte)")
+                return  epreuves
+            
+            elif title_sport == "Para powerlifting":
+                l_li = divs[i+3].find_all('li')
+                for li in l_li:
+                    c = li.text.strip().replace("Jusqu’à ","-")
+                    epreuves.append(f"{c} (femmes)")
+                l_li = divs[i+5].find_all('li')
+                for li in l_li:
+                    c = li.text.strip().replace("Jusqu’à ","-")
+                    epreuves.append(f"{c} (hommes)")
+                return  epreuves
+            
+            elif title_sport == "Para judo":
+                l_li = divs[i+2].find_all('li')
+                for li in range(0,4):
+                    epreuves.append(l_li[li].text.strip().replace(" (femmes)","") + " (femmes)")
+                for li in range(4,len(l_li)):
+                    epreuves.append(l_li[li].text.strip().replace(" (hommes)","") + " (hommes)")
+                return  epreuves
+            
+            elif title_sport == "Para natation":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    txt = li.text.strip()
+                    genre = txt[txt.index('('):txt.index(')')+1].replace('-','/')
+                    nom_event = txt[0:txt.index('(')]
+                    epreuves.append(f"{nom_event}{genre}")
+                return  epreuves
+            
+            elif title_sport == "Para taekwondo":
+                l_li = divs[i+2].find_all('li')
+                
+                for li in range(len(l_li)):
+                    l_li[li] = l_li[li].text.split()
+                    deca = 0
+                    for elt in range(len(l_li[li])):
+                        if l_li[li][0][0] != '-' and l_li[li][0][0] != '+' and l_li[li][0] != "K44":
+                            del l_li[li][elt-deca]
+                            deca += 1
+                for epr in range (1,len(l_li[0])):
+                    epreuves.append(f"{l_li[0][0]} {l_li[0][epr][0:-1]} (femmes)")
+                for epr in range (1,len(l_li[1])):
+                    epreuves.append(f"{l_li[1][0]} {l_li[1][epr][0:-1]} (hommes)")
+                return epreuves
+            
+            elif title_sport == "Para tennis de table":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace("femmes-hommes","femmes/hommes"))
+                return  epreuves
+            
+            elif title_sport == "Para tir sportif":
+                l_li = divs[i+3].find_all('li')
+                for li in l_li:
                     epreuves.append(li.text.strip())
+                l_li = divs[i+5].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip())
+                return  epreuves
+            
+            elif title_sport == "Para triathlon":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace("femmes, hommes","femmes/hommes"))
+                return  epreuves
+            
+            elif title_sport == "Rugby fauteuil":
+                epreuves.append("Tournoi 8 équipes (mixte)")
+                return  epreuves
+            
+            elif title_sport == "Tennis fauteuil":
+                l_li = divs[i+2].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip().replace("femmes, hommes","femmes/hommes"))
+                return  epreuves
+            elif title_sport == "Volleyball assis" or title_sport == "Goalball":
+                epreuves.append("Tournoi 8 équipes (femmes)")
+                epreuves.append("Tournoi 8 équipes (hommes)")
                 return  epreuves
             # Cas général.
             else:                
@@ -206,17 +361,19 @@ def get_table_event(l_event):
                 else:
                     dico['gender_event'] = "Mixte"
                 dico['#id_disc'] = sport[0]
+                print(dico)
                 table.append(dico)
                 
     return table
             
 
 def main():
-    #pages_sports_olympiques_fr = obtenir_pages_sports_olympiques_fr()
+    pages_sports_olympiques_fr = obtenir_pages_sports_olympiques_fr()
     pages_sports_paralympiques_fr = obtenir_pages_sports_paralympiques_fr()
     
+    pages_sport = pages_sports_olympiques_fr + pages_sports_paralympiques_fr
     l_epreuves = []
-    for url in pages_sports_paralympiques_fr:
+    for url in pages_sport:
         epreuves = obtenir_epreuves(url)
         if epreuves != None:
             l_epreuves.append(epreuves)
@@ -225,8 +382,10 @@ def main():
                 print(l_epreuves[-1][i])
 
     table = get_table_event(l_epreuves)
-    for event in table:
-        print(event)
+    with open('epreuves.txt','w') as f:
+        for event in table:
+            f.write(f'{event}\n')
+        
 
 if __name__ == "__main__":
     main()

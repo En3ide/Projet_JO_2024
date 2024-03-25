@@ -6,6 +6,7 @@
 from create_list_Site import *
 from create_list_Date_calendar import *
 from create_list_Athlete import *
+from create_list_Discipline import *
 import json
 
 ##### Code #####
@@ -27,43 +28,35 @@ def get_id_table(nom_table, **kwargs):
     
     if table_dict is not None:
 
-        for dict in table_dict:
+        for i, dict in enumerate(table_dict):
             find = True
             for cle, valeur in kwargs.items():
                 if not valeur in dict.get(cle):
                     find = False
                     break
             if find:
-                return table_dict.index(dict)+1
+                return i
     return None
 
-def get_id_athlete(*args):
+def get_dic_id_table(liste_dic, **kwargs):
     '''
-    Renvoie un dictionnaire nom_athlete:id d'athlètes
-    str -> id / [str, str] -> id
-    ex :
-    get_id_athlete("Usain Bolt", "Elaine Thompson-Herah", "Bob Beamon")
-    get_id_athlete(["Usain Bolt", "1986-08-21"], ["Elaine Thompson-Herah", "1992-06-28"], ["Bob Beamon", "1946-08-29"])
     '''
-    rep = {}
-    if isinstance(args[0], str):
-        for nom_athlete in args:
-            split_name = nom_athlete.split(' ')
-            rep[nom_athlete] = get_id_table("Athlete", firstname_athlete=split_name[0], name_athlete=split_name[1])
-    else:
-        for list in args:
-            split_name = list[0].split(' ')
-            birth = list[1]
-            rep[list[0]] = get_id_table("Athlete", firstname_athlete=split_name[0], name_athlete=split_name[1], birthday_athlete=birth)
-    return rep
-
+    for index, element in enumerate(liste_dic):
+        match = True
+        for cle, valeur in kwargs.items():
+            if cle not in element or element[cle] != valeur:
+                match = False
+                break
+        if match:
+            return str(index)
+    return "NULL"
 
 def data_to_json(data, file_name):
     with open(file_name, "w") as f:
         json.dump(data, f)
     return file_name
 
-def json_to_data(file_name):
+def json_to_data(data, file_name):
     with open(file_name, "r") as f:
         data = json.load(f)
     return data

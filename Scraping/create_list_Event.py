@@ -5,9 +5,11 @@
 ##### Import #####
 import requests, sqlite3
 from bs4 import BeautifulSoup
+from create_list_Discipline import *
+from create_list_Record import *
+from get_id_table_selon_attr import get_dic_id_table
 
-
-MOT_EQUIPE = ["équipes","équipe","Equipe","relais","Relais","Double","double","football","ensembles","handball","hockey","Duo","duos","synchronisé","water-polo","volleyball","rugby", "Deux","Quatre"]
+MOT_EQUIPE = ["équipes", "équipe", "Equipe", "relais", "Relais", "Double", "double", "football", "ensembles", "handball", "hockey", "Duo", "duos", "synchronisé", "water-polo", "volleyball", "rugby", "Deux", "Quatre"]
 
 def obtenir_pages_sports_olympiques_fr():
     pages_sports_olympiques = []
@@ -18,7 +20,7 @@ def obtenir_pages_sports_olympiques_fr():
         # Trouver tous les divs avec la classe 'block-classic-editor'
         divs = soup.find_all('div', class_='block-classic-editor')
         # Les sports se trouvent dans le 4 et 6 div de cette classe
-        targeted_div = [divs[3],divs[5]]
+        targeted_div = [divs[3], divs[5]]
         for div in targeted_div:
             # Trouver tous les tags 'a' à l'intérieur du div de cette classe
             liens_sports = div.find_all('a')
@@ -341,6 +343,10 @@ def obtenir_epreuves(url):
 def get_table_event(l_event):
     """[nom_sport, eprv1, eprv2...]"""
     table = []
+    dic_id_discipline = recup_discipline()
+    print("a")
+    dic_id_record = recup_record()
+    print("b")
     for sport in l_event:
         for i in range(1,len(sport)):
             nom_event = sport[i][0:sport[i].index('(')-1]
@@ -366,7 +372,9 @@ def get_table_event(l_event):
                     dico['gender_event'] = "Homme"
                 else:
                     dico['gender_event'] = "Mixte"
-                dico['id_disc'] = sport[0].lower()
+                nom_sport = sport[0].lower()
+                dico['id_disc'] = get_dic_id_table(dic_id_discipline, name_fr_disc=nom_sport)
+                dico['id_record'] = get_dic_id_table(dic_id_record, discipline=nom_sport, event=dico.get("name_event")) 
                 table.append(dico)
                 
     return table
@@ -381,7 +389,7 @@ def recup_event():
             # print(f"--- {l_epreuves[-1][0]} ---")
             # for i in range(1,len(l_epreuves[-1])):
             #     print(l_epreuves[-1][i])
-
+    print("EVENT SCRAP FAIT")
     return get_table_event(l_epreuves)
 
 def send_event(result, bdd=""):
@@ -407,9 +415,9 @@ def send_event(result, bdd=""):
     return(send)
 
 
-
 def create_sql():
     return send_event(recup_event)
 
 if __name__ == "__main__":
-    send_event(recup_event())
+    # send_event(recup_event())
+    print(recup_event())

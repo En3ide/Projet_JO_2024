@@ -147,4 +147,4 @@ def create_sql():
     return send_record(recup_record())
 
 if __name__ == "__main__":
-    send_record(recup_record())
+    print(recup_record())

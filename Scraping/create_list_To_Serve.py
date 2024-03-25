@@ -13,7 +13,6 @@ from datetime import datetime
 ##### Code #####
 main_url= "https://olympics.com/fr/paris-2024/sites"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
-file_name = "transport.json"
 
 def recup_url_transp():
     #print("test1")
@@ -36,7 +35,6 @@ def recup_url_transp():
                     if len(recup_transp(href)) >= 1:
                         result.append({"name_site": href.split("/")[-1].replace("-", " "), "transport": recup_transp(href)})
         print('[',datetime.now().time(),'] ', "Recup_To_serve Fini !!")
-        data_to_json(result, file_name)
         return result
     else:
         #print(reponse.status_code)

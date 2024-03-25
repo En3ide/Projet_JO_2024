@@ -152,6 +152,8 @@ def get_id_site(table_dict, cle, valeur):
                 if temp >= 2:
                     return table_dict.index(dic)+1
     return None
+def recup_to_serve():
+    return dic_to_table(recup_url_transp())
 
 def send_to_serve(transport, site, bdd=""):
 
@@ -176,5 +178,5 @@ def send_to_serve(transport, site, bdd=""):
 
 if __name__ == '__main__':
     site = recup_site()
-    transport = dic_to_table(recup_url_transp())
-    send_to_serve(transport, site)
+    to_serve = recup_to_serve()
+    send_to_serve(to_serve, site)

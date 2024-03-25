@@ -104,15 +104,39 @@ def dic_to_table(result):
                 tab.append({"name_site": site.get("name_site"), "id_trans": trsp_type, "num_ligne": number, "station_name": station.get("name")})
     return tab
 
+def get_id_site(table_dict, cle, valeur):
+    if table_dict is not None:
+        valeur = valeur.lower()
+        if " de " in valeur:
+            valeur = valeur.replace(" de ", " ")
+        if " des " in valeur:
+            valeur = valeur.replace(" des ", " ")
+        valeur = valeur.split(" ")
+        print("Valeur = " + str(valeur))
+        for dic in table_dict:
+            if dic != None:
+                tmp1 = dic.get(cle).lower()
+                if " de " in tmp1:
+                    tmp1 = tmp1.replace(" de ", " ")
+                if " des " in tmp1:
+                    tmp1 = tmp1.replace(" des ", " ")
+                temp = 0
+                for val in valeur:
+                    if val in str(tmp1):
+                        print("oui")
+                        temp +=1
+                if temp >= 2:
+                    return table_dict.index(dic)+1
+    return None
 
-def send_site(result, bdd=""):
+def send_To_Serve(result, bdd=""):
 
     # Création de la requête SQL
     send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
     for dic in result:
-        #for number in dic.get("number")
-        send += (" ('" + dic.get("id_site") + "', '" +
-            dic.get("id_trans") + "', '" +
+        id = get_id_site(result, "name_site" ,dic.get("name_site"))
+        send += (" (" + str(id) + ", " +
+            str(dic.get("id_trans")) + ", '" +
             dic.get("num_ligne") + "', '" +
             dic.get("station_name") + "'),\n")
     send += send[:-2] + ";"
@@ -126,4 +150,5 @@ def send_site(result, bdd=""):
         connexion.close()
     return(send)
 
-print(get_id_table("Site", name_site="Stade de Marseille"))
+if __name__ == '__main__':
+    print(send_To_Serve(dic_to_table(recup_url_transp(url_tmp))))

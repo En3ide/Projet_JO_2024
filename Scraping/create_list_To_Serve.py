@@ -129,6 +129,10 @@ def dic_to_table(result):
     return tab
 
 def get_id_site(table_dict, cle, valeur):
+    '''
+    Va tester la valeur de la clé avec toute les entré de table_dict
+    lorsqu'il trouve une correspondance il revoie l'id du site concerné
+    '''
     if table_dict is not None:
         valeur = valeur.lower()
         valeur = valeur.replace(" de ", " ")

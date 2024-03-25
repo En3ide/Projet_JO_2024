@@ -368,7 +368,7 @@ def get_table_event(l_event):
                     dico['gender_event'] = "Homme"
                 else:
                     dico['gender_event'] = "Mixte"
-                dico['id_disc'] = "NULL"
+                dico['discipline'] = sport[0].lower()
                 dico['id_record'] = "NULL"
                 table.append(dico)
                 
@@ -387,15 +387,20 @@ def recup_event():
     print("EVENT SCRAP FAIT")
     return get_table_event(l_epreuves)
 
-def send_event(result, bdd=""):
+def send_event(result, disc_table, record_table, bdd=""):
 
     # Création de la requête SQL
     send = "INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
+        id_discipline = 0
+        for di in disc_table:
+            if dic.get("#id_disc") in di.get("name_fr_disc"):
+                id_discipline = disc_table.index(di)
+                break
         send += ("('" + dic.get("name_event") + "', '" +
             dic.get("format_event") + "', '" +
             dic.get("gender_event") + "', '" +
-            dic.get("id_event") + "', " +
+            id_discipline + "', " +
             dic.get("id_record") + "'),\n")
     send = send[:-2] + ";"
 

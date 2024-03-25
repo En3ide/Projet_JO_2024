@@ -115,7 +115,7 @@ def recup_date_calendar():
 def send_date_calendar(result, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Date_calendar_table (date_cal, medal_ceremony_date_cal) VALUES\n"
+    send = "INSERT INTO `Date_calendar_table` (date_cal, medal_ceremony_date_cal) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("date_cal") + "', " +
             dic.get("medal_ceremony_date_cal") + "),\n")
@@ -134,5 +134,4 @@ def create_sql():
     return send_date_calendar(recup_date_calendar())
 
 if __name__ == "__main__":
-    print(create_sql())
     send_date_calendar(recup_date_calendar())

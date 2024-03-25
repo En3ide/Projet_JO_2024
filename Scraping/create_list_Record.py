@@ -38,15 +38,6 @@ def contient_n_fois_c(chaine, sous_chaine, nbr):
             n += 1
     return n >= nbr
     
-def remove_progression_from_chaine(ch):
-    '''
-    Renvoie ch sans le mot "Progression"
-    param : (str) ch -> chaine de caractere
-    return : (str) ch
-    '''
-    index = ch.index('Progression')
-    return ch[0:index]
-
 def formatage_name_event_record(chaine):
     '''
     Renvoie la chaine formaté pour retirer les espaces avant "km" "m" et entre les chiffres
@@ -78,7 +69,7 @@ def scraping_athletisme(soup):
             cells = tr.find_all('td')
             content = [cell.text for cell in cells]
             if len(content) > 0 and not contient_n_fois_c(content[1], " ", 3):
-                content[0] = remove_progression_from_chaine(content[0]) 
+                content[0] = content[0].replace("Progression", "")
                 content.pop(-1)
 
                 # Info dispo : [Discipline, Athlète, Pays, Perfomance, Date, Lieu]

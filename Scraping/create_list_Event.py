@@ -1,5 +1,11 @@
-import requests
+###################
+# Script de scraping table Event
+###################
+
+##### Import #####
+import requests, sqlite3
 from bs4 import BeautifulSoup
+
 
 MOT_EQUIPE = ["équipes","équipe","Equipe","relais","Relais","Double","double","football","ensembles","handball","hockey","Duo","duos","synchronisé","water-polo","volleyball","rugby", "Deux","Quatre"]
 
@@ -341,7 +347,7 @@ def get_table_event(l_event):
             genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')
             for g in genre:
                 dico = {}
-                dico['name_event'] = nom_event
+                dico['name_event'] = str(nom_event)
                 
                 #Trouver si c'est une épreuve collective ou non
                 for mot in MOT_EQUIPE:
@@ -360,32 +366,49 @@ def get_table_event(l_event):
                     dico['gender_event'] = "Homme"
                 else:
                     dico['gender_event'] = "Mixte"
-                dico['#id_disc'] = sport[0]
-                print(dico)
+                dico['id_disc'] = sport[0].lower()
                 table.append(dico)
                 
     return table
             
-
-def main():
-    pages_sports_olympiques_fr = obtenir_pages_sports_olympiques_fr()
-    pages_sports_paralympiques_fr = obtenir_pages_sports_paralympiques_fr()
-    
-    pages_sport = pages_sports_olympiques_fr + pages_sports_paralympiques_fr
+def recup_event():
+    pages_sport = obtenir_pages_sports_olympiques_fr() + obtenir_pages_sports_paralympiques_fr()
     l_epreuves = []
     for url in pages_sport:
         epreuves = obtenir_epreuves(url)
         if epreuves != None:
             l_epreuves.append(epreuves)
-            print(f"--- {l_epreuves[-1][0]} ---")
-            for i in range(1,len(l_epreuves[-1])):
-                print(l_epreuves[-1][i])
+            # print(f"--- {l_epreuves[-1][0]} ---")
+            # for i in range(1,len(l_epreuves[-1])):
+            #     print(l_epreuves[-1][i])
 
-    table = get_table_event(l_epreuves)
-    with open('epreuves.txt','w') as f:
-        for event in table:
-            f.write(f'{event}\n')
-        
+    return get_table_event(l_epreuves)
+
+def send_event(result, bdd=""):
+
+    # Création de la requête SQL
+    send = "INSERT INTO Event_list (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("name_event") + "', '" +
+            dic.get("format_event") + "', '" +
+            dic.get("gender_event") + "', " +
+            dic.get("id_event") + "', " +
+            dic.get("id_record") + "'),\n")
+    send = send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    return(send)
+
+
+
+def create_sql():
+    return send_event(recup_event)
 
 if __name__ == "__main__":
-    main()
+    send_event(recup_event())

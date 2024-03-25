@@ -77,7 +77,8 @@ def main(file_sql):
         #send_event(event) + "\n" +
         send_date_calendar(date_calendar)
     )
-    with open(file_sql, "w") as f:
+    print(sql[11740:11850])
+    with open(file_sql, "w", encoding="utf-8") as f:
         f.write(sql)
     return file_name
 

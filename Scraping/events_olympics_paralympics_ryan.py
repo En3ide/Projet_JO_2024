@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-MOT_EQUIPE = ["équipes","équipe","Equipe","relais","Relais","Double","double","football","ensembles","handball","hockey","Duo","duos","synchronisé","water-polo","volleyball","rugby"]
+MOT_EQUIPE = ["équipes","équipe","Equipe","relais","Relais","Double","double","football","ensembles","handball","hockey","Duo","duos","synchronisé","water-polo","volleyball","rugby", "Deux","Quatre"]
 
 def obtenir_pages_sports_olympiques_fr():
     pages_sports_olympiques = []
@@ -44,7 +44,7 @@ def obtenir_pages_sports_paralympiques_fr():
 
 def obtenir_epreuves(url):
     epreuves = []
-    # Récupération des sports des Jeux Paralympiques de Paris 2024
+    # Récupération de la page de sport
     réponse = requests.get(url)
     if réponse.status_code == 200:
         soup = BeautifulSoup(réponse.text, 'html.parser')
@@ -56,7 +56,7 @@ def obtenir_epreuves(url):
     for i in range (len(divs)):
         h2 = divs[i].find_all('h2')
         
-        if h2 != [] and h2[0].text.strip() == "Epreuves en 2024":
+        if h2 != [] and (h2[0].text.strip() == "Epreuves en 2024" or h2[0].text.strip() == "Epreuve en 2024"):
             #J'ai remarqué une configuration générale pour la plupart des pages de sports, mais voici les corrections pour certaines pages.
             #En boxe les catégories de poids ont pas encore été défini
             if title_sport == "Canoë sprint" or title_sport == "Canoë-kayak slalom":
@@ -165,16 +165,18 @@ def obtenir_epreuves(url):
                         epreuves.append(li.text.strip())
                     epreuves[-1] = epreuves[-1][0:epreuves[-1].index(')')+1]
                 return  epreuves
-                
+            elif title_sport == "Para badminton":
+                l_li = divs[i+3].find_all('li')
+                for li in l_li:
+                    epreuves.append(li.text.strip())
+                return  epreuves
             # Cas général.
             else:                
                 l_li = divs[i+2].find_all('li')
                 for li in l_li:
                     epreuves.append(li.text.strip())
                 return  epreuves
-                
-            #En boxe les catégories de poids ont pas encore été défini
-
+            
 def get_table_event(l_event):
     """[nom_sport, eprv1, eprv2...]"""
     table = []
@@ -210,15 +212,17 @@ def get_table_event(l_event):
             
 
 def main():
-    pages_sports_olympiques_fr = obtenir_pages_sports_olympiques_fr()
+    #pages_sports_olympiques_fr = obtenir_pages_sports_olympiques_fr()
     pages_sports_paralympiques_fr = obtenir_pages_sports_paralympiques_fr()
     
     l_epreuves = []
-    for url in pages_sports_olympiques_fr:
-        l_epreuves.append(obtenir_epreuves(url))
-        print(f"--- {l_epreuves[-1][0]} ---")
-        for i in range(1,len(l_epreuves[-1])):
-            print(l_epreuves[-1][i])
+    for url in pages_sports_paralympiques_fr:
+        epreuves = obtenir_epreuves(url)
+        if epreuves != None:
+            l_epreuves.append(epreuves)
+            print(f"--- {l_epreuves[-1][0]} ---")
+            for i in range(1,len(l_epreuves[-1])):
+                print(l_epreuves[-1][i])
 
     table = get_table_event(l_epreuves)
     for event in table:

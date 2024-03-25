@@ -139,7 +139,7 @@ def get_id_site(table_dict, cle, valeur):
         valeur = valeur.replace(" de ", " ")
         valeur = valeur.replace(" des ", " ")
         valeur = valeur.split(" ")
-        print("Valeur = " + str(valeur))
+        #print("Valeur = " + str(valeur))
         for dic in table_dict:
             if dic != None:
                 tmp1 = dic.get(cle).lower()

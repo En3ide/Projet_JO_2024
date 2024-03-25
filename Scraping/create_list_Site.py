@@ -7,6 +7,7 @@ from get_id_table_selon_attr import *
 from bs4 import BeautifulSoup
 import requests, sqlite3
 from date_convert import date_convert, convert_date
+from datetime import datetime
 
 ##### Code #####
 main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
@@ -77,8 +78,7 @@ def recup_site():
                 attr_creation_date = convert_date(donnee[1])
              
                 result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
-        #print("Recup_site Fini !!!")
-        #data_to_json(result, file_name)
+        print('[',datetime.now().time(),'] ', "Recup_site Fini !!!")
         return(result)
     else:
         print(reponse.status_code)
@@ -113,6 +113,7 @@ def send_site(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "sql Site Fini !!!")
     return(send)
 
 def create_sql():

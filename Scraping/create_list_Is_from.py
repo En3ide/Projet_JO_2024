@@ -10,8 +10,6 @@ from datetime import datetime
 import requests, ast, sqlite3, re, locale
 
 ##### Code #####
-main_url= "https://olympics.com/fr/paris-2024/sites"
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
 
 def recup_is_from(athlete, country):
     result = []
@@ -42,6 +40,3 @@ def send_is_from(result, bdd=""):
 
 def create_sql(athlete, country):
     return send_is_from(recup_is_from(athlete, country))
-
-if __name__ == "__main__":
-    print(recup_is_from())

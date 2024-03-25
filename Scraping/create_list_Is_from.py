@@ -14,9 +14,9 @@ import requests, ast, sqlite3, re, locale
 def recup_is_from(athlete, country):
     result = []
     for ath in athlete:
-        result.append({"id_athlete": ath.index(), "code_country": ath.get("code_country")})
+        result.append({"id_athlete": athlete.index(ath), "code_country": ath.get("code_country")})
         for country in ath.get("code_country"):
-            result.append({"id_athlete": ath.index(), "code_country": country})
+            result.append({"id_athlete": athlete.index(ath), "code_country": country})
     print('[',datetime.now().time(),'] ', "sql Is_from fini !!!")
     return result
 

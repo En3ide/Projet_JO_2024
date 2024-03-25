@@ -67,9 +67,9 @@ def main(file_sql):
         else:
             date_calendar = pool.apply(recup_date_calendar)
         if os.path.exists(json + "is_from.json"):
-            is_from = pool.apply(recup_is_from(athlete, country))
-        else:
             is_from = json_to_data(json + "is_from.json")
+        else:
+            is_from = pool.apply(recup_is_from, (athlete, country, ))
     data_to_json(transport, json + "transport.json")
     data_to_json(site, json + "tite.json")
     data_to_json(to_serve, json + "to_serve.json")
@@ -81,14 +81,14 @@ def main(file_sql):
     data_to_json(is_from, json + "is_from.json")
     # On put les insert dans le fichier sql
     sql = (
-        send_transport(transport) + "\n" +
-        send_site(site) + "\n" +
-        send_athlete(athlete) + "\n" +
-        send_country(country) + "\n" +
-        send_discipline(discipline) + "\n" +
-        send_record(record, event, athlete) + "\n" +
-        send_date_calendar(date_calendar)+ "\n" +
-        send_to_serve(to_serve, site) + "\n" +
+        send_transport(transport) + "\n\n" +
+        send_site(site) + "\n\n" +
+        send_athlete(athlete) + "\n\n" +
+        send_country(country) + "\n\n" +
+        send_discipline(discipline) + "\n\n" +
+        send_record(record, event, athlete) + "\n\n" +
+        send_date_calendar(date_calendar)+ "\n\n" +
+        send_to_serve(to_serve, site) + "\n\n" +
         #send_event(event, discipline, record) + "\n" +
         send_is_from(is_from)
     )

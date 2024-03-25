@@ -63,7 +63,7 @@ def data_to_json(data, file_name):
         json.dump(data, f)
     return file_name
 
-def json_to_data(data, file_name):
+def json_to_data(file_name):
     with open(file_name, "r") as f:
         data = json.load(f)
     return data

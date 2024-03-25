@@ -141,6 +141,7 @@ def send_record(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "sql Record fini !!!")
     return(send)
 
 def create_sql():

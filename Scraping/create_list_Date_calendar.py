@@ -108,7 +108,7 @@ def recup_date_calendar():
         attr_medal_cer = str(current_date.strftime("%d") in list_day_medal)
         date_list.append({"date_cal": attr_date_cal, "medal_ceremony_date_cal": attr_medal_cer})
         current_date += timedelta(days=1)
-
+    print('[',datetime.now().time(),'] ', "Recup date_calendar fini !!!")
     return date_list
 
 
@@ -128,6 +128,7 @@ def send_date_calendar(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "sql Date_calendar fini !!!")
     return(send)
 
 def create_sql():

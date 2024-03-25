@@ -6,6 +6,7 @@
 import doctest
 import requests, sqlite3
 from bs4 import BeautifulSoup
+from datetime import datetime
 import ast
 
 ##### Code #####
@@ -92,6 +93,7 @@ def send_athlete(result, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "sql Athlete fini !!!")
     return(send)
 
 def create_sql():

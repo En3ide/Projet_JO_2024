@@ -4,14 +4,16 @@
         "firstname_athlete": "Usain",
         "birthday_athlete": "1986-08-21",
         "gender_athlete": "Homme",
-        "code_country": "JAM"
+        "code_country": "JAM",
+        "Nationalitys": []
     },
     {
         "firstname_athlete": "Elaine",
         "name_athlete": "Thompson-Herah",
         "birthday_athlete": "1992-06-28",
         "gender_athlete": "Femme",
-        "code_country": "JAM"
+        "code_country": "JAM",
+        "Nationalitys": []
     },
     {
         "firstname_athlete": "Bob",

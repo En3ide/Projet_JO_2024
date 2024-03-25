@@ -65,6 +65,14 @@ def main(file_sql):
             date_calendar = json_to_data(json+"date_calendar.json")
         else:
             date_calendar = pool.apply(recup_date_calendar)
+    data_to_json(transport, json + "transport.json")
+    data_to_json(site, json + "site.json")
+    data_to_json(to_serve, json + "to_serve.json")
+    data_to_json(athlete, json + "athlete.json")
+    data_to_json(country, json + "country.json")
+    data_to_json(discipline, json + "discipline.json")
+    data_to_json(record, json + "record.json")
+    data_to_json(date_calendar, json + "date_calendar.json")
     # On put les insert dans le fichier sql
     sql = (
         send_transport(transport) + "\n" +

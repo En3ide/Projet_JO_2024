@@ -343,10 +343,6 @@ def obtenir_epreuves(url):
 def get_table_event(l_event):
     """[nom_sport, eprv1, eprv2...]"""
     table = []
-    dic_id_discipline = recup_discipline()
-    print("a")
-    dic_id_record = recup_record()
-    print("b")
     for sport in l_event:
         for i in range(1,len(sport)):
             nom_event = sport[i][0:sport[i].index('(')-1]
@@ -372,9 +368,8 @@ def get_table_event(l_event):
                     dico['gender_event'] = "Homme"
                 else:
                     dico['gender_event'] = "Mixte"
-                nom_sport = sport[0].lower()
-                dico['id_disc'] = get_dic_id_table(dic_id_discipline, name_fr_disc=nom_sport)
-                dico['id_record'] = get_dic_id_table(dic_id_record, discipline=nom_sport, event=dico.get("name_event")) 
+                dico['id_disc'] = "NULL"
+                dico['id_record'] = "NULL"
                 table.append(dico)
                 
     return table
@@ -393,12 +388,11 @@ def recup_event():
     return get_table_event(l_epreuves)
 
 def send_event(result, bdd=""):
-    print(result)
 
     # Création de la requête SQL
     send = "INSERT INTO Event_list (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
-        send += ("('" + dic.get('name_event') + "', '" +
+        send += ("('" + dic.get("name_event") + "', '" +
             dic.get("format_event") + "', '" +
             dic.get("gender_event") + "', '" +
             dic.get("id_event") + "', " +
@@ -419,5 +413,4 @@ def create_sql():
     return send_event(recup_event)
 
 if __name__ == "__main__":
-    # send_event(recup_event())
-    print(recup_event())
+    print(send_event(recup_event()))

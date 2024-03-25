@@ -28,40 +28,40 @@ def installer_requirements(fichier_requirements):
 
 def main(file_sql):
     with Pool() as pool:
-        if os.path.exists("transport.json"):
-            transport = json_to_data("transport.json")
+        if os.path.exists(json+"transport.json"):
+            transport = json_to_data(json+"transport.json")
         else:
             transport = pool.apply(recup_transport)
-        if os.path.exists("site.json"):
-            site = json_to_data("site.json")
+        if os.path.exists(json+"site.json"):
+            site = json_to_data(json+"site.json")
         else:
             site = pool.apply(recup_site)
-        if os.path.exists("transport.json"):
-            to_serve = json_to_data("to_serve.json")
+        if os.path.exists(json+"transport.json"):
+            to_serve = json_to_data(json+"to_serve.json")
         else:
             to_serve = pool.apply(recup_to_serve)
-        if os.path.exists("transport.json"):
-            athlete = json_to_data("athlete.json")
+        if os.path.exists(json+"transport.json"):
+            athlete = json_to_data(json+"athlete.json")
         else:
             athlete = pool.apply(recup_athlete)
-        if os.path.exists("country.json"):
-            country = json_to_data("country")
+        if os.path.exists(json+"country.json"):
+            country = json_to_data(json+"country")
         else:
             country = pool.apply(recup_country)
-        if os.path.exists("discipline.json"):
-            discipline = json_to_data("discipline.json")
+        if os.path.exists(json+"discipline.json"):
+            discipline = json_to_data(json+"discipline.json")
         else:
             discipline = pool.apply(recup_discipline)
-        if os.path.exists("record.json"):
-            record = json_to_data("record.json")
+        if os.path.exists(json+"record.json"):
+            record = json_to_data(json+"record.json")
         else:
             record = pool.apply(recup_record)
-        if os.path.exists("event.json"):
-            event = json_to_data("event.json")
+        if os.path.exists(json+"event.json"):
+            event = json_to_data(json+"event.json")
         else:
             event = pool.apply(recup_event)
-        if os.path.exists("date_calendar.json"):
-            date_calendar = json_to_data("date_calendar.json")
+        if os.path.exists(json+"date_calendar.json"):
+            date_calendar = json_to_data(json+"date_calendar.json")
         else:
             date_calendar = pool.apply(recup_date_calendar)
     # On put les insert dans le fichier sql
@@ -79,6 +79,8 @@ def main(file_sql):
     with open(file_sql, "w") as f:
         json.dump(sql, f)
     return file_name
+
+json = "./saved_json/"
 
 if __name__ == "__main__":
     if installer_requirements("requirements.txt"):

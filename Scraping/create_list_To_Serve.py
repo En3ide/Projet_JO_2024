@@ -153,7 +153,7 @@ def get_id_site(table_dict, cle, valeur):
                     return table_dict.index(dic)+1
     return None
 
-def send_To_Serve(transport, site, bdd=""):
+def send_to_serve(transport, site, bdd=""):
 
     # Création de la requête SQL
     send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
@@ -175,4 +175,6 @@ def send_To_Serve(transport, site, bdd=""):
     return(send)
 
 if __name__ == '__main__':
-    print(send_To_Serve(dic_to_table(recup_url_transp())))
+    site = recup_site()
+    transport = dic_to_table(recup_url_transp())
+    send_to_serve(transport, site)

@@ -1,5 +1,5 @@
 ###################
-# Script de scraping table Date_calendar
+# Script de scraping table To_pertain_team
 ###################
 
 ##### Import #####
@@ -12,7 +12,7 @@ from get_id_table_selon_attr import *
 from datetime import datetime
 
 ##### Code #####
-main_url= "https://olympics.com/fr/paris-2024/sites"
+main_url= ""
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
 
 def recup_to_pertain_team():

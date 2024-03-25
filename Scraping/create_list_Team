@@ -1,5 +1,5 @@
 ###################
-# Script de scraping table To_register_athlete
+# Script de scraping table Team
 ###################
 
 ##### Import #####
@@ -15,16 +15,16 @@ from datetime import datetime
 main_url= ""
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
 
-def recup_to_register_athlete():
+def recup_team():
     pass
 
-def send_to_register_athlete(result, event_table, athlete_table, bdd=""):
+def send_team(result, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO To_register_athlete (id_event, id_athlete) VALUES\n"
-    event_id = "NULL" # en utilisant event_table, pas fait
-    athlete_id = "NULL" # en utilisant athlete_table, pas fait
+    send = "INSERT INTO Team (size_team, type_medal, code_country) VALUES\n"
     for dic in result:
-        send += ("('" + str(event_id) + "', '" + str(athlete_id) + "'),\n")
+        send += ("('" + dic.get("size_team") + "', '" +
+            dic.get("type_medal") + "', '" +
+            dic.get("code_country") + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

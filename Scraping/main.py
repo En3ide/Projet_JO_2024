@@ -35,8 +35,9 @@ if __name__ == "__main__":
         country = pool.apply(recup_country)
         discipline = pool.apply(recup_discipline)
         record = pool.apply(recup_record)
-        # event = pool.apply(recup_event)
+        event = pool.apply(recup_event)
         date_calendar = pool.apply(recup_date_calendar)
+    
     sql_transport = send_transport(transport)
     sql_site = send_site(site)
     sql_to_serve = send_to_serve(to_serve, site)
@@ -44,5 +45,5 @@ if __name__ == "__main__":
     sql_country = send_country(country)
     sql_discipline = send_discipline(discipline)
     sql_record = send_record(record)
-    # sql_event = send_event(event)
+    sql_event = send_event(event)
     sql_date_calendar = send_date_calendar(date_calendar)

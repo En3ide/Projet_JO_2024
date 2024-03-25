@@ -390,7 +390,7 @@ def recup_event():
 def send_event(result, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Event_list (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
+    send = "INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("name_event") + "', '" +
             dic.get("format_event") + "', '" +

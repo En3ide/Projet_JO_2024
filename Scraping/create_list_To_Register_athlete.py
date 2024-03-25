@@ -16,4 +16,25 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 file_name = "transport.json"
 
 def recup_to_register_athlete(event, athlete):
-    
+    pass
+
+def send_to_register_athlete(result, bdd=""):
+    # Création de la requête SQL
+    send = "INSERT INTO To_register_athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES\n"
+    for dic in result:
+        send += ("('" + dic.get("firstname_athlete") + "', '" +
+            dic.get("name_athlete") + "', '" +
+            dic.get("birthday_athlete") + "', " +
+            dic.get("gender_athlete") + "', " +
+            dic.get("code_country") + "'),\n")
+    send = send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    print('[',datetime.now().time(),'] ', "sql To_register_athlete fini !!!")
+    return(send)

@@ -12,19 +12,20 @@ from get_id_table_selon_attr import *
 from datetime import datetime
 
 ##### Code #####
-main_url= ""
+main_url= "https://olympics.com/fr/paris-2024/sites"
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
 
-def recup_to_register_athlete():
+def recup_to_pertain_team():
     pass
 
-def send_to_register_athlete(result, event_table, athlete_table, bdd=""):
+def send_to_register_team(result, athlete_table, team_table, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO To_register_athlete (id_event, id_athlete) VALUES\n"
-    event_id = "NULL" # en utilisant event_table, pas fait
-    athlete_id = "NULL" # en utilisant athlete_table, pas fait
+    to_pertain_team__table = recup_to_pertain_team() # pas fait
+    team_i = "NULL" # en utilisant athlete_table, pas fait
+    athlete_i = "NULL" # en utilisant team_table, pas fait
     for dic in result:
-        send += ("('" + str(event_id) + "', '" + str(athlete_id) + "'),\n")
+        send += ("('" + str(athlete_i) + "', '" + str(team_i) + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

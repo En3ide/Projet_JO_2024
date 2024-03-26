@@ -110,17 +110,18 @@ def main(file_sql):
     )
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(str(sql))
-    with open("./BD/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
+    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
         sql_creation = f.read()
-    with open("./BD/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
+    with open(PATH + "Script_SQL/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
         fichier.write(sql_creation + "\n" +str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 
 
-json = "./saved_json/"
-path_script_insert = "./BD/INSERTION_BDD.sql"
+PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
+json = PATH + "saved_json/"
+path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
 
 if __name__ == "__main__":
-    if installer_requirements("./Scraping/requirements.txt"):
+    if installer_requirements(PATH + "Scraping/requirements.txt"):
         main(path_script_insert)

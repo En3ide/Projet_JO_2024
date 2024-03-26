@@ -109,9 +109,9 @@ def main(file_sql):
     )
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(str(sql))
-    with open("./BD/INTERNETEURS_SCRIPT_CREATION.sql", "r") as f:
+    with open("./BD/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
         sql_creation = f.readlines()
-    with open("./BD/INTERNETEURS.sql", 'w') as fichier:
+    with open("./BD/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
         fichier.write(str(sql_creation) + "\n" +str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name

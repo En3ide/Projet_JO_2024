@@ -45,7 +45,7 @@ def main(file_sql):
             date_calendar = pool.apply(recup_date_calendar)
             is_from = pool.apply(recup_is_from, (athlete, country, ))
     data_to_json(transport, json + "transport.json")
-    data_to_json(site, json + "tite.json")
+    data_to_json(site, json + "site.json")
     data_to_json(to_serve, json + "to_serve.json")
     data_to_json(athlete, json + "athlete.json")
     data_to_json(country, json + "country.json")
@@ -63,8 +63,7 @@ def main(file_sql):
         "Date_calendar": date_calendar,
         "Is_from": is_from
     }
-    with open(json+ "liste_table.json", "w", encoding="utf-8") as f:
-        f.write(str(liste_table))
+    data_to_json(liste_table, json + "liste_table.json")
     # On put les insert dans le fichier sql
     sql = (
         send_transport(transport) + "\n\n" +
@@ -80,6 +79,10 @@ def main(file_sql):
     )
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(str(sql))
+    with open("./BD/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
+        sql_creation = f.readlines()
+    with open("./BD/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
+        fichier.write(str(sql_creation) + "\n" +str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 

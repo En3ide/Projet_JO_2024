@@ -1,25 +1,16 @@
 <?php
 
-// Paramètres de connexion à la base de données
-$serveur = "localhost"; // Adresse du serveur MariaDB
-$utilisateur = "mysql"; // Nom d'utilisateur de la base de données
-$mot_de_passe = "confirmer"; // Mot de passe de la base de données
-$base_de_donnees = "Projet_JO"; // Nom de la base de données
-
-// Connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $mot_de_passe, $base_de_donnees);
+// Connexion à la base de données MySQL
+$connexion = mysqli_connect("localhost", "mysql", "confirmer", "Projet_JO");
 
 // Vérifier la connexion
-if ($connexion->connect_error) {
-    die("Erreur de connexion : " . $connexion->connect_error);
+if ($connexion === false) {
+    die("Erreur de connexion : " . mysqli_connect_error());
 }
 
-// Requête pour récupérer les données de la table "athlete"
-$requete = "SELECT * FROM athlete";
-
-// Exécution de la requête
-$resultat = $connexion->query($requete);
-
+// Exécuter la requête pour afficher la liste des tables
+$sql = "SELECT * FROM Athlete";
+$resultat = mysqli_query($connexion, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -30,21 +21,21 @@ $resultat = $connexion->query($requete);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau des Athlètes</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-        th,
-        td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+    th,
+    td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-        th {
-            background-color: #f2f2f2;
-        }
+    th {
+        background-color: #f2f2f2;
+    }
     </style>
 </head>
 
@@ -56,31 +47,30 @@ $resultat = $connexion->query($requete);
         <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>Pays</th>
+            <th>Prenom</th>
+            <th>Date de Naissance</th>
+            <th>Genre</th>
+            <th>Code country</th>
         </tr>
+
         <?php
-        // Vérifier si la requête a renvoyé des résultats
-        if ($resultat->num_rows > 0) {
-            // Parcourir les lignes de résultats
-            while ($ligne = $resultat->fetch_assoc()) {
-                // Afficher les données de chaque ligne dans un tableau HTML
-                echo "<tr>";
-                echo "<td>" . $ligne["id"] . "</td>";
-                echo "<td>" . $ligne["nom"] . "</td>";
-                echo "<td>" . $ligne["pays"] . "</td>";
-                echo "</tr>";
+        // Vérifier si la requête a réussi
+        if ($resultat) {
+            // Afficher les noms des tables
+            echo "Liste des tables dans la base de données :<br>";
+            echo "<tr>";
+            foreach (mysqli_fetch_row($resultat) as $i) {
+                echo "<td>" . $i . "</td>";
             }
+            echo "</tr>";
         } else {
-            echo "<tr><td colspan='3'>Aucun résultat trouvé.</td></tr>";
+            echo "Erreur lors de l'exécution de la requête : " . mysqli_error($connexion);
         }
-        ?>
+
+        // Fermer la connexion à la base de données
+        mysqli_close($connexion); ?>
     </table>
 
 </body>
 
 </html>
-
-<?php
-// Fermer la connexion à la base de données
-$connexion->close();
-?>

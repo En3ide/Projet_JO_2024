@@ -12,8 +12,8 @@ START TRANSACTION;
 DROP TABLE IF EXISTS Athlete;
 CREATE TABLE Athlete (
   id_athlete int(11) PRIMARY KEY AUTO_INCREMENT,
-  firstname_athlete VARCHAR(32) NOT NULL,
-  name_athlete VARCHAR(32) NOT NULL,
+  firstname_athlete VARCHAR(50) NOT NULL,
+  name_athlete VARCHAR(50) NOT NULL,
   birthday_athlete date DEFAULT NULL,
   gender_athlete enum('MAN', 'WOMAN') NOT NULL,
   code_country char(3) DEFAULT NULL
@@ -28,7 +28,7 @@ CREATE TABLE Athlete (
 DROP TABLE IF EXISTS Country;
 CREATE TABLE Country (
   code_country char(3) NOT NULL PRIMARY KEY,
-  name_country VARCHAR(32) NOT NULL
+  name_country VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -53,8 +53,8 @@ CREATE TABLE Date_calendar (
 DROP TABLE IF EXISTS Discipline;
 CREATE TABLE Discipline (
   id_disc int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_fr_disc VARCHAR(32) NOT NULL,
-  name_an_disc VARCHAR(32),
+  name_fr_disc VARCHAR(50) NOT NULL,
+  name_an_disc VARCHAR(50),
   category_disc enum('OLYMPIC', 'PARALYMPIC') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,7 +67,7 @@ CREATE TABLE Discipline (
 DROP TABLE IF EXISTS Event;
 CREATE TABLE Event (
   id_event int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_event VARCHAR(32) NOT NULL,
+  name_event VARCHAR(50) NOT NULL,
   format_event enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
   gender_event enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   id_disc int(11) NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE Record (
 DROP TABLE IF EXISTS Transport;
 CREATE TABLE Transport (
   id_trans int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_trans VARCHAR(32) enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
+  name_trans enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,8 +125,8 @@ CREATE TABLE Transport (
 DROP TABLE IF EXISTS Site;
 CREATE TABLE Site (
   id_site int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_site VARCHAR(32) NOT NULL,
-  adress_site VARCHAR(32) NOT NULL,
+  name_site VARCHAR(50) NOT NULL,
+  adress_site VARCHAR(50) NOT NULL,
   creation_date_site date DEFAULT NULL,
   capacity_site int(11) DEFAULT NULL,
   URL_site VARCHAR(255) DEFAULT NULL
@@ -222,8 +222,8 @@ DROP TABLE IF EXISTS To_Serve;
 CREATE TABLE To_Serve (
   id_site int(11) NOT NULL,
   id_trans int(11) NOT NULL,
-  num_ligne VARCHAR(32) NOT NULL,
-  station_name VARCHAR(32) NOT NULL,
+  num_ligne VARCHAR(50) NOT NULL,
+  station_name VARCHAR(50) NOT NULL,
   PRIMARY KEY (id_site, id_trans)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

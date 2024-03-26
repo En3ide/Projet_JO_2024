@@ -345,8 +345,9 @@ def get_table_event(l_event):
     table = []
     for sport in l_event:
         for i in range(1,len(sport)):
-            nom_event = sport[i][0:sport[i].index('(')-1]
-            nom_event = re.sub(r'(\d+m)(?![^\s])', r'\1 ', nom_event.replace("\u202f", "").replace("\u2019", "'").replace("  ", " ").replace("\u00a0", " ").replace("\u2013", "-"))
+            temp_nom_event = sport[i][0:sport[i].index('(')-1]
+            temp_nom_event = re.sub(r'(\d+m)(?![^\s])', r'\1 ', nom_event.replace("\u202f", "").replace("\u2019", "'").replace("\u00a0", " ").replace("\u2013", "-"))
+            nom_event = re.sub(r'\s+', ' ', temp_nom_event)
             if nom_event[-1] == " ":
                 nom_event = nom_event[:-1]
             genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')

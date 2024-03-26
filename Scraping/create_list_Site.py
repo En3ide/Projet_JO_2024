@@ -77,7 +77,7 @@ def recup_site():
                     attr_adress = attr_name
                 attr_creation_date = convert_date(donnee[1])
              
-                result.append({"name_site": attr_name, "adress_site": attr_adress, "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
+                result.append({"name_site": attr_name.replace("\u00a0", " "), "adress_site": attr_adress.replace("\u00a0", " "), "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
         print('[',datetime.now().time(),'] ', "Recup_site Fini !!!")
         return(result)
     else:
@@ -90,20 +90,20 @@ def send_site(result, bdd=""):
     send = "INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES\n"
     for dic in result:
         date_is_null = dic.get("creation_date_site") == "NULL"
-        send += (" ('" + dic.get("name_site") + "', '" +
-            dic.get("adress_site"))
+        send += (" ('" + dic.get("name_site").replace("'", "''") + "', '" +
+            dic.get("adress_site").replace("'", "''"))
         if date_is_null:
             send += "', "
         else:
             send += "', '"
-        send += dic.get("creation_date_site")
+        send += dic.get("creation_date_site").replace("'", "''")
         if date_is_null:
             send += ", "
         else:
             send += "', "
 
-        send += (dic.get("capacity_site") + ", '" +
-            dic.get("URL_site") + "'),\n")
+        send += (dic.get("capacity_site").replace("'", "''") + ", '" +
+            dic.get("URL_site").replace("'", "''") + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

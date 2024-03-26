@@ -24,7 +24,7 @@ def send_is_from(result, bdd=""):
         # Création de la requête SQL
     send = "INSERT INTO Is_from (id_athlete, code_country) VALUES\n"
     for dic in result:
-        send += ("('" + str(dic.get("id_athlete")) + "', '" +
+        send += ("(" + str(dic.get("id_athlete")) + ", '" +
             dic.get("code_country") + "'),\n")
     send = send[:-2] + ";"
 

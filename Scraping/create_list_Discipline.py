@@ -120,9 +120,9 @@ def send_discipline(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES\n"
     for dic in result:
-        send += ("('" + dic.get("name_fr_disc") + "', '" +
-            dic.get("name_an_disc") + "', '" +
-            dic.get("category_disc") + "'),\n")
+        send += ("('" + dic.get("name_fr_disc").replace("'", "''") + "', '" +
+            dic.get("name_an_disc").replace("'", "''") + "', '" +
+            dic.get("category_disc").replace("'", "''") + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

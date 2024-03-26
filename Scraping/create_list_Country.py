@@ -44,8 +44,8 @@ def send_country(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Country (code_country, name_country) VALUES\n"
     for dic in result:
-        code_country = dic.get("code_country").replace("'", " ")
-        name_country = dic.get("name_country").replace("'", " ")
+        code_country = dic.get("code_country").replace("'", "''")
+        name_country = dic.get("name_country").replace("'", "''")
         send += ("('" + code_country + "', '" +
             name_country + "'),\n")
     send = send[:-2] + ";"

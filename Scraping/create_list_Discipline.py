@@ -118,7 +118,7 @@ def recup_discipline():
 
 def send_discipline(result, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES\n"
+    send = "INSERT IGNORE INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("name_fr_disc").replace("'", "''") + "', '" +
             dic.get("name_an_disc").replace("'", "''") + "', '" +

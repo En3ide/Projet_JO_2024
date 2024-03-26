@@ -391,7 +391,7 @@ def recup_event():
 def send_event(result, disc_table, record_table, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
+    send = "INSERT IGNORE INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
         id_discipline = get_dic_id_table(disc_table, name_fr_disc=dic.get("discipline"))
         id_record = get_dic_id_table_in(record_table, discipline=dic.get("discipline"), event=dic.get("name_event"))

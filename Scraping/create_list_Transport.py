@@ -19,7 +19,7 @@ def recup_transport():
 def send_transport(result, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Transport (name_trans) VALUES\n"
+    send = "INSERT IGNORE INTO Transport (name_trans) VALUES\n"
     for dic in result:
         send += "('" + dic.get("name_trans").replace("'", "''") + "'),\n"
     send = send[:-2] + ";"

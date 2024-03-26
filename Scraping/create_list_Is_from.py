@@ -21,7 +21,7 @@ def recup_is_from(athlete, country):
 
 def send_is_from(result, bdd=""):
         # Création de la requête SQL
-    send = "INSERT INTO Is_from (id_athlete, code_country) VALUES\n"
+    send = "INSERT IGNORE INTO Is_from (id_athlete, code_country) VALUES\n"
     for dic in result:
         send += ("(" + str(dic.get("id_athlete")) + ", '" +
             dic.get("code_country") + "'),\n")

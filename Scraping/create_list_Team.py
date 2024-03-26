@@ -20,7 +20,7 @@ def recup_team():
 
 def send_team(result, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO Team (size_team, type_medal, code_country) VALUES\n"
+    send = "INSERT IGNORE INTO Team (size_team, type_medal, code_country) VALUES\n"
     for dic in result:
         send += ("('" + dic.get("size_team") + "', '" +
             dic.get("type_medal") + "', '" +

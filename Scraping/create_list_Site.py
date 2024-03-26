@@ -87,7 +87,7 @@ def recup_site():
 def send_site(result, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES\n"
+    send = "INSERT IGNORE INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES\n"
     for dic in result:
         date_is_null = dic.get("creation_date_site") == "NULL"
         send += (" ('" + dic.get("name_site").replace("'", "''") + "', '" +

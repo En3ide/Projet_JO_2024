@@ -131,7 +131,7 @@ def get_id_event():
 
 def send_record(result, event_table, athlete_table, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES\n"
+    send = "INSERT IGNORE INTO Record (stat_record, date_record, id_event, id_athlete) VALUES\n"
     for dic in result:
         id_event = get_dic_id_table(event_table, discipline=dic.get("name_fr_disc"))
         athlete_name = dic.get("athlete").split(" ")

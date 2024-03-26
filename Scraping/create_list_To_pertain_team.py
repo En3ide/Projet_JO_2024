@@ -19,7 +19,7 @@ def recup_to_pertain_team():
 
 def send_to_register_team(result, athlete_table, team_table, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO To_register_athlete (id_event, id_athlete) VALUES\n"
+    send = "INSERT IGNORE INTO To_register_athlete (id_event, id_athlete) VALUES\n"
     to_pertain_team__table = recup_to_pertain_team() # pas fait
     team_i = "NULL" # en utilisant athlete_table, pas fait
     athlete_i = "NULL" # en utilisant team_table, pas fait

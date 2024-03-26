@@ -19,7 +19,7 @@ def recup_to_register_athlete():
 
 def send_to_register_athlete(result, event_table, athlete_table, bdd=""):
     # Création de la requête SQL
-    send = "INSERT INTO To_register_athlete (id_event, id_athlete) VALUES\n"
+    send = "INSERT IGNORE INTO To_register_athlete (id_event, id_athlete) VALUES\n"
     event_id = "NULL" # en utilisant event_table, pas fait
     athlete_id = "NULL" # en utilisant athlete_table, pas fait
     for dic in result:

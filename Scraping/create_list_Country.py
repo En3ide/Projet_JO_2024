@@ -42,7 +42,7 @@ def recup_country():
 def send_country(result, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO Country (code_country, name_country) VALUES\n"
+    send = "INSERT IGNORE INTO Country (code_country, name_country) VALUES\n"
     for dic in result:
         code_country = dic.get("code_country").replace("'", "''")
         name_country = dic.get("name_country").replace("'", "''")

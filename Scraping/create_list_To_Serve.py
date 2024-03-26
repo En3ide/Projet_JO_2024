@@ -158,7 +158,7 @@ def recup_to_serve():
 def send_to_serve(transport, site, bdd=""):
 
     # Création de la requête SQL
-    send = "INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
+    send = "INSERT IGNORE INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES\n"
     for dic in transport:
         id = get_id_site(site, "name_site" ,dic.get("name_site"))
         send += (" (" + str(id) + ", " +

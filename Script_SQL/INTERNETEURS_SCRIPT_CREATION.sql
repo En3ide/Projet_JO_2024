@@ -100,7 +100,7 @@ CREATE TABLE Record (
   id_record int(11) PRIMARY KEY AUTO_INCREMENT,
   stat_record VARCHAR(32) NOT NULL,
   date_record date,
-  id_event int(11) NOT NULL,
+  id_event int(11) DEFAULT NULL,
   id_athlete int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

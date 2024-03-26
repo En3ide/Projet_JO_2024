@@ -4,7 +4,7 @@
 
 ##### Import #####
 from bs4 import BeautifulSoup
-from get_id_table_selon_attr import *
+from utilitary_function import *
 import requests, ast, sqlite3
 
 ##### Code #####

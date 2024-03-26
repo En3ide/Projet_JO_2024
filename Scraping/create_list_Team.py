@@ -4,11 +4,11 @@
 
 ##### Import #####
 from bs4 import BeautifulSoup
-import requests, ast, sqlite3, re, locale
+import sqlite3
 from datetime import datetime
 from create_list_Event import *
 from create_list_Athlete import *
-from get_id_table_selon_attr import *
+from utilitary_function import *
 from datetime import datetime
 
 ##### Code #####

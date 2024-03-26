@@ -3,13 +3,12 @@
 ###################
 
 ##### Import #####
-from bs4 import BeautifulSoup
 from create_list_Site import *
-from get_id_table_selon_attr import *
+from utilitary_function import *
 from datetime import datetime
 from create_list_Athlete import recup_athlete
 from create_list_Country import recup_country
-import requests, ast, sqlite3, re, locale
+import sqlite3
 
 ##### Code #####
 def recup_is_from(athlete, country):

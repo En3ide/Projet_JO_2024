@@ -4,10 +4,10 @@
 
 ##### Import #####
 from bs4 import BeautifulSoup
-import requests, ast, sqlite3, re, locale
+import requests, sqlite3, re
 from datetime import datetime
 from create_list_Site import *
-from get_id_table_selon_attr import *
+from utilitary_function import *
 from datetime import datetime
 
 ##### Code #####

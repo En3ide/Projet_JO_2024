@@ -3,10 +3,10 @@
 ###################
 
 ##### Import #####
-from get_id_table_selon_attr import *
+from utilitary_function import *
 from bs4 import BeautifulSoup
 import requests, sqlite3
-from date_convert import date_convert, convert_date
+from date_convert import convert_date
 from datetime import datetime
 
 ##### Code #####

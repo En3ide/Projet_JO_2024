@@ -1,4 +1,4 @@
-from multiprocessing import process, Queue, Pool
+from multiprocessing import Pool
 from create_list_Transport import *
 from create_list_Site import *
 from create_list_Athlete import *
@@ -10,6 +10,7 @@ from create_list_Event import *
 from create_list_Date_calendar import *
 from create_list_Is_from import *
 from datetime import datetime
+from utilitary_function import *
 import os, subprocess
 
 def installer_requirements(fichier_requirements):

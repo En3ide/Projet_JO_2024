@@ -7,7 +7,7 @@ import requests, sqlite3
 from bs4 import BeautifulSoup
 from create_list_Discipline import *
 from create_list_Record import *
-from get_id_table_selon_attr import *
+from utilitary_function import *
 
 MOT_EQUIPE = ["équipes", "équipe", "Equipe", "relais", "Relais", "Double", "double", "football", "ensembles", "handball", "hockey", "Duo", "duos", "synchronisé", "water-polo", "volleyball", "rugby", "Deux", "Quatre"]
 

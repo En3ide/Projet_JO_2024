@@ -3,11 +3,8 @@
 ###################
 
 ##### Import #####
-import doctest
-import requests, sqlite3
-from bs4 import BeautifulSoup
+import sqlite3
 from datetime import datetime
-import ast
 
 ##### Code #####
 # list de dict où chaque clé représente un attribut de la table record

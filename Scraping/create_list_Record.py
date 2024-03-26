@@ -6,9 +6,9 @@
 from bs4 import BeautifulSoup
 import requests, sqlite3
 import re
-from date_convert import date_convert, convert_date
+from date_convert import convert_date
 from datetime import datetime
-from get_id_table_selon_attr import get_dic_id_table
+from utilitary_function import get_dic_id_table
 
 ##### Code #####
 main_url_athletisme = "https://fr.wikipedia.org/wiki/Records_olympiques_d%27athl%C3%A9tisme"

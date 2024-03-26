@@ -395,7 +395,7 @@ def send_event(result, disc_table, record_table, bdd=""):
     for dic in result:
         id_discipline = get_dic_id_table(disc_table, name_fr_disc=dic.get("discipline"))
         id_record = get_dic_id_table_in(record_table, discipline=dic.get("discipline"), event=dic.get("name_event"))
-        send += ("('" + dic.get("name_event") + "', '" +
+        send += ("('" + dic.get("name_event").replace("'", "''") + "', '" +
             dic.get("format_event") + "', '" +
             dic.get("gender_event") + "', " +
             id_discipline + ", " +

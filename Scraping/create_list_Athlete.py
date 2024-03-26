@@ -80,7 +80,7 @@ def send_athlete(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES\n"
     for dic in result:
-        send += ("('" + dic.get("firstname_athlete") + "', '" +
+        send += ("('" + dic.get("firstname_athlete").replace("'", "''") + "', '" +
             dic.get("name_athlete") + "', '" +
             dic.get("birthday_athlete") + "', " +
             dic.get("gender_athlete") + "', " +

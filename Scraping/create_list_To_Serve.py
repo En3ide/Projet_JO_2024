@@ -163,7 +163,7 @@ def send_to_serve(transport, site, bdd=""):
         send += (" (" + str(id) + ", " +
             str(dic.get("id_trans")) + ", '" +
             dic.get("num_ligne") + "', '" +
-            dic.get("station_name") + "'),\n")
+            dic.get("station_name").replace("'", "'") + "'),\n")
     send += send[:-2] + ";"
 
     if len(bdd) > 0:

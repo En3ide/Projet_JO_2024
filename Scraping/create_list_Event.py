@@ -346,6 +346,9 @@ def get_table_event(l_event):
     for sport in l_event:
         for i in range(1,len(sport)):
             nom_event = sport[i][0:sport[i].index('(')-1]
+            nom_event = re.sub(r'(\d+m)(?![^\s])', r'\1 ', nom_event.replace("\u202f", "").replace("\u2019", "'").replace("  ", " ").replace("\u00a0", " ").replace("\u2013", "-"))
+            if nom_event[-1] == " ":
+                nom_event = nom_event[:-1]
             genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')
             for g in genre:
                 dico = {}
@@ -414,4 +417,5 @@ def create_sql():
 
 if __name__ == "__main__":
     # print(send_event(recup_event(), recup_discipline(), recup_record()))
-    print(send_event(recup_event(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/record.json")))
+    #print(send_event(recup_event(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/record.json")))
+    print(recup_event())

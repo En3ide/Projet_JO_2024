@@ -124,7 +124,7 @@ def dic_to_table(result):
                     trsp_type = 3
                 elif "Métro" in number or "Ligne" in number:
                     trsp_type = 4
-                tab.append({"name_site": site.get("name_site"), "id_trans": trsp_type, "num_ligne": number, "station_name": station.get("name")})
+                tab.append({"name_site": site.get("name_site"), "id_trans": trsp_type, "num_ligne": number, "station_name": station.get("name").replace("\u2019", "'").replace("\u2013", "-")})
     return tab
 
 def get_id_site(table_dict, cle, valeur):

@@ -75,7 +75,7 @@ def main(file_sql):
         else:
             is_from = pool.apply(recup_is_from, (athlete, country, ))
     data_to_json(transport, json + "transport.json")
-    data_to_json(site, json + "tite.json")
+    data_to_json(site, json + "site.json")
     data_to_json(to_serve, json + "to_serve.json")
     data_to_json(athlete, json + "athlete.json")
     data_to_json(country, json + "country.json")
@@ -93,8 +93,7 @@ def main(file_sql):
         "Date_calendar": date_calendar,
         "Is_from": is_from
     }
-    with open(json+ "liste_table.json", "w", encoding="utf-8") as f:
-        f.write(liste_table)
+    data_to_json(liste_table, json + "liste_table.json")
     # On put les insert dans le fichier sql
     sql = (
         send_transport(transport) + "\n\n" +
@@ -109,7 +108,7 @@ def main(file_sql):
         send_is_from(is_from)
     )
     with open(file_sql, "w", encoding="utf-8") as f:
-        f.write(sql)
+        f.write(str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 

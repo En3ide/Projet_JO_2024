@@ -177,6 +177,4 @@ def send_to_serve(transport, site, bdd=""):
     return(send)
 
 if __name__ == '__main__':
-    site = recup_site()
-    to_serve = recup_to_serve()
-    send_to_serve(to_serve, site)
+    #send_to_serve(recup_to_serve, recup_site)

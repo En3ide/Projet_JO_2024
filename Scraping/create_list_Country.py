@@ -44,8 +44,10 @@ def send_country(result, bdd=""):
     # Création de la requête SQL
     send = "INSERT INTO Country (code_country, name_country) VALUES\n"
     for dic in result:
-        send += ("('" + dic.get("code_country") + "', '" +
-            dic.get("name_country") + "'),\n")
+        code_country = dic.get("code_country").replace("'", " ")
+        name_country = dic.get("name_country").replace("'", " ")
+        send += ("('" + code_country + "', '" +
+            name_country + "'),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:
@@ -62,4 +64,4 @@ def create_sql():
     return send_country(recup_country())
 
 if __name__ == "__main__":
-    send_country(recup_country())
+    print(send_country(recup_country()))

@@ -64,7 +64,7 @@ def main(file_sql):
         "Is_from": is_from
     }
     with open(json+ "liste_table.json", "w", encoding="utf-8") as f:
-        f.write(liste_table)
+        f.write(str(liste_table))
     # On put les insert dans le fichier sql
     sql = (
         send_transport(transport) + "\n\n" +
@@ -79,7 +79,7 @@ def main(file_sql):
         send_is_from(is_from)
     )
     with open(file_sql, "w", encoding="utf-8") as f:
-        f.write(sql)
+        f.write(str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 

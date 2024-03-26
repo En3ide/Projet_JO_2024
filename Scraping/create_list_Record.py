@@ -50,11 +50,11 @@ def formatage_name_event_record(chaine):
 
 def formatage_stat_record(chaine):
     '''
-    Renvoie la chaine formaté pour retirer les espaces entre les chiffres
+    Renvoie la chaine formaté pour retirer les espaces
     param : (str) chaine -> chaine de caractere
     return : (str) chaine formaté
     '''
-    return re.sub(r'(?<=\d)\s(?=\d)', '', chaine).replace("\n", "")
+    return re.sub(r'(?<=\d)\s(?=\d)', '', chaine.replace("\n", "").replace("\u00a0", " "))
 
 def scraping_athletisme(soup):
     '''

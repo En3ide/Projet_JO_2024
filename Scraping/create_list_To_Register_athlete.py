@@ -36,3 +36,9 @@ def send_to_register_athlete(result, event_table, athlete_table, bdd=""):
         connexion.close()
     print('[',datetime.now().time(),'] ', "sql To_register_athlete fini !!!")
     return(send)
+
+def create_sql():
+    return send_to_register_athlete(recup_to_register_athlete())
+
+if __name__ == "__main__":
+    send_to_register_athlete(recup_to_register_athlete())

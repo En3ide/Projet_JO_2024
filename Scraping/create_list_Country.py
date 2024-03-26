@@ -29,7 +29,7 @@ def recup_country():
             if len(tmp) > 0:
                 
                 attr_code_country = tmp[1]
-                attr_name_contry = tmp[4].replace("\n", "")
+                attr_name_contry = tmp[4].replace("\n", "")[1:]
                 
                 result.append({"code_country": attr_code_country, "name_country": attr_name_contry})
         print('[',datetime.now().time(),'] ', "Recup_country Fini !!!")

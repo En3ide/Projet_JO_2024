@@ -41,4 +41,4 @@ def send_is_from(result, bdd=""):
 def create_sql(athlete, country):
     return send_is_from(recup_is_from(athlete, country))
 
-print(create_sql(recup_athlete(), recup_country()))
+# print(create_sql(recup_athlete(), recup_country()))

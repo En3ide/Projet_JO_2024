@@ -11,7 +11,7 @@ from create_list_Date_calendar import *
 from create_list_Is_from import *
 from datetime import datetime
 from utilitary_function import *
-import subprocess
+import os, subprocess
 
 def installer_requirements(fichier_requirements):
     """
@@ -87,10 +87,10 @@ def main(file_sql):
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 
-
-json = "./saved_json/"
+PATH = os.path.abspath(__file__)
+json = PATH + "../saved_json/"
 path_script_insert = "./BD/INSERTION_BDD.sql"
 
 if __name__ == "__main__":
-    if installer_requirements("./Scraping/requirements.txt"):
+    if installer_requirements(PATH + "../Scraping/requirements.txt"):
         main(path_script_insert)

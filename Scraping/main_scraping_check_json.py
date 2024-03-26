@@ -118,9 +118,10 @@ def main(file_sql):
     return file_name
 
 
-json = "./saved_json/"
-path_script_insert = "./BD/INSERTION_BDD.sql"
+PATH = os.path.abspath(__file__)
+json = PATH + "../saved_json/"
+path_script_insert = PATH + "../BD/INSERTION_BDD.sql"
 
 if __name__ == "__main__":
-    if installer_requirements("./Scraping/requirements.txt"):
+    if installer_requirements(PATH + "../Scraping/requirements.txt"):
         main(path_script_insert)

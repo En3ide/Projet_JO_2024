@@ -82,8 +82,8 @@ def send_athlete(result, bdd=""):
     for dic in result:
         send += ("('" + dic.get("firstname_athlete").replace("'", "''") + "', '" +
             dic.get("name_athlete") + "', '" +
-            dic.get("birthday_athlete") + "', " +
-            dic.get("gender_athlete") + "', " +
+            dic.get("birthday_athlete") + "', '" +
+            dic.get("gender_athlete") + "', '" +
             dic.get("code_country") + "'),\n")
     send = send[:-2] + ";"
 

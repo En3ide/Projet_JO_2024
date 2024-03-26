@@ -395,9 +395,9 @@ def send_event(result, disc_table, record_table, bdd=""):
         id_record = get_dic_id_table_in(record_table, discipline=dic.get("discipline"), event=dic.get("name_event"))
         send += ("('" + dic.get("name_event") + "', '" +
             dic.get("format_event") + "', '" +
-            dic.get("gender_event") + "', '" +
-            id_discipline + "', '" +
-            id_record + "')," + dic.get("name_event") + "\n")
+            dic.get("gender_event") + "', " +
+            id_discipline + ", " +
+            id_record + "),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

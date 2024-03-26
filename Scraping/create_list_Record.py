@@ -137,9 +137,9 @@ def send_record(result, event_table, athlete_table, bdd=""):
         athlete_name = dic.get("athlete").split(" ")
         id_athlete = get_dic_id_table(athlete_table, firstname_athlete=athlete_name[0], name_athlete=athlete_name[0])
         send += ("('" + dic.get("stat_record") + "', '" +
-            dic.get("date_record") + "', '" +
-            id_event + "', " +
-            id_athlete + "'),\n")
+            dic.get("date_record") + "', " +
+            id_event + ", " +
+            id_athlete + "),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

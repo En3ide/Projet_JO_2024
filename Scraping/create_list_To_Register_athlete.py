@@ -24,7 +24,7 @@ def send_to_register_athlete(result, event_table, athlete_table, bdd=""):
     event_id = "NULL" # en utilisant event_table, pas fait
     athlete_id = "NULL" # en utilisant athlete_table, pas fait
     for dic in result:
-        send += ("('" + str(event_id) + "', '" + str(athlete_id) + "'),\n")
+        send += ("(" + str(event_id) + ", " + str(athlete_id) + "),\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:

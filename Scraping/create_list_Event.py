@@ -349,8 +349,7 @@ def get_table_event(l_event):
             genre = sport[i][sport[i].index('(')+1:sport[i].index(')')].split('/')
             for g in genre:
                 dico = {}
-                dico['name_event'] = nom_event.replace("\u202f", "")
-                
+                dico['name_event'] = nom_event
                 #Trouver si c'est une épreuve collective ou non
                 for mot in MOT_EQUIPE:
                     if mot in nom_event:

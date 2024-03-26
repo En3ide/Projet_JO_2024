@@ -1,0 +1,57 @@
+body {
+    background: url(./img/HP-Medailles-Vdef-desktop.bmp) center top;
+
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input {
+    min-width: 400px;
+    font-size: 15pt;
+    border-style: double;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: gray;
+    margin: auto;
+    background: rgba(174, 174, 174, 0.579);
+}
+
+#main {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.table_donne {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    backdrop-filter: blur(1px);
+    /* Appliquer un flou de 5 pixels */
+    z-index: -1;
+    /* Pour placer l'arrière-plan derrière le contenu */
+}
+
+table {
+    margin: 0 auto;
+    /* Centre le tableau horizontalement */
+    border-collapse: collapse;
+    /* Fusionne les bordures de cellules */
+}
+
+th,
+td {
+    border: 1px solid black;
+    /* Ajoute une bordure aux cellules */
+    padding: 8px;
+    /* Ajoute de l'espace à l'intérieur des cellules */
+    text-align: center;
+    /* Centre le texte dans les cellules */
+}

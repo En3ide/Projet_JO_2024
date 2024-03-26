@@ -386,7 +386,6 @@ def recup_event():
             # print(f"--- {l_epreuves[-1][0]} ---")
             # for i in range(1,len(l_epreuves[-1])):
             #     print(l_epreuves[-1][i])
-    print("EVENT SCRAP FAIT")
     return get_table_event(l_epreuves)
 
 def send_event(result, disc_table, record_table, bdd=""):

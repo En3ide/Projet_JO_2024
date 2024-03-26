@@ -87,7 +87,7 @@ def main(file_sql):
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 
-PATH = os.path.abspath(__file__) + "/../" #repart du dossier racine du projet
+PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/" 
 path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
 

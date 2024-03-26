@@ -118,7 +118,7 @@ def main(file_sql):
     return file_name
 
 
-PATH = os.path.abspath(__file__) + "/../"
+PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/"
 path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
 

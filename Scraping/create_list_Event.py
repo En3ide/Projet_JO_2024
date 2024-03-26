@@ -7,7 +7,7 @@ import requests, sqlite3
 from bs4 import BeautifulSoup
 from create_list_Discipline import *
 from create_list_Record import *
-from get_id_table_selon_attr import get_dic_id_table
+from get_id_table_selon_attr import *
 
 MOT_EQUIPE = ["équipes", "équipe", "Equipe", "relais", "Relais", "Double", "double", "football", "ensembles", "handball", "hockey", "Duo", "duos", "synchronisé", "water-polo", "volleyball", "rugby", "Deux", "Quatre"]
 
@@ -386,16 +386,18 @@ def recup_event():
     print("EVENT SCRAP FAIT")
     return get_table_event(l_epreuves)
 
-def send_event(result, bdd=""):
+def send_event(result, disc_table, record_table, bdd=""):
 
     # Création de la requête SQL
     send = "INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES\n"
     for dic in result:
+        id_discipline = get_dic_id_table(disc_table, name_fr_disc=dic.get("discipline"))
+        id_record = get_dic_id_table_in(record_table, discipline=dic.get("discipline"), event=dic.get("name_event"))
         send += ("('" + dic.get("name_event") + "', '" +
             dic.get("format_event") + "', '" +
             dic.get("gender_event") + "', '" +
-            dic.get("id_event") + "', " +
-            dic.get("id_record") + "'),\n")
+            id_discipline + "', '" +
+            id_record + "')," + dic.get("name_event") + "\n")
     send = send[:-2] + ";"
 
     if len(bdd) > 0:
@@ -412,4 +414,5 @@ def create_sql():
     return send_event(recup_event)
 
 if __name__ == "__main__":
-    print(send_event(recup_event()))
+    # print(send_event(recup_event(), recup_discipline(), recup_record()))
+    print(send_event(recup_event(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/record.json")))

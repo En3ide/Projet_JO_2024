@@ -101,7 +101,7 @@ def get_table_disciplines(l_en, l_fr, association, cat = "P"):
         cate = "Paralympic"
     l_sports = associate_sports(l_en, l_fr, association)
     for sport in l_sports:
-        res.append({'name_fr_disc':sport[1].lower(), 'name_an_disc':sport[0].lower(), 'category_disc':cate})
+        res.append({'name_fr_disc':sport[1].lower().replace("’", "'"), 'name_an_disc':sport[0].lower(), 'category_disc':cate})
     return res
 
 def recup_discipline():

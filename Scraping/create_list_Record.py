@@ -63,7 +63,7 @@ def scraping_athletisme(soup):
     return : list(list) liste
     '''
     liste = []
-    name_sport = "Athlétisme"
+    name_sport = "athlétisme"
 
     tables = soup.find_all("table")
     for i in range (0,3):
@@ -93,7 +93,7 @@ def scraping_natation(soup):
     return : list(dict) liste 
     '''
     liste = []
-    name_sport = "Natation"
+    name_sport = "natation"
 
     tables = soup.find_all("table")
     for i in range(7, 10) :

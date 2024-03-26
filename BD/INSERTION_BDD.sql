@@ -355,7 +355,7 @@ INSERT INTO Country (code_country, name_country) VALUES
 ('ZWE', ' Zimbabwe');
 
 INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
-('tir à l’arc', 'archery', 'Olympic'),
+('tir à l'arc', 'archery', 'Olympic'),
 ('athlétisme', 'athletics', 'Olympic'),
 ('badminton', 'badminton', 'Olympic'),
 ('basketball', 'basketball', 'Olympic'),
@@ -403,7 +403,7 @@ INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
 ('cécifoot', 'blind football', 'Paralympic'),
 ('boccia', 'boccia', 'Paralympic'),
 ('goalball', 'goalball', 'Paralympic'),
-('para tir à l’arc', 'para archery', 'Paralympic'),
+('para tir à l'arc', 'para archery', 'Paralympic'),
 ('para athlétisme', 'para athletics', 'Paralympic'),
 ('para badminton', 'para badminton', 'Paralympic'),
 ('para canoë', 'para canoe', 'Paralympic'),

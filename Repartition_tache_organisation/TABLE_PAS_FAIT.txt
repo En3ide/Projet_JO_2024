@@ -3,3 +3,6 @@
 - To_Register_athlete
 - Medal
 - To_schedule
+
+- record : athletisme et natation
+- athlete : oui

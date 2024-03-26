@@ -7,16 +7,16 @@ from bs4 import BeautifulSoup
 from create_list_Site import *
 from get_id_table_selon_attr import *
 from datetime import datetime
+from create_list_Athlete import recup_athlete
+from create_list_Country import recup_country
 import requests, ast, sqlite3, re, locale
 
 ##### Code #####
-
 def recup_is_from(athlete, country):
     result = []
     for ath in athlete:
         result.append({"id_athlete": athlete.index(ath), "code_country": ath.get("code_country")})
-        for country in ath.get("code_country"):
-            result.append({"id_athlete": athlete.index(ath), "code_country": country})
+        #result.append({"id_athlete": athlete.index(ath), "code_country": ath.get("code_country")})
     print('[',datetime.now().time(),'] ', "sql Is_from fini !!!")
     return result
 
@@ -40,3 +40,5 @@ def send_is_from(result, bdd=""):
 
 def create_sql(athlete, country):
     return send_is_from(recup_is_from(athlete, country))
+
+print(create_sql(recup_athlete(), recup_country()))

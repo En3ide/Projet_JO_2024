@@ -12,8 +12,8 @@ START TRANSACTION;
 DROP TABLE IF EXISTS Athlete;
 CREATE TABLE Athlete (
   id_athlete int(11) PRIMARY KEY AUTO_INCREMENT,
-  firstname_athlete VARCHAR(32) NOT NULL,
-  name_athlete VARCHAR(32) NOT NULL,
+  firstname_athlete VARCHAR(50) NOT NULL,
+  name_athlete VARCHAR(50) NOT NULL,
   birthday_athlete date DEFAULT NULL,
   gender_athlete enum('MAN', 'WOMAN') NOT NULL,
   code_country char(3) DEFAULT NULL
@@ -28,7 +28,7 @@ CREATE TABLE Athlete (
 DROP TABLE IF EXISTS Country;
 CREATE TABLE Country (
   code_country char(3) NOT NULL PRIMARY KEY,
-  name_country VARCHAR(32) NOT NULL
+  name_country VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -53,8 +53,8 @@ CREATE TABLE Date_calendar (
 DROP TABLE IF EXISTS Discipline;
 CREATE TABLE Discipline (
   id_disc int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_fr_disc VARCHAR(32) NOT NULL,
-  name_an_disc VARCHAR(32),
+  name_fr_disc VARCHAR(50) NOT NULL,
+  name_an_disc VARCHAR(50),
   category_disc enum('OLYMPIC', 'PARALYMPIC') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,7 +67,7 @@ CREATE TABLE Discipline (
 DROP TABLE IF EXISTS Event;
 CREATE TABLE Event (
   id_event int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_event VARCHAR(32) NOT NULL,
+  name_event VARCHAR(50) NOT NULL,
   format_event enum('INDIVIDUAL', 'COLLECTIVE', 'HYBRIDE') NOT NULL,
   gender_event enum('MAN', 'WOMAN', 'MIXED') NOT NULL,
   id_disc int(11) NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE Record (
   id_record int(11) PRIMARY KEY AUTO_INCREMENT,
   stat_record VARCHAR(32) NOT NULL,
   date_record date,
-  id_event int(11) NOT NULL,
+  id_event int(11) DEFAULT NULL,
   id_athlete int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -113,7 +113,7 @@ CREATE TABLE Record (
 DROP TABLE IF EXISTS Transport;
 CREATE TABLE Transport (
   id_trans int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_trans VARCHAR(32) enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
+  name_trans enum('TRAIN', 'TRAMWAY', 'BUS', 'METRO') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,8 +125,8 @@ CREATE TABLE Transport (
 DROP TABLE IF EXISTS Site;
 CREATE TABLE Site (
   id_site int(11) PRIMARY KEY AUTO_INCREMENT,
-  name_site VARCHAR(32) NOT NULL,
-  adress_site VARCHAR(32) NOT NULL,
+  name_site VARCHAR(50) NOT NULL,
+  adress_site VARCHAR(50) NOT NULL,
   creation_date_site date DEFAULT NULL,
   capacity_site int(11) DEFAULT NULL,
   URL_site VARCHAR(255) DEFAULT NULL
@@ -222,8 +222,8 @@ DROP TABLE IF EXISTS To_Serve;
 CREATE TABLE To_Serve (
   id_site int(11) NOT NULL,
   id_trans int(11) NOT NULL,
-  num_ligne VARCHAR(32) NOT NULL,
-  station_name VARCHAR(32) NOT NULL,
+  num_ligne VARCHAR(50) NOT NULL,
+  station_name VARCHAR(50) NOT NULL,
   PRIMARY KEY (id_site, id_trans)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -340,13 +340,13 @@ ALTER TABLE To_Serve
   ADD CONSTRAINT FK_To_Serve_id_trans FOREIGN KEY (id_trans) REFERENCES Transport (id_trans) ON DELETE CASCADE;
 
 COMMIT;
-INSERT INTO Transport (name_trans) VALUES
+INSERT IGNORE INTO Transport (name_trans) VALUES
 ('TRAIN'),
 ('TRAMWAY'),
 ('BUS'),
 ('METRO');
 
-INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES
+INSERT IGNORE INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES
  ('Seine', 'Seine', NULL, 600000, 'https://fr.wikipedia.org//wiki/Seine_%C3%A0_Paris'),
  ('Stade de France', 'ZAC du Cornillon Nord93200 Saint-Denis,  France', '1995-00-00', 77083, 'https://fr.wikipedia.org//wiki/Stade_de_France'),
  ('Village olympique de Saint-Denis', 'Village olympique de Saint-Denis', NULL, NULL, 'https://fr.wikipedia.org//wiki/Village_olympique_de_Saint-Denis'),
@@ -383,69 +383,69 @@ INSERT INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL
  ('Arena Paris Nord', 'Villepinte, Seine-Saint-Denis France', '1982-12-00', 6000, 'https://fr.wikipedia.org//wiki/Parc_des_expositions_de_Paris-Nord_Villepinte'),
  ('Centre national de tir sportif', 'Route de Lignières, RD 925, 36130 Déols,  France', '2018-00-00', NULL, 'https://fr.wikipedia.org//wiki/Centre_national_de_tir_sportif');
 
-INSERT INTO Athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES
-('Usain', 'Bolt', '1986-08-21', 'Homme', 'JAM'),
-('Elaine', 'Thompson-Herah', '1992-06-28', 'Femme', 'JAM'),
-('Bob', 'Beamon', '1946-08-29', 'Homme', 'USA'),
-('Wayde', 'van Niekerk', '1992-07-15', 'Homme', 'ZAF'),
-('David', 'Rudisha', '1988-12-17', 'Homme', 'KEN'),
-('Jakob', 'Ingebrigtsen', '2000-09-19', 'Homme', 'NOR'),
-('Kenenisa', 'Bekele', '1982-06-13', 'Homme', 'ETH'),
-('Samuel', 'Wanjiru', '1986-11-10', 'Homme', 'KEN'),
-('Liu', 'Xiang', '1983-07-13', 'Homme', 'CHN'),
-('Karsten', 'Warholm', '1996-02-28', 'Homme', 'NOR'),
-('Conseslus', 'Kipruto', '1994-12-08', 'Homme', 'KEN'),
-('Chen', 'Ding', '1992-08-05', 'Homme', 'CHN'),
-('Jared', 'Tallent', '1984-10-17', 'Homme', 'AUS'),
-('Kenny', 'Harrison', '1965-02-13', 'Homme', 'USA'),
-('Thiago', 'Braz da Silva', '1993-12-16', 'Homme', 'BRA'),
-('Ryan', 'Crouser', '1992-12-18', 'Homme', 'USA'),
-('Virgilijus', 'Alekna', '1972-02-13', 'Homme', 'LTU'),
-('Sergey', 'Litvinov', '1992-12-18', 'Homme', 'BLR'),
-('Andreas', 'Thorkildsen', '1982-04-01', 'Homme', 'NOR'),
-('Damian', 'Warner', '1989-10-04', 'Homme', 'CAN'),
-('Florence', 'Griffith-Joyner', '1959-12-21', 'Femme', 'USA'),
-('Marie-José', 'Pérec', '1968-05-09', 'Femme', 'FRA'),
-('Nadiya', 'Olizarenko', '1953-11-28', 'Femme', 'UKR'),
-('Faith', 'Kipyegon', '1994-01-10', 'Femme', 'KEN'),
-('Vivian', 'Cheruiyot', '1983-09-11', 'Femme', 'KEN'),
-('Almaz', 'Ayana', '1991-11-21', 'Femme', 'ETH'),
-('Tiki', 'Gelana', '1987-10-22', 'Femme', 'ETH'),
-('Jasmine', 'Camacho-Quinn', '1996-08-21', 'Femme', 'PRI'),
-('Sydney', 'McLaughlin', '1999-09-07', 'Femme', 'USA'),
-('Gulnara', 'Samitova-Galkina', '1978-07-09', 'Femme', 'RUS'),
-('Qieyang', 'Shenjie', '1990-11-11', 'Femme', 'CHN'),
-('Jackie', 'Joyner-Kersee', '1962-03-03', 'Femme', 'USA'),
-('Yulimar', 'Rojas', '1995-10-21', 'Femme', 'VEN'),
-('Yelena', 'Slesarenko', '1982-02-28', 'Femme', 'RUS'),
-('Yelena', 'Isinbayeva', '1982-06-03', 'Femme', 'RUS'),
-('Ilona', 'Slupianek', '1956-09-24', 'Femme', 'DEU'),
-('Martina', 'Hellmann', '1960-12-12', 'Femme', 'DEU'),
-('Anita', 'Włodarczyk', '1985-08-08', 'Femme', 'POL'),
-('Olisdeilys', 'Menéndez', '1979-11-14', 'Femme', 'CUB'),
-('Caeleb', 'Dressel', '1996-08-16', 'Homme', 'USA'),
-('Michael', 'Phelps', '1985-06-30', 'Homme', 'USA'),
-('Michael', 'Phelps', '1985-06-30', 'Homme', 'USA'),
-('Sun', 'Yang', '1991-12-01', 'Homme', 'CHN'),
-('Mykhailo', 'Romanchuk', '1996-08-07', 'Homme', 'UKR'),
-('Ryan', 'Murphy', '1965-11-09', 'Homme', 'USA'),
-('Evgeny', 'Rylov', '1996-09-23', 'Homme', 'RUS'),
-('Adam', 'Peaty', '1994-12-28', 'Homme', 'GBR'),
-('Zac', 'Stubblety-Cook', '1999-01-04', 'Homme', 'AUS'),
-('Joseph', 'Schooling', '1995-06-16', 'Homme', 'SGP'),
-('Kristóf', 'Milák', '2000-02-20', 'Homme', 'HUN'),
-('Emma', 'McKeon', '1994-05-24', 'Femme', 'AUS'),
-('Ariarne', 'Titmus', '2000-09-07', 'Femme', 'AUS'),
-('Katie', 'Ledecky', '1997-03-17', 'Femme', 'USA'),
-('Kaylee', 'McKeown', '2001-07-11', 'Femme', 'AUS'),
-('Missy', 'Franklin', '1995-05-10', 'Femme', 'USA'),
-('Lilly', 'King', '1997-02-10', 'Femme', 'USA'),
-('Tatjana', 'Schoenmaker', '1997-07-09', 'Femme', 'ZAF'),
-('Sarah', 'Sjöström', '1993-08-17', 'Femme', 'SWE'),
-('Zhang', 'Yufei', '1998-04-19', 'Femme', 'CHN'),
-('Katinka', 'Hosszú', '1985-05-03', 'Femme', 'HUN');
+INSERT IGNORE INTO Athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES
+('Usain', 'Bolt', '1986-08-21', 'MAN', 'JAM'),
+('Elaine', 'Thompson-Herah', '1992-06-28', 'WOMAN', 'JAM'),
+('Bob', 'Beamon', '1946-08-29', 'MAN', 'USA'),
+('Wayde', 'van Niekerk', '1992-07-15', 'MAN', 'ZAF'),
+('David', 'Rudisha', '1988-12-17', 'MAN', 'KEN'),
+('Jakob', 'Ingebrigtsen', '2000-09-19', 'MAN', 'NOR'),
+('Kenenisa', 'Bekele', '1982-06-13', 'MAN', 'ETH'),
+('Samuel', 'Wanjiru', '1986-11-10', 'MAN', 'KEN'),
+('Liu', 'Xiang', '1983-07-13', 'MAN', 'CHN'),
+('Karsten', 'Warholm', '1996-02-28', 'MAN', 'NOR'),
+('Conseslus', 'Kipruto', '1994-12-08', 'MAN', 'KEN'),
+('Chen', 'Ding', '1992-08-05', 'MAN', 'CHN'),
+('Jared', 'Tallent', '1984-10-17', 'MAN', 'AUS'),
+('Kenny', 'Harrison', '1965-02-13', 'MAN', 'USA'),
+('Thiago', 'Braz da Silva', '1993-12-16', 'MAN', 'BRA'),
+('Ryan', 'Crouser', '1992-12-18', 'MAN', 'USA'),
+('Virgilijus', 'Alekna', '1972-02-13', 'MAN', 'LTU'),
+('Sergey', 'Litvinov', '1992-12-18', 'MAN', 'BLR'),
+('Andreas', 'Thorkildsen', '1982-04-01', 'MAN', 'NOR'),
+('Damian', 'Warner', '1989-10-04', 'MAN', 'CAN'),
+('Florence', 'Griffith-Joyner', '1959-12-21', 'WOMAN', 'USA'),
+('Marie-José', 'Pérec', '1968-05-09', 'WOMAN', 'FRA'),
+('Nadiya', 'Olizarenko', '1953-11-28', 'WOMAN', 'UKR'),
+('Faith', 'Kipyegon', '1994-01-10', 'WOMAN', 'KEN'),
+('Vivian', 'Cheruiyot', '1983-09-11', 'WOMAN', 'KEN'),
+('Almaz', 'Ayana', '1991-11-21', 'WOMAN', 'ETH'),
+('Tiki', 'Gelana', '1987-10-22', 'WOMAN', 'ETH'),
+('Jasmine', 'Camacho-Quinn', '1996-08-21', 'WOMAN', 'PRI'),
+('Sydney', 'McLaughlin', '1999-09-07', 'WOMAN', 'USA'),
+('Gulnara', 'Samitova-Galkina', '1978-07-09', 'WOMAN', 'RUS'),
+('Qieyang', 'Shenjie', '1990-11-11', 'WOMAN', 'CHN'),
+('Jackie', 'Joyner-Kersee', '1962-03-03', 'WOMAN', 'USA'),
+('Yulimar', 'Rojas', '1995-10-21', 'WOMAN', 'VEN'),
+('Yelena', 'Slesarenko', '1982-02-28', 'WOMAN', 'RUS'),
+('Yelena', 'Isinbayeva', '1982-06-03', 'WOMAN', 'RUS'),
+('Ilona', 'Slupianek', '1956-09-24', 'WOMAN', 'DEU'),
+('Martina', 'Hellmann', '1960-12-12', 'WOMAN', 'DEU'),
+('Anita', 'Włodarczyk', '1985-08-08', 'WOMAN', 'POL'),
+('Olisdeilys', 'Menéndez', '1979-11-14', 'WOMAN', 'CUB'),
+('Caeleb', 'Dressel', '1996-08-16', 'MAN', 'USA'),
+('Michael', 'Phelps', '1985-06-30', 'MAN', 'USA'),
+('Michael', 'Phelps', '1985-06-30', 'MAN', 'USA'),
+('Sun', 'Yang', '1991-12-01', 'MAN', 'CHN'),
+('Mykhailo', 'Romanchuk', '1996-08-07', 'MAN', 'UKR'),
+('Ryan', 'Murphy', '1965-11-09', 'MAN', 'USA'),
+('Evgeny', 'Rylov', '1996-09-23', 'MAN', 'RUS'),
+('Adam', 'Peaty', '1994-12-28', 'MAN', 'GBR'),
+('Zac', 'Stubblety-Cook', '1999-01-04', 'MAN', 'AUS'),
+('Joseph', 'Schooling', '1995-06-16', 'MAN', 'SGP'),
+('Kristóf', 'Milák', '2000-02-20', 'MAN', 'HUN'),
+('Emma', 'McKeon', '1994-05-24', 'WOMAN', 'AUS'),
+('Ariarne', 'Titmus', '2000-09-07', 'WOMAN', 'AUS'),
+('Katie', 'Ledecky', '1997-03-17', 'WOMAN', 'USA'),
+('Kaylee', 'McKeown', '2001-07-11', 'WOMAN', 'AUS'),
+('Missy', 'Franklin', '1995-05-10', 'WOMAN', 'USA'),
+('Lilly', 'King', '1997-02-10', 'WOMAN', 'USA'),
+('Tatjana', 'Schoenmaker', '1997-07-09', 'WOMAN', 'ZAF'),
+('Sarah', 'Sjöström', '1993-08-17', 'WOMAN', 'SWE'),
+('Zhang', 'Yufei', '1998-04-19', 'WOMAN', 'CHN'),
+('Katinka', 'Hosszú', '1985-05-03', 'WOMAN', 'HUN');
 
-INSERT INTO Country (code_country, name_country) VALUES
+INSERT IGNORE INTO Country (code_country, name_country) VALUES
 ('AFG', 'Afghanistan'),
 ('ZAF', 'Afrique du Sud'),
 ('ALA', 'Îles Åland'),
@@ -696,7 +696,7 @@ INSERT INTO Country (code_country, name_country) VALUES
 ('ZMB', 'Zambie'),
 ('ZWE', 'Zimbabwe');
 
-INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
+INSERT IGNORE INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
 ('tir à l''arc', 'archery', 'Olympic'),
 ('athlétisme', 'athletics', 'Olympic'),
 ('badminton', 'badminton', 'Olympic'),
@@ -766,7 +766,7 @@ INSERT INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES
 ('rugby fauteuil', 'wheelchair rugby', 'Paralympic'),
 ('tennis fauteuil', 'wheelchair tennis', 'Paralympic');
 
-INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES
+INSERT IGNORE INTO Record (stat_record, date_record, id_event, id_athlete) VALUES
 ('9 s 63', '2012-08-05', NULL, NULL),
 ('19 s 30', '2008-08-20', NULL, NULL),
 ('43 s 03', '2016-08-15', NULL, NULL),
@@ -839,7 +839,7 @@ INSERT INTO Record (stat_record, date_record, id_event, id_athlete) VALUES
 ('2 min 6 s 58', '2016-08-09', NULL, NULL),
 ('4 min 26 s 36', '2016-08-06', NULL, NULL);
 
-INSERT INTO Date_calendar (date_cal, medal_ceremony_date_cal) VALUES
+INSERT IGNORE INTO Date_calendar (date_cal, medal_ceremony_date_cal) VALUES
 ('2024-07-26', False),
 ('2024-07-27', True),
 ('2024-07-28', True),
@@ -858,7 +858,7 @@ INSERT INTO Date_calendar (date_cal, medal_ceremony_date_cal) VALUES
 ('2024-08-10', True),
 ('2024-08-11', True);
 
-INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES
+INSERT IGNORE INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES
  (NULL, 1, 'RER A', 'Gare de Lyon'),
  (NULL, 1, 'RER D', 'Gare de Lyon'),
  (NULL, 1, 'Train R', 'Gare de Lyon'),
@@ -902,7 +902,7 @@ INSERT INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES
  (5, 4, 'Métro 9', 'Alma Marceau'),
  (NULL, 1, 'RER C', 'Pont de l''Alma');
 
-INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES
+INSERT IGNORE INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES
 ('100m', 'Individual', 'Femme', 2, 1),
 ('100m', 'Individual', 'Homme', 2, 1),
 ('200m', 'Individual', 'Femme', 2, 2),
@@ -1139,14 +1139,14 @@ INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) V
 ('Equipes techniques', 'Collective', 'Mixte', 37, NULL),
 ('Natation marathon, 10km', 'Individual', 'Femme', 36, NULL),
 ('Natation marathon, 10km', 'Individual', 'Homme', 36, NULL),
-('Tremplin haut-vol 10m', 'Individual', 'Femme', 35, NULL),
-('Tremplin haut-vol 10m', 'Individual', 'Homme', 35, NULL),
-('Tremplin haut-vol 10m synchronisé', 'Collective', 'Femme', 35, NULL),
-('Tremplin haut-vol 10m synchronisé', 'Collective', 'Homme', 35, NULL),
-('Tremplin 3m', 'Individual', 'Femme', 35, NULL),
-('Tremplin 3m', 'Individual', 'Homme', 35, NULL),
-('Tremplin 3m synchronisé', 'Collective', 'Femme', 35, NULL),
-('Tremplin 3m synchronisé', 'Collective', 'Homme', 35, NULL),
+('Haut-vol 10m', 'Individual', 'Mixte', 35, NULL),
+('Haut-vol 10m', 'Individual', 'Mixte', 35, NULL),
+('Haut-vol 10m synchronisé', 'Collective', 'Mixte', 35, NULL),
+('Haut-vol 10m synchronisé', 'Collective', 'Mixte', 35, NULL),
+('Tremplin 3m', 'Individual', 'Mixte', 35, NULL),
+('Tremplin 3m', 'Individual', 'Mixte', 35, NULL),
+('Tremplin 3m synchronisé', 'Collective', 'Mixte', 35, NULL),
+('Tremplin 3m synchronisé', 'Collective', 'Mixte', 35, NULL),
 ('Tournoi de water-polo', 'Collective', 'Femme', NULL, NULL),
 ('Tournoi de water-polo', 'Collective', 'Homme', NULL, NULL),
 ('Concours complet individuel', 'Individual', 'Mixte', 14, NULL),
@@ -1495,7 +1495,7 @@ INSERT INTO Event (name_event, format_event, gender_event, id_disc, id_record) V
 ('Double quad', 'Collective', 'Mixte', 68, NULL),
 ('Tournoi 8 équipes', 'Collective', 'Femme', 64, NULL),
 ('Tournoi 8 équipes', 'Collective', 'Homme', 64, NULL);
-INSERT INTO Is_from (id_athlete, code_country) VALUES
+INSERT IGNORE INTO Is_from (id_athlete, code_country) VALUES
 (0, 'JAM'),
 (1, 'JAM'),
 (2, 'USA'),

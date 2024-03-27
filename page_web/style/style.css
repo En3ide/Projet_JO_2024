@@ -1,6 +1,5 @@
 body {
     background: url(./img/HP-Medailles-Vdef-desktop.bmp) center top;
-
 }
 
 nav {
@@ -10,13 +9,17 @@ nav {
 }
 
 #search-input {
+    color: black;
     min-width: 400px;
-    font-size: 15pt;
+    font-size: 11pt;
+    height: 2%;
+    width: 2%;
     border-style: double;
     border-width: 3px;
     border-radius: 10px;
     border-color: gray;
     margin: auto;
+    padding: 3px;
     background: rgba(174, 174, 174, 0.579);
 }
 
@@ -24,19 +27,18 @@ nav {
     margin: auto;
     height: 100%;
     width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .table_donne {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    backdrop-filter: blur(1px);
-    /* Appliquer un flou de 5 pixels */
-    z-index: -1;
-    /* Pour placer l'arrière-plan derrière le contenu */
+    /*position: absolute;*/
+    background: rgba(174, 174, 174, 0.579);
+
+    backdrop-filter: blur(3px);
+    /*Appliquer un flou de 5 pixels */
+    /*z-index: -1;
+    Pour placer l'arrière-plan derrière le contenu */
 }
 
 table {

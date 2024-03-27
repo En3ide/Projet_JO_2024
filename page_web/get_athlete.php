@@ -21,21 +21,21 @@ $resultat = mysqli_query($connexion, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau des Athlètes</title>
     <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    th,
-    td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
 
-    th {
-        background-color: #f2f2f2;
-    }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 
@@ -55,20 +55,24 @@ $resultat = mysqli_query($connexion, $sql);
 
         <?php
         // Vérifier si la requête a réussi
-        if ($resultat) {
-            // Afficher les noms des tables
-            echo "Liste des tables dans la base de données :<br>";
-            echo "<tr>";
-            foreach (mysqli_fetch_row($resultat) as $i) {
-                echo "<td>" . $i . "</td>";
+        if ($resultat && mysqli_num_rows($resultat) > 0) {
+            // Afficher les données de chaque athlète
+            while ($row = mysqli_fetch_assoc($resultat)) {
+                echo "<tr>";
+                echo "<td>" . $row['id_athlete'] . "</td>";
+                echo "<td>" . $row['firstname_athlete'] . "</td>";
+                echo "<td>" . $row['name_athlete'] . "</td>";
+                echo "<td>" . $row['birthday_athlete'] . "</td>";
+                echo "<td>" . $row['gender_athlete'] . "</td>";
+                echo "<td>" . $row['code_country'] . "</td>";
+                echo "</tr>";
             }
-            echo "</tr>";
         } else {
-            echo "Erreur lors de l'exécution de la requête : " . mysqli_error($connexion);
+            echo "Aucun athlète trouvé dans la base de données.";
         }
-
         // Fermer la connexion à la base de données
-        mysqli_close($connexion); ?>
+        mysqli_close($connexion);
+        ?>
     </table>
 
 </body>

@@ -152,8 +152,6 @@ def send_record(result, event_table, athlete_table, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Record fini !!!")
     return(send)
 
-def create_sql():
-    return send_record(recup_record())
-
 if __name__ == "__main__":
-    print(recup_record())
+    #print(recup_record())$
+    pass

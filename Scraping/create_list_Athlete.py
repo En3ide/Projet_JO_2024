@@ -94,8 +94,5 @@ def send_athlete(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Athlete fini !!!")
     return(send)
 
-def create_sql():
-    return send_athlete(recup_athlete())
-
 if __name__ == "__main__":
-    send_athlete(recup_athlete())
+    pass

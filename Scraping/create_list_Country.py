@@ -60,8 +60,6 @@ def send_country(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql country Fini !!!")
     return(send)
 
-def create_sql():
-    return send_country(recup_country())
-
 if __name__ == "__main__":
-    print(send_country(recup_country()))
+    #print(send_country(recup_country()))
+    pass

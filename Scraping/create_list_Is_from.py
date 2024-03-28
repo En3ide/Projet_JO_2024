@@ -37,7 +37,6 @@ def send_is_from(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Record fini !!!")
     return(send)
 
-def create_sql(athlete, country):
-    return send_is_from(recup_is_from(athlete, country))
-
-# print(create_sql(recup_athlete(), recup_country()))
+if __name__ == '__main__':
+    # print(create_sql(recup_athlete(), recup_country()))
+    pass

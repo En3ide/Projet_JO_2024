@@ -357,20 +357,20 @@ def get_table_event(l_event):
                 #Trouver si c'est une épreuve collective ou non
                 for mot in MOT_EQUIPE:
                     if mot in nom_event:
-                        dico['format_event'] = "Collective"
+                        dico['format_event'] = "COLLECTIVE"
                 if 'format_event' not in dico.keys():
                     if 'équipe' in g:
-                        dico['format_event'] = "Collective"
+                        dico['format_event'] = "COLLECTIVE"
                     else:
-                        dico['format_event'] = "Individual"
+                        dico['format_event'] = "INDIVIDUAL"
                 
                 #Connaitre si c'est une épreuve hommes, femmes, ou mixte
                 if "femmes" in g:
-                    dico['gender_event'] = "Femme"
+                    dico['gender_event'] = "WOMAN"
                 elif "hommes" in g:
-                    dico['gender_event'] = "Homme"
+                    dico['gender_event'] = "MAN"
                 else:
-                    dico['gender_event'] = "Mixte"
+                    dico['gender_event'] = "MIXED"
                 dico['discipline'] = sport[0].lower()
                 table.append(dico)
                 
@@ -411,11 +411,8 @@ def send_event(result, disc_table, record_table, bdd=""):
         connexion.close()
     return(send)
 
-
-def create_sql():
-    return send_event(recup_event)
-
 if __name__ == "__main__":
     # print(send_event(recup_event(), recup_discipline(), recup_record()))
     #print(send_event(recup_event(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/record.json")))
-    print(recup_event())
+    #print(recup_event())
+    pass

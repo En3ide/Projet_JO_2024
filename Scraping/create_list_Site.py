@@ -116,8 +116,6 @@ def send_site(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Site Fini !!!")
     return(send)
 
-def create_sql():
-    return send_site(recup_site())
-
 if __name__ == "__main__":
-    send_site(recup_site())
+    #send_site(recup_site())
+    pass

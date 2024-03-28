@@ -96,9 +96,9 @@ def associate_sports(l_en, l_fr, association):
 def get_table_disciplines(l_en, l_fr, association, cat = "P"):
     res = []
     if cat == "O":
-        cate = "Olympic"
+        cate = "OLYMPIC"
     else:
-        cate = "Paralympic"
+        cate = "PARALYMPIC"
     l_sports = associate_sports(l_en, l_fr, association)
     for sport in l_sports:
         res.append({'name_fr_disc':sport[1].lower().replace("’", "'"), 'name_an_disc':sport[0].lower(), 'category_disc':cate})
@@ -134,9 +134,5 @@ def send_discipline(result, bdd=""):
         connexion.close()
     return(send)
 
-def create_sql():
-    return send_discipline(recup_discipline())
-
 if __name__ == "__main__":
-    send_discipline(recup_discipline())
-    
+    pass

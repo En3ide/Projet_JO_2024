@@ -131,8 +131,5 @@ def send_date_calendar(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Date_calendar fini !!!")
     return(send)
 
-def create_sql():
-    return send_date_calendar(recup_date_calendar())
-
 if __name__ == "__main__":
-    send_date_calendar(recup_date_calendar())
+    pass

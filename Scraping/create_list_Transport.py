@@ -34,8 +34,6 @@ def send_transport(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql transport fini !!!")
     return(send)
 
-def create_sql():
-    return send_transport(recup_transport())
-
 if __name__ == "__main__":
-    send_transport(recup_transport())
+    #send_transport(recup_transport())
+    pass

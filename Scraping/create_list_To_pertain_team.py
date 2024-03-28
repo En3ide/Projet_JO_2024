@@ -37,8 +37,6 @@ def send_to_register_team(result, athlete_table, team_table, bdd=""):
     print('[',datetime.now().time(),'] ', "sql To_register_athlete fini !!!")
     return(send)
 
-def create_sql():
-    return send_to_register_team(recup_to_pertain_team())
-
 if __name__ == "__main__":
-    send_to_register_team(recup_to_pertain_team())
+    #send_to_register_team(recup_to_pertain_team())
+    pass

@@ -83,7 +83,7 @@ def main(file_sql):
     with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
         sql_creation = f.read()
     with open(PATH + "Script_SQL/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
-        fichier.write(sql_creation + "\n" +str(sql))
+        fichier.write(sql_creation + "\n" + str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     return file_name
 

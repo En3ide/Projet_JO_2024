@@ -105,7 +105,7 @@ def main(file_sql):
         send_record(record, event, athlete) + "\n\n" +
         send_date_calendar(date_calendar)+ "\n\n" +
         send_to_serve(to_serve, site) + "\n\n" +
-        send_event(event, discipline, record) + "\n" +
+        send_event(event, discipline, record) + "\n\n" +
         send_is_from(is_from)
     )
     with open(file_sql, "w", encoding="utf-8") as f:

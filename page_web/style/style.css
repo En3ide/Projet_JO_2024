@@ -1,14 +1,24 @@
-body {
-    background: url(./img/HP-Medailles-Vdef-desktop.bmp) center top;
+html {
+    background: url(./img/HP-Medailles-Vdef-desktop.bmp) center top no-repeat fixed;
 }
 
+/*
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}*/
+
+#table_list {
+    overflow: auto;
+    position: fixed;
+    background: black;
+    display: flex;
+    flex-direction: column;
 }
 
 #search-input {
+    text-align: left;
     color: black;
     min-width: 400px;
     font-size: 11pt;
@@ -56,4 +66,73 @@ td {
     /* Ajoute de l'espace à l'intérieur des cellules */
     text-align: center;
     /* Centre le texte dans les cellules */
+}
+
+#content {
+    width: 100%;
+}
+
+
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background: rgba(174, 174, 174, 0.579);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar button {
+    display: block;
+    color: black;
+    padding: 16px;
+    width: 100%;
+    border: 0px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar button.active {
+    background: rgba(174, 174, 174, 0.579);
+    color: white;
+}
+
+
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    /*height: 1000px;*/
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar button {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+    .sidebar button {
+        text-align: center;
+        float: none;
+    }
 }

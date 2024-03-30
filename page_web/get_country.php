@@ -9,7 +9,7 @@ if ($connexion === false) {
 }
 
 // Exécuter la requête pour afficher la liste des tables
-$sql = "SELECT * FROM Athlete";
+$sql = "SELECT * FROM Country";
 $resultat = mysqli_query($connexion, $sql);
 ?>
 
@@ -19,7 +19,7 @@ $resultat = mysqli_query($connexion, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Athlètes</title>
+    <title>Tableau des pays</title>
     <style>
         table {
             border-collapse: collapse;
@@ -41,16 +41,12 @@ $resultat = mysqli_query($connexion, $sql);
 
 <body>
 
-    <h2>Tableau des Athlètes</h2>
+    <h2>Tableau des pays</h2>
 
     <table class="table_donne">
         <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de Naissance</th>
-            <th>Genre</th>
-            <th>Code country</th>
+            <th>Code pays</th>
+            <th>Pays</th>
         </tr>
 
         <?php
@@ -59,16 +55,12 @@ $resultat = mysqli_query($connexion, $sql);
             // Afficher les données de chaque athlète
             while ($row = mysqli_fetch_assoc($resultat)) {
                 echo "<tr>";
-                echo "<td>" . $row['id_athlete'] . "</td>";
-                echo "<td>" . $row['firstname_athlete'] . "</td>";
-                echo "<td>" . $row['name_athlete'] . "</td>";
-                echo "<td>" . $row['birthday_athlete'] . "</td>";
-                echo "<td>" . $row['gender_athlete'] . "</td>";
                 echo "<td>" . $row['code_country'] . "</td>";
+                echo "<td>" . $row['name_country'] . "</td>";
                 echo "</tr>";
             }
         } else {
-            echo "Aucun athlète trouvé dans la base de données.";
+            echo "Aucun pays trouvé dans la base de données.";
         }
         // Fermer la connexion à la base de données
         mysqli_close($connexion);

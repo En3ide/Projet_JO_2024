@@ -52,6 +52,7 @@ def main(file_sql):
     data_to_json(country, json + "country.json")
     data_to_json(discipline, json + "discipline.json")
     data_to_json(record, json + "record.json")
+    data_to_json(event, json + "event.json")
     data_to_json(date_calendar, json + "date_calendar.json")
     data_to_json(is_from, json + "is_from.json")
     liste_table = {
@@ -61,6 +62,7 @@ def main(file_sql):
         "Athlete": athlete,
         "Country": country,
         "Discipline": record,
+        "Event": event,
         "Date_calendar": date_calendar,
         "Is_from": is_from
     }

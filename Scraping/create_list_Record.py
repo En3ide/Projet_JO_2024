@@ -8,7 +8,7 @@ import requests, sqlite3
 import re
 from date_convert import convert_date
 from datetime import datetime
-from utilitary_function import get_dic_id_table
+from utilitary_function import *
 
 ##### Code #####
 main_url_athletisme = "https://fr.wikipedia.org/wiki/Records_olympiques_d%27athl%C3%A9tisme"
@@ -133,9 +133,9 @@ def send_record(result, event_table, athlete_table, bdd=""):
     # Création de la requête SQL
     send = "INSERT IGNORE INTO Record (stat_record, date_record, id_event, id_athlete) VALUES\n"
     for dic in result:
-        id_event = get_dic_id_table(event_table, discipline=dic.get("name_fr_disc"))
+        id_event = get_dic_id_table(event_table, name_fr_disc=dic.get("discipline"))
         athlete_name = dic.get("athlete").split(" ")
-        id_athlete = get_dic_id_table(athlete_table, firstname_athlete=athlete_name[0], name_athlete=athlete_name[0])
+        id_athlete = get_dic_id_table(athlete_table, firstname_athlete=athlete_name[0], name_athlete=athlete_name[1])
         send += ("('" + dic.get("stat_record").replace("'", "''") + "', '" +
             dic.get("date_record") + "', " +
             id_event + ", " +
@@ -153,5 +153,4 @@ def send_record(result, event_table, athlete_table, bdd=""):
     return(send)
 
 if __name__ == "__main__":
-    #print(recup_record())$
-    pass
+    print(send_record(recup_record(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/athlete.json")))

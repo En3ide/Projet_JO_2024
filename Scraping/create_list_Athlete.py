@@ -67,6 +67,7 @@ list_record = [{'name_athlete' : 'Bolt' , 'firstname_athlete' : 'Usain', 'birthd
                 {'firstname_athlete': 'Tatjana', 'name_athlete': 'Schoenmaker', 'birthday_athlete': '1997-07-09', 'gender_athlete': 'WOMAN', 'code_country': 'ZAF'},
                 {'firstname_athlete': 'Sarah', 'name_athlete': 'Sjöström', 'birthday_athlete': '1993-08-17', 'gender_athlete': 'WOMAN', 'code_country': 'SWE'},
                 {'firstname_athlete': 'Zhang', 'name_athlete': 'Yufei', 'birthday_athlete': '1998-04-19', 'gender_athlete': 'WOMAN', 'code_country': 'CHN'},
+                {'firstname_athlete': 'Charles', 'name_athlete': 'Austin', 'birthday_athlete': '1967-12-19', 'gender_athlete': 'MAN', 'code_country': 'USA'},
                 {'firstname_athlete': 'Katinka', 'name_athlete': 'Hosszú', 'birthday_athlete': '1985-05-03', 'gender_athlete': 'WOMAN', 'code_country': 'HUN'}]
 
 def recup_athlete():

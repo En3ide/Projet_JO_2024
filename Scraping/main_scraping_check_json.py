@@ -35,40 +35,40 @@ def installer_requirements(fichier_requirements):
 
 def main(file_sql):
     with Pool() as pool:
-        if os.path.exists(json+"transport.json"):
-            transport = json_to_data(json+"transport.json")
+        if os.path.exists(json + "transport.json"):
+            transport = json_to_data(json + "transport.json")
         else:
             transport = pool.apply(recup_transport)
-        if os.path.exists(json+"site.json"):
-            site = json_to_data(json+"site.json")
+        if os.path.exists(json + "site.json"):
+            site = json_to_data(json + "site.json")
         else:
             site = pool.apply(recup_site)
-        if os.path.exists(json+"transport.json"):
-            to_serve = json_to_data(json+"to_serve.json")
+        if os.path.exists(json + "transport.json"):
+            to_serve = json_to_data(json + "to_serve.json")
         else:
             to_serve = pool.apply(recup_to_serve)
-        if os.path.exists(json+"transport.json"):
+        if os.path.exists(json + "transport.json"):
             athlete = json_to_data(json+"athlete.json")
         else:
             athlete = pool.apply(recup_athlete)
-        if os.path.exists(json+"country.json"):
-            country = json_to_data(json+"country.json")
+        if os.path.exists(json + "country.json"):
+            country = json_to_data(json + "country.json")
         else:
             country = pool.apply(recup_country)
-        if os.path.exists(json+"discipline.json"):
-            discipline = json_to_data(json+"discipline.json")
+        if os.path.exists(json + "discipline.json"):
+            discipline = json_to_data(json + "discipline.json")
         else:
             discipline = pool.apply(recup_discipline)
-        if os.path.exists(json+"record.json"):
-            record = json_to_data(json+"record.json")
+        if os.path.exists(json + "record.json"):
+            record = json_to_data(json + "record.json")
         else:
             record = pool.apply(recup_record)
-        if os.path.exists(json+"event.json"):
-            event = json_to_data(json+"event.json")
+        if os.path.exists(json + "event.json"):
+            event = json_to_data(json + "event.json")
         else:
             event = pool.apply(recup_event)
-        if os.path.exists(json+"date_calendar.json"):
-            date_calendar = json_to_data(json+"date_calendar.json")
+        if os.path.exists(json + "date_calendar.json"):
+            date_calendar = json_to_data(json + "date_calendar.json")
         else:
             date_calendar = pool.apply(recup_date_calendar)
         if os.path.exists(json + "is_from.json"):
@@ -82,6 +82,7 @@ def main(file_sql):
     data_to_json(country, json + "country.json")
     data_to_json(discipline, json + "discipline.json")
     data_to_json(record, json + "record.json")
+    data_to_json(event, json + "event.json")
     data_to_json(date_calendar, json + "date_calendar.json")
     data_to_json(is_from, json + "is_from.json")
     liste_table = {
@@ -91,6 +92,7 @@ def main(file_sql):
         "Athlete": athlete,
         "Country": country,
         "Discipline": record,
+        "Event": event,
         "Date_calendar": date_calendar,
         "Is_from": is_from
     }

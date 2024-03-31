@@ -48,6 +48,10 @@
                         var url = window.location.href + "/get_athlete.php?param1=" + filtre;
                     }
                     // Utiliser Fetch pour récupérer le contenu de la page
+                    recup_info(url, contentElement);
+                }
+                function recup_info(url, contentElement) {
+                    // Utiliser Fetch pour récupérer le contenu de la page
                     fetch(url)
                         .then(response => {
                             // Vérifier si la requête a réussi (code de statut 200)
@@ -80,23 +84,7 @@
                     else {
                         var url = window.location.href + "/get_country.php?param1=" + filtre;
                     }
-                    // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 function dipslay_event(filtre = "") {
@@ -112,23 +100,7 @@
                     else {
                         var url = window.location.href + "/get_event.php";
                     }
-                    // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // AAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 function dipslay_discipline(filtre = "") {
@@ -145,22 +117,7 @@
                         var url = window.location.href + "/get_discipline.php";
                     }
                     // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // AAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 function dipslay_date(filtre = "") {
@@ -177,22 +134,7 @@
                         var url = window.location.href + "/get_date.php";
                     }
                     // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // AAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHH
                 function dipslay_site(filtre = "") {
@@ -209,22 +151,7 @@
                         var url = window.location.href + "/get_site.php";
                     }
                     // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // AAAAAAAAAAAAAAAHHHHHHHHHHHHHAAAAAAAAAHHHHHHHHh
                 function dipslay_record(filtre = "") {
@@ -241,22 +168,7 @@
                         var url = window.location.href + "/get_record.php";
                     }
                     // Utiliser Fetch pour récupérer le contenu de la page
-                    fetch(url)
-                        .then(response => {
-                            // Vérifier si la requête a réussi (code de statut 200)
-                            if (!response.ok) {
-                                throw new Error('La requête a échoué');
-                            }
-                            // Extraire le contenu texte de la réponse
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Ajouter le contenu à l'élément "content"
-                            contentElement.innerHTML = data;
-                        })
-                        .catch(error => {
-                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
-                        });
+                    recup_info(url, contentElement);
                 }
                 // LA CULOTTE A COLETTE
                 var btn_athlete = document.getElementById("btn_athlete");

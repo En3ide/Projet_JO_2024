@@ -76,7 +76,7 @@ if (isset($_GET['param1'])) {
             while ($row = mysqli_fetch_assoc($resultat)) {
                 echo "<tr>";
                 echo "<td>" . $row['date_cal'] . "</td>";
-                echo "<td>" . $row['medal_ceremony_date_cal'] . "</td>";
+                echo "<td>" . (($row['medal_ceremony_date_cal']) ? "OUI" : "NON") . "</td>";
                 echo "</tr>";
             }
         } else {

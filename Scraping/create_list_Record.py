@@ -152,5 +152,19 @@ def send_record(result, event_table, athlete_table, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Record fini !!!")
     return(send)
 
+def sql_record_oracleDB(result, event_table, athlete_table, bdd=""):
+        # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        id_event = get_dic_id_table(event_table, name_fr_disc=dic.get("discipline"))
+        athlete_name = dic.get("athlete").split(" ")
+        id_athlete = get_dic_id_table(athlete_table, firstname_athlete=athlete_name[0], name_athlete=athlete_name[1])
+        send += ("INTO Record (stat_record, date_record, id_event, id_athlete) VALUES ('" + dic.get("stat_record").replace("'", "''") + "', '" +
+            dic.get("date_record") + "', " +
+            id_event + ", " +
+            id_athlete + ")\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     print(send_record(recup_record(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/athlete.json")))

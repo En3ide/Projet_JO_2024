@@ -95,5 +95,18 @@ def send_athlete(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Athlete fini !!!")
     return(send)
 
+def sql_athlete_oracleDB(result, bdd=""):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO Athlete (firstname_athlete, name_athlete, birthday_athlete, gender_athlete, code_country) VALUES ('" + dic.get("firstname_athlete").replace("'", "''") + "', '" +
+            dic.get("name_athlete") + "', '" +
+            dic.get("birthday_athlete") + "', '" +
+            dic.get("gender_athlete") + "', '" +
+            dic.get("code_country") + "')\n")
+    send = send[:-1] + ";"
+    return(send)
+
+
 if __name__ == "__main__":
     pass

@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import requests, sqlite3
 from date_convert import convert_date
 from datetime import datetime
+import re
 
 ##### Code #####
 main_url = 'https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_2024'
@@ -118,6 +119,29 @@ def send_site(result, bdd=""):
         curseur.close()
         connexion.close()
     print('[',datetime.now().time(),'] ', "sql Site Fini !!!")
+    return(send)
+
+def sql_site_oracleDB(result, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        date_is_null = dic.get("creation_date_site") == "NULL"
+        send += ("INTO Site (name_site, adress_site, creation_date_site, capacity_site, URL_site) VALUES ('" + dic.get("name_site").replace("'", "''") + "', '" +
+            dic.get("adress_site").replace("'", "''"))
+        if date_is_null:
+            send += "', "
+        else:
+            send += "', '"
+        send += dic.get("creation_date_site").replace("'", "''")
+        if date_is_null:
+            send += ", "
+        else:
+            send += "', "
+
+        send += (dic.get("capacity_site").replace("'", "''") + ", '" +
+            dic.get("URL_site").replace("'", "''") + "')\n")
+    send = send[:-1] + ";"
     return(send)
 
 if __name__ == "__main__":

@@ -134,5 +134,16 @@ def send_discipline(result, bdd=""):
         connexion.close()
     return(send)
 
+def sql_discipline_oracleDB(result):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO Discipline (name_fr_disc, name_an_disc, category_disc) VALUES ('" +
+            dic.get("name_fr_disc").replace("'", "''") + "', '" +
+            dic.get("name_an_disc").replace("'", "''") + "', '" +
+            dic.get("category_disc") + "')\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     pass

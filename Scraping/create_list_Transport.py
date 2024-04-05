@@ -34,6 +34,33 @@ def send_transport(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql transport fini !!!")
     return(send)
 
+def send_transport(result, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT IGNORE INTO Transport (name_trans) VALUES\n"
+    for dic in result:
+        send += "('" + dic.get("name_trans").replace("'", "''") + "'),\n"
+    send = send[:-2] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    print('[',datetime.now().time(),'] ', "sql transport fini !!!")
+    return(send)
+
+def sql_transport_oracleDB(result, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += "INTO Transport (name_trans) VALUES ('" + dic.get("name_trans").replace("'", "''") + "')\n"
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     #send_transport(recup_transport())
     pass

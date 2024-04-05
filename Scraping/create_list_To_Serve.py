@@ -89,14 +89,14 @@ def recup_info(sec):
             if sec.find("» (") != -1:
                 sec = sec.replace(sec[:-sec[::-1].find("«")-1], "")
                 tmp = sec[sec.find("«")+2:sec.find("»")-1]
+                tmp = re.sub(r'\[.*?\]', '', tmp)
                 tmp2 = sec[sec.find("» (")+3:sec.find(")")]
+                tmp2 = re.sub(r'\[.*?\]', '', tmp2)
                 if ", " in tmp2 or " et " in tmp2:
                     tmp2 = re.split(r',| et ', tmp2)
                     tmp2 = [element.strip() for element in tmp2 if element.strip()]
                 else:
                     tmp2 = [tmp2]
-                tmp = re.sub(r'\[.*?\]', '', tmp)
-                tmp2 = re.sub(r'\[.*?\]', '', tmp2)
                 temp = {"name": tmp, "number": tmp2}
                 result.append(temp)
                 sec = sec.replace(sec[sec.find("«")+2:sec.find(")")-1], "")
@@ -176,6 +176,20 @@ def send_to_serve(transport, site, bdd=""):
         connexion.commit()
         curseur.close()
         connexion.close()
+    print('[',datetime.now().time(),'] ', "sql to_serve Fini !!!")
+    return(send)
+
+def sql_to_serve_oracleDB(transport, site, bdd=""):
+    
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in transport:
+        id = get_id_site(site, "name_site" ,dic.get("name_site"))
+        send += ("INTO To_Serve (id_site, id_trans, num_ligne, station_name) VALUES (" + str(id) + ", " +
+            str(dic.get("id_trans")) + ", '" +
+            dic.get("num_ligne") + "', '" +
+            dic.get("station_name").replace("'", "''") + "')\n")
+    send = send[:-1] + ";"
     print('[',datetime.now().time(),'] ', "sql to_serve Fini !!!")
     return(send)
 

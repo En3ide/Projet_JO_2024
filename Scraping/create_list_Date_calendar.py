@@ -131,5 +131,15 @@ def send_date_calendar(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Date_calendar fini !!!")
     return(send)
 
+def sql_date_calendar_oracleDB(result):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO date_calendar (date_cal, medal_ceremony_date_cal) VALUES ('" +
+            dic.get("date_cal").replace("'", "''") + "', '" +
+            dic.get("medal_ceremony_date_cal") + "')\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     pass

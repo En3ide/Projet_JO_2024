@@ -37,6 +37,16 @@ def send_is_from(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql Record fini !!!")
     return(send)
 
+def sql_is_from_oracleDB(result):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO Is_from (id_athlete, code_country) VALUES ('" +
+            dic.get("id_athlete").replace("'", "''") + "', '" +
+            dic.get("code_country") + "')\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == '__main__':
     # print(create_sql(recup_athlete(), recup_country()))
     pass

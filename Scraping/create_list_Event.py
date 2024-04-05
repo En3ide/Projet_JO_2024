@@ -411,6 +411,20 @@ def send_event(result, disc_table, record_table, bdd=""):
         connexion.close()
     return(send)
 
+def sql_event_oracleDB(result, disc_table, record_table, bdd=""):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        id_discipline = get_dic_id_table(disc_table, name_fr_disc=dic.get("discipline"))
+        id_record = get_dic_id_table_in(record_table, discipline=dic.get("discipline"), event=dic.get("name_event"))
+        send += ("INTO Event (name_event, format_event, gender_event, id_disc, id_record) VALUES ('" + dic.get("name_event").replace("'", "''") + "', '" +
+            dic.get("format_event") + "', '" +
+            dic.get("gender_event") + "', " +
+            id_discipline + ", " +
+            id_record + ")\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     # print(send_event(recup_event(), recup_discipline(), recup_record()))
     #print(send_event(recup_event(), json_to_data("./saved_json/discipline.json"), json_to_data("./saved_json/record.json")))

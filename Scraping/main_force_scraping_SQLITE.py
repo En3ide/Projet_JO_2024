@@ -83,12 +83,13 @@ def main(file_sql):
         send_event(event, discipline, record) + "\n" +
         send_is_from(is_from)
     )
+    sql = str(sql).replace("IGNORE", "")
     with open(file_sql, "w", encoding="utf-8") as f:
-        f.write(str(sql))
-    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
+        f.write(sql)
+    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION_SQLITE.sql", "r", encoding="utf-8") as f:
         sql_creation = f.read()
     with open(PATH + "Script_SQL/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
-        fichier.write(sql_creation + "\n" + str(sql))
+        fichier.write(sql_creation + "\n" + sql)
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     # envoie à la base de donnée si compatible
     if len(ip_address) > 0:
@@ -96,12 +97,12 @@ def main(file_sql):
         # Et insert les données trouvé
         connection = se_connecter_mysql(ip_address, user, password, bdd_name)
         execute_sql(connection, sql_creation)
-        execute_sql(connection, str(sql))
+        execute_sql(connection, sql)
     return file_name
 
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/" 
-path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
+path_script_insert = PATH + "Script_SQL/INSERTION_TABLE_SQLITE.sql"
 ip_address = ""
 user = ""
 password = ""

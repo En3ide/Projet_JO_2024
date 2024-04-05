@@ -60,6 +60,16 @@ def send_country(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql country Fini !!!")
     return(send)
 
+def sql_country_oracleDB(result):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO Country (code_country, name_country) VALUES ('" +
+            dic.get("code_country").replace("'", "''") + "', '" +
+            dic.get("name_country") + "')\n")
+    send = send[:-1] + ";"
+    return(send)
+
 if __name__ == "__main__":
     #print(send_country(recup_country()))
     pass

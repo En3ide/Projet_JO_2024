@@ -37,6 +37,25 @@ def send_team(result, bdd=""):
     print('[',datetime.now().time(),'] ', "sql To_register_athlete fini !!!")
     return(send)
 
+def sql_team_oracleDB(result, bdd=""):
+    # Création de la requête SQL
+    send = "INSERT ALL\n"
+    for dic in result:
+        send += ("INTO team (size_team, type_medal, code_country) VALUES ('" + dic.get("size_team") + "', '" +
+            dic.get("type_medal") + "', '" +
+            dic.get("code_country") + "')\n")
+    send = send[:-1] + ";"
+
+    if len(bdd) > 0:
+        connexion = sqlite3.connect(bdd)
+        curseur = connexion.cursor()
+        curseur.execute(send)
+        connexion.commit()
+        curseur.close()
+        connexion.close()
+    print('[',datetime.now().time(),'] ', "sql To_register_athlete fini !!!")
+    return(send)
+
 if __name__ == "__main__":
     #send_team(recup_team())
     pass

@@ -71,24 +71,24 @@ def main(file_sql):
     data_to_json(liste_table, json + "liste_table.json")
     # On put les insert dans le fichier sql
     # On les envoie à la base de donnée si lien donnée
-    sql = (
-        send_transport(transport) + "\n\n" +
-        send_site(site) + "\n\n" +
-        send_athlete(athlete) + "\n\n" +
-        send_country(country) + "\n\n" +
-        send_discipline(discipline) + "\n\n" +
-        send_record(record, event, athlete) + "\n\n" +
-        send_date_calendar(date_calendar)+ "\n\n" +
-        send_to_serve(to_serve, site) + "\n\n" +
-        send_event(event, discipline, record) + "\n" +
-        send_is_from(is_from)
+    oracleDB = (
+        sql_transport_oracleDB(transport) + "\n\n" +
+        sql_site_oracleDB(site) + "\n\n" +
+        sql_athlete_oracleDB(athlete) + "\n\n" +
+        sql_country_oracleDB(country) + "\n\n" +
+        sql_discipline_oracleDB(discipline) + "\n\n" +
+        sql_record_oracleDB(record) + "\n\n" +
+        sql_date_calendar_oracleDB(date_calendar) + "\n\n" +
+        sql_to_serve_oracleDB(to_serve) + "\n\n" +
+        sql_event_oracleDB(event) + "\n\n" +
+        sql_is_from_oracleDB(is_from)
     )
     with open(file_sql, "w", encoding="utf-8") as f:
-        f.write(str(sql))
-    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION.sql", "r", encoding="utf-8") as f:
+        f.write(str(oracleDB))
+    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION_ORACLE_DATABASE.sql", "r", encoding="utf-8") as f:
         sql_creation = f.read()
-    with open(PATH + "Script_SQL/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
-        fichier.write(sql_creation + "\n" + str(sql))
+    with open(PATH + "Script_SQL/INTERNETEURS_ORACLE_DATABASE.sql", 'w', encoding="utf-8") as fichier:
+        fichier.write(sql_creation + "\n" + str(oracleDB))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     # envoie à la base de donnée si compatible
     if len(ip_address) > 0:
@@ -96,12 +96,12 @@ def main(file_sql):
         # Et insert les données trouvé
         connection = se_connecter_mysql(ip_address, user, password, bdd_name)
         execute_sql(connection, sql_creation)
-        execute_sql(connection, str(sql))
+        execute_sql(connection, str(oracleDB))
     return file_name
 
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/" 
-path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
+path_script_insert = PATH + "Script_SQL/INSERTION_TABLE_ORACLE_DATABASE.sql"
 ip_address = ""
 user = ""
 password = ""

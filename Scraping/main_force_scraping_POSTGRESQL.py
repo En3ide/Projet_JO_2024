@@ -12,6 +12,7 @@ from create_list_Is_from import *
 from datetime import datetime
 from utilitary_function import *
 from connect_to_bdd import *
+from bdd_convert import *
 import os, subprocess, mysql.connector
 
 def installer_requirements(fichier_requirements):
@@ -83,12 +84,12 @@ def main(file_sql):
         send_event(event, discipline, record) + "\n" +
         send_is_from(is_from)
     )
-    sql = str(sql).replace("IGNORE", "")
+    sql = convert_maria_to_postgresql(str(sql))
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(sql)
-    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION_SQLITE.sql", "r", encoding="utf-8") as f:
+    with open(PATH + "Script_SQL/INTERNETEURS_SCRIPT_CREATION_POSTGRESQL.sql", "r", encoding="utf-8") as f:
         sql_creation = f.read()
-    with open(PATH + "Script_SQL/INTERNETEURS_SQLITE.sql", 'w', encoding="utf-8") as fichier:
+    with open(PATH + "Script_SQL/INTERNETEURS_POSTGRESQL.sql", 'w', encoding="utf-8") as fichier:
         fichier.write(sql_creation + "\n" + sql)
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
     # envoie à la base de donnée si compatible
@@ -102,7 +103,7 @@ def main(file_sql):
 
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/" 
-path_script_insert = PATH + "Script_SQL/INSERTION_TABLE_SQLITE.sql"
+path_script_insert = PATH + "Script_SQL/INSERTION_TABLE_POSTGRESQL.sql"
 ip_address = ""
 user = ""
 password = ""

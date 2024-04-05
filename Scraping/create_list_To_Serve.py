@@ -95,6 +95,8 @@ def recup_info(sec):
                     tmp2 = [element.strip() for element in tmp2 if element.strip()]
                 else:
                     tmp2 = [tmp2]
+                tmp = re.sub(r'\[.*?\]', '', tmp)
+                tmp2 = re.sub(r'\[.*?\]', '', tmp2)
                 temp = {"name": tmp, "number": tmp2}
                 result.append(temp)
                 sec = sec.replace(sec[sec.find("«")+2:sec.find(")")-1], "")

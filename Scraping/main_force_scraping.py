@@ -11,7 +11,8 @@ from create_list_Date_calendar import *
 from create_list_Is_from import *
 from datetime import datetime
 from utilitary_function import *
-import os, subprocess
+from connect_to_bdd import *
+import os, subprocess, mysql.connector
 
 def installer_requirements(fichier_requirements):
     """
@@ -32,6 +33,7 @@ def installer_requirements(fichier_requirements):
     except subprocess.CalledProcessError as e:
         print("Erreur lors de l'installation des dépendances :", e)
         return False
+
 
 def main(file_sql):
     with Pool() as pool:
@@ -68,6 +70,7 @@ def main(file_sql):
     }
     data_to_json(liste_table, json + "liste_table.json")
     # On put les insert dans le fichier sql
+    # On les envoie à la base de donnée si lien donnée
     sql = (
         send_transport(transport) + "\n\n" +
         send_site(site) + "\n\n" +
@@ -87,11 +90,21 @@ def main(file_sql):
     with open(PATH + "Script_SQL/INTERNETEURS.sql", 'w', encoding="utf-8") as fichier:
         fichier.write(sql_creation + "\n" + str(sql))
     print('[',datetime.now().time(),'] ', "Création des données fini !!")
+    if len(ip_address) > 0:
+        # Envoie à la base de donnée le script de création de bdd
+        # Et insert les données trouvé
+        connection = se_connecter_mysql(ip_address, user, password, bdd_name)
+        execute_sql(connection, sql_creation)
+        execute_sql(connection, str(sql))
     return file_name
 
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
 json = PATH + "saved_json/" 
 path_script_insert = PATH + "Script_SQL/INSERTION_TABLE.sql"
+ip_address = ""
+user = ""
+password = ""
+bdd_name = ""
 
 if __name__ == "__main__":
     if installer_requirements(PATH + "Scraping/requirements.txt"):

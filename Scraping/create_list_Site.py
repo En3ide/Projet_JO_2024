@@ -66,8 +66,10 @@ def recup_site():
                 tmp = [cell for cell in cells]
                 
                 attr_name = tmp[0].text.replace("\n", "") # + ' '+ tmp[1].text.replace("\n", "")
+                attr_name = re.sub(r'\[.*?\]', '', attr_name)
                 attr_url = "https://fr.wikipedia.org/" + tmp[0].a['href']
                 attr_capacity = tmp[3].text.replace('\xa0', '').replace("\n", "")
+                attr_capacity = re.sub(r'\[.*?\]', '', attr_capacity)
                 if attr_capacity in " -":
                     attr_capacity = "NULL"
                 donnee = recup_date_adress(attr_url)
@@ -75,7 +77,9 @@ def recup_site():
                     attr_adress = donnee[0]
                 else:
                     attr_adress = attr_name
+                attr_adress = re.sub(r'\[.*?\]', '', attr_adress)
                 attr_creation_date = convert_date(donnee[1])
+                attr_creation_date = re.sub(r'\[.*?\]', '', attr_creation_date)
              
                 result.append({"name_site": attr_name.replace("\u00a0", " "), "adress_site": attr_adress.replace("\u00a0", " "), "creation_date_site": attr_creation_date, "capacity_site": attr_capacity, "URL_site": attr_url})
         print('[',datetime.now().time(),'] ', "Recup_site Fini !!!")

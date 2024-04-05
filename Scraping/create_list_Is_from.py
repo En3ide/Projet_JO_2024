@@ -41,8 +41,8 @@ def sql_is_from_oracleDB(result):
     # Création de la requête SQL
     send = "INSERT ALL\n"
     for dic in result:
-        send += ("INTO Is_from (id_athlete, code_country) VALUES ('" +
-            dic.get("id_athlete").replace("'", "''") + "', '" +
+        send += ("INTO Is_from (id_athlete, code_country) VALUES (" +
+            str(dic.get("id_athlete")) + ", '" +
             dic.get("code_country") + "')\n")
     send = send[:-1] + ";"
     return(send)

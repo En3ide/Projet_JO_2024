@@ -1,0 +1,151 @@
+:root {
+    --font-text-color: #FFFFFF;
+
+    --bg-color: rgba(30, 30, 30, 0.3);
+    --bg-color-sidebar: #1E1E1E;
+    --bg-color-filternav: rgb(30, 30, 30, 0.5);
+    --bg-color-th: #1E1E1E;
+    --bg-color-td: rgba(30, 30, 30, 0.5);
+
+    --border-color-filternav: rgb(128, 128, 128);
+    --border-color-table: rgb(128, 128, 128);
+
+    
+    --font-size-sign: 0.7vw;
+    --font-size-sidebar: 1vw;
+
+    --font-size-default: 1vw;
+    
+    --font-size-presentation: 1.3vw;
+    --font-size-title: 1.5vw;
+    --font-size-filter-title: 2vw;
+    --font-size-fitlernav-input: 0.8vw;
+    --font-size-stylish-button: 1vw;
+    --font-size-table: 0.8vw;
+
+    --font-family-main: "Paris2024";
+    --font-family-table: "SourceSansPro";
+
+    --padding-button: 0.7vw;
+}
+
+@font-face {
+    font-family: "Paris2024";
+    src: url(./fonts/Paris2024-Variable_03cd1b21.woff2);
+}
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(./fonts/SourceSansPro-Regular.woff2);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background: url(./img/HP-Medailles-Vdef-desktop.bmp) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+    cursor: default;
+}
+
+body > * {
+    color: var(--font-text-color);
+
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-default);
+}
+
+/* BG BLUR EFFECT */
+body::before {
+    content: '';
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -9999;
+
+    background-color: var(--bg-color);
+    backdrop-filter: blur(1px);
+}
+
+/* TITLE - DIV SIGN*/
+.upper-element {
+    top: 0;
+    z-index: 9999;
+    padding: 10px;
+}
+
+#title {
+    position: fixed;
+    font-size: var(--font-size-title);
+}
+
+#sign {
+    position: absolute;
+    text-align: right;
+    right: 0;
+    font-size: var(--font-size-sign);
+}
+
+#sign > span {
+    text-decoration: line-through;
+}
+
+/* NAV */
+#main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* BOUTTON HOME */
+#home-button {
+    width: 5vw;
+    height: 5vw;
+    max-width: 8vw;
+    max-height: 8vw;
+    background: url('./img/home-logo.png') center no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+#home-button:hover {
+    transform: scale(1.08);
+    border-radius: 80px;
+    box-shadow: 0 0 3px white;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-shadow: 2px 2px 2px black;
+
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* CONTENT */
+#content {
+    text-align: center;
+
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {}

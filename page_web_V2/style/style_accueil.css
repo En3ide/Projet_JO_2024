@@ -1,0 +1,30 @@
+/** BOUTTON **/
+#stylish-button {
+    color: var(--font-text-color);
+    background-color: #1E1E1E;
+    text-shadow: 0 0 2px white;
+
+    font-size: var(--font-size-stylish-button);
+    font-family: var(--font-family-main);
+
+    padding: var(--padding-button);
+    border: solid 0.5px var(--border-color-table);
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+#stylish-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 3px white;
+}
+
+#content {
+    margin-top: 7%;
+    font-size: var(--font-size-presentation);
+    margin: 0;
+    margin-top: 3%;
+    padding: 4%;
+    backdrop-filter: blur(2px);
+    border-radius: 25px;
+}

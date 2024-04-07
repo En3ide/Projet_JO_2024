@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JO 2024</title>
+    <meta name="description" content="BDD JO 2024">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" href="./style/img/emblem-color_60963524.svg" type="image/png">
+</head>
+
+<body>
+    <div class="sidebar">
+        <select id="search_input">
+            <option value="default">--Saisir une table--</option>
+            <option value="athlete" id="btn_athlete">Athlete</option>
+            <option value="event" id="btn_event">Epreuve</option>
+            <option value="disc" id="btn_discipline">Discipline</option>
+            <option value="site" id="btn_site">Site</option>
+            <option value="record" id="btn_record">Record</option>
+        </select>
+    </div>
+    <div class="content" id="">
+        <!----<nav>
+            <input type="search" id="search-input">
+        </nav>--->
+        <div id="content">
+            <script>
+                function recup_info(url, contentElement) {
+                    // Utiliser Fetch pour récupérer le contenu de la page
+                    fetch(url)
+                        .then(response => {
+                            // Vérifier si la requête a réussi (code de statut 200)
+                            if (!response.ok) {
+                                throw new Error('La requête a échoué');
+                            }
+                            // Extraire le contenu texte de la réponse
+                            return response.text();
+                        })
+                        .then(data => {
+                            // Ajouter le contenu à l'élément "content"
+                            contentElement.innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
+                        });
+                }
+                function display_entity(entity, filtre = "") {
+                    var contentElement = document.getElementById("content");
+                    var root = window.location.href;
+                    if (root.includes(".php") || root.includes(".html")) {
+                        var segments = root.split("/"); // Divise l'URL en segments
+                        segments.pop(); // Supprime le dernier segment (le nom du fichier)
+                        root = segments.join("/"); // Réassemble les segments en une seule chaîne avec des "/"
+                    }
+                    var url = root + "/get_" + entity + ".php";
+
+                    if (filtre.length > 0) {
+                        if (filtre.includes('=')) {
+                            filtre = filtre.split('=');
+                            url += "?param1=" + filtre[0] + "&param2=" + filtre[1];
+                        }
+                    }
+                    recup_info(url, contentElement);
+                }
+                function init() {
+                    var contentElement = document.getElementById("content");
+                    // LA CULOTTE A COLETTE
+                    var search_input = document.getElementById("search_input");
+                    search_input.addEventListener("input", function (event) {
+                        display_entity(search_input.value);
+                    });
+                }
+
+                function new_search(url, table) {
+                    // Utiliser Fetch pour récupérer le contenu de la page
+                    fetch(url)
+                        .then(response => {
+                            // Vérifier si la requête a réussi (code de statut 200)
+                            if (!response.ok) {
+                                throw new Error('La requête a échoué');
+                            }
+                            // Extraire le contenu texte de la réponse
+                            return response.text();
+                        })
+                        .then(data => {
+                            // Ajouter les lignes à l'index 1
+                            table.firstchild.insertAdjacentHTML('afterend', data);
+                        })
+                        .catch(error => {
+                            console.error('Une erreur est survenue lors de la récupération du contenu :', error);
+                        });
+                }
+
+                function supp_table() {
+                    var table = document.getElementById("table_donne");
+                    // Sélectionnez tous les éléments <tr> dans la table
+                    const trElements = table.querySelectorAll('tr');
+
+                    // Supprimez les éléments <tr> après le premier
+                    let premierTrouve = false;
+                    for (let i = 0; i < trElements.length; i++) {
+                        if (!premierTrouve) {
+                            premierTrouve = true; // Marquez le premier élément comme trouvé
+                            continue; // Passez au prochain élément
+                        }
+
+                        // Supprimez cet élément <tr>
+                        trElements[i].parentNode.removeChild(trElements[i]);
+                    }
+                    var url = window.location.href + "/search_athlete.php?id_athlete=" + document.getElementById("id_athlete")
+                        .value +
+                        "&firstname_athlete=" + document.getElementById("firstname_athlete").value +
+                        "&name_athlete=" + document.getElementById("name_athlete").value +
+                        "&birthday_athlete=" + document.getElementById("birthday_athlete").value +
+                        "&gender_athlete=" + document.getElementById("gender_athlete").value +
+                        "&name_country=" + document.getElementById("name_country").value;
+                    new_search(url, table);
+                }
+
+                window.addEventListener("DOMContentLoaded", init);
+            </script>
+        </div>
+    </div>
+
+    <script src="" async defer></script>
+</body>
+
+</html>

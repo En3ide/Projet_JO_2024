@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Moteur de recherche pour les JO 2024</title>
+    <meta name="description" content="Projet réalisé dans le cadre de SAE BDD - PROJET JO 2024">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style/style_main.css">
+    <link rel="stylesheet" href="./style/style_searchtable.css">
+    <link rel="icon" href="./style/img/emblem-color_60963524.svg" type="image/png">
+</head>
+
+<body>
+    <header>
+        <h1 class="upper-element" id="title">PROJET SAE WEB</h1>
+
+        <div class="upper-element" id="sign">
+            Tim Lamour - Jamel Bailleul - <span>Ryan Billaud</span> - <span>Aymerik Cavenaille</span>
+        </div>
+
+        <nav id="main-nav">
+            <a href="index.html"><button id="home-button"></button></a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="sidebar">
+            <a href="#main-nav">Menu</a>
+            <select id="search-input">
+                <option value="default">Choisissez une table</option>
+                <option value="athlete" id="btn_athlete">Athlète</option>
+                <option value="event" id="btn_event">Epreuve</option>
+                <option value="discipline" id="btn_discipline">Discipline</option>
+                <option value="site" id="btn_site">Site</option>
+                <option value="to_serve" id="btn_to_serve">to_serve</option>
+                <option value="record" id="btn_record">Record</option>
+                <option value="date" id="btn_date">Date</option>
+                <option value="team" id="btn_team">Team</option>
+                <option value="country" id="btn_country">Country</option>
+                <option value="transport" id="btn_transport">Transport</option>
+                <option value="medal" id="btn_transport">Medail</option>
+                <!--<option value="is_from" id="btn_is_from">Is From</option>--->
+            </select>
+        </div>
+
+        <div id="content">
+            <ul style="display: none;">
+                <li>ID :<input value="" type="text" class="id table-input" id="id_athlete 1"></li>
+                <li>Prénom :<input value="" type="text" class="table-input" id="first_name_athlete 2"></li>
+                <li>Nom :<input value="" type="text" class="table-input" id="name_athlete 3"></li>
+                <li>Année de Naissance :<input value="" type="text" class="table-input" id="birthday_athlete 4"></li>
+                <li>Genre :
+                    <select class="genre table-input" id="gender_athlete 5">
+                        <option value=""></option>
+                        <option value="MAN">Homme</option>
+                        <option value="WOMAN">Femme</option>
+                    </select>
+                </li>
+                <li>Pays :<input value="" type="text" class="table-input" id="country_code_athlete 6"></li>
+                <li><input value="" type="text" style="display:none;" class="table-input" id="7"></li>
+                <li><input value="" type="text" style="display:none;" class="table-input" id="8"></li>
+                <li><input value="" type="text" style="display:none;" class="table-input" id="9"></li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        function recup_info(url, contentElement) {
+            // Utiliser Fetch pour récupérer le contenu de la page
+            fetch(url)
+                .then(response => {
+                    // Vérifier si la requête a réussi (code de statut 200)
+                    if (!response.ok) {
+                        throw new Error('La requête a échoué');
+                    }
+                    // Extraire le contenu texte de la réponse
+                    return response.text();
+                })
+                .then(data => {
+                    // Ajouter le contenu à l'élément "content"
+                    contentElement.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Une erreur est survenue lors de la récupération du contenu :', error);
+                });
+        }
+
+        function display_entity(entity) {
+            var contentElement = document.getElementById("content");
+            var root = window.location.href;
+            if (root.includes(".php") || root.includes(".html")) {
+                var segments = root.split("/"); // Divise l'URL en segments
+                segments.pop(); // Supprime le dernier segment (le nom du fichier)
+                root = segments.join("/"); // Réassemble les segments en une seule chaîne avec des "/"
+            }
+            var url = root + "/get_" + entity + ".php";
+            var _1 = document.getElementById("1");
+            var _2 = document.getElementById("2");
+            var _3 = document.getElementById("3");
+            var _4 = document.getElementById("4");
+            var _5 = document.getElementById("5");
+            var _6 = document.getElementById("6");
+            var _7 = document.getElementById("7");
+            var _8 = document.getElementById("8");
+
+            recup_info(url, contentElement);
+        }
+
+        function init() {
+            var search_input = document.getElementById("search-input");
+            search_input.addEventListener("change", function (event) {
+                display_entity(search_input.value);
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", init);
+
+        function supp_table() {
+            var root = window.location.href;
+            if (root.includes(".php") || root.includes(".html")) {
+                var segments = root.split("/"); // Divise l'URL en segments
+                segments.pop(); // Supprime le dernier segment (le nom du fichier)
+                root = segments.join("/"); // Réassemble les segments en une seule chaîne avec des "/"
+            }
+            var url = root + "/get_" +
+                document.getElementById("search-input").value +
+                ".php?1=" + document.getElementById("1").value +
+                "&2=" + document.getElementById("2").value +
+                "&3=" + document.getElementById("3").value +
+                "&4=" + document.getElementById("4").value +
+                "&5=" + document.getElementById("5").value +
+                "&6=" + document.getElementById("6").value +
+                "&7=" + document.getElementById("7").value +
+                "&8=" + document.getElementById("8").value +
+                "&9=" + document.getElementById("9").value;
+            // Supprimez les éléments <tr> après le premier
+            let premierTrouve = false;
+            document.getElementById("content").innerHTML = "";
+            recup_info(url, document.getElementById("content"));
+        }
+    </script>
+</body>
+
+</html>

@@ -145,5 +145,4 @@ def sql_site_oracleDB(result, bdd=""):
     return(send)
 
 if __name__ == "__main__":
-    #send_site(recup_site())
-    pass
+    print(send_site(recup_site()))

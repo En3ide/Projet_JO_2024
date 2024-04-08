@@ -109,4 +109,5 @@ bdd_name = ""
 
 if __name__ == "__main__":
     if installer_requirements(PATH + "Scraping/requirements.txt"):
+        print(PATH + "Scraping/requirements.txt")
         main(path_script_insert)

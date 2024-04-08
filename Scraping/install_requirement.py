@@ -1,3 +1,4 @@
+from datetime import *
 import subprocess, os
 
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/../" #repart du dossier racine du projet
@@ -11,7 +12,7 @@ def installer_requirements(fichier_requirements):
     - bool: True si l'installation s'est déroulée avec succès, False sinon
     """
     try:
-        subprocess.check_call(["python.exe", "-m", "pip", "install", "--upgrade", "pip"])
+        subprocess.check_call(["python", "-m", "pip", "install", "--upgrade", "pip"])
     except subprocess.CalledProcessError as e:
         print("Python.exe introuvable !!!")
     try:

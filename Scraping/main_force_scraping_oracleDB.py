@@ -75,13 +75,13 @@ def main(file_sql):
         sql_transport_oracleDB(transport) + "\n\n" +
         sql_site_oracleDB(site) + "\n\n" +
         sql_country_oracleDB(country) + "\n\n" +
-        sql_athlete_oracleDB(athlete) + "\n\n" +
         sql_discipline_oracleDB(discipline) + "\n\n" +
         sql_record_oracleDB(record, event, athlete) + "\n\n" +
         sql_date_calendar_oracleDB(date_calendar) + "\n\n" +
         sql_to_serve_oracleDB(to_serve, site) + "\n\n" +
         sql_event_oracleDB(event, discipline, record) + "\n\n" +
-        sql_is_from_oracleDB(is_from)
+        sql_is_from_oracleDB(is_from) + "\n\n" +
+        sql_athlete_oracleDB(athlete)
     )
     with open(file_sql, "w", encoding="utf-8") as f:
         f.write(str(oracleDB))

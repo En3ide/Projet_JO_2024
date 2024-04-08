@@ -75,13 +75,13 @@ def main(file_sql):
         send_transport(transport) + "\n\n" +
         send_site(site) + "\n\n" +
         send_country(country) + "\n\n" +
-        send_athlete(athlete) + "\n\n" +
         send_discipline(discipline) + "\n\n" +
         send_record(record, event, athlete) + "\n\n" +
         send_date_calendar(date_calendar)+ "\n\n" +
         send_to_serve(to_serve, site) + "\n\n" +
         send_event(event, discipline, record) + "\n" +
-        send_is_from(is_from)
+        send_is_from(is_from) + "\n\n" +
+        send_athlete(athlete)
     )
     sql = str(sql).replace("IGNORE", "")
     with open(file_sql, "w", encoding="utf-8") as f:

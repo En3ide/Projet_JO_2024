@@ -74,8 +74,8 @@ def main(file_sql):
     sql = (
         send_transport(transport) + "\n\n" +
         send_site(site) + "\n\n" +
-        send_athlete(athlete) + "\n\n" +
         send_country(country) + "\n\n" +
+        send_athlete(athlete) + "\n\n" +
         send_discipline(discipline) + "\n\n" +
         send_record(record, event, athlete) + "\n\n" +
         send_date_calendar(date_calendar)+ "\n\n" +

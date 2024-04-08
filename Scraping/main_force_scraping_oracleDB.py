@@ -74,8 +74,8 @@ def main(file_sql):
     oracleDB = (
         sql_transport_oracleDB(transport) + "\n\n" +
         sql_site_oracleDB(site) + "\n\n" +
-        sql_athlete_oracleDB(athlete) + "\n\n" +
         sql_country_oracleDB(country) + "\n\n" +
+        sql_athlete_oracleDB(athlete) + "\n\n" +
         sql_discipline_oracleDB(discipline) + "\n\n" +
         sql_record_oracleDB(record, event, athlete) + "\n\n" +
         sql_date_calendar_oracleDB(date_calendar) + "\n\n" +

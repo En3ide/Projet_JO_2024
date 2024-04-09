@@ -1,4 +1,3 @@
-import subprocess
 from multiprocessing import Pool
 from create_list_Transport import *
 from create_list_Site import *
@@ -13,8 +12,28 @@ from create_list_Is_from import *
 from datetime import datetime
 from utilitary_function import *
 from connect_to_bdd import *
-from install_requirement import *
-import os, mysql.connector
+import os, subprocess, mysql.connector
+
+def installer_requirements(fichier_requirements):
+    """
+    Installe les dépendances spécifiées dans un fichier requirements.txt
+    Args:
+    - fichier_requirements (str): Le chemin vers le fichier requirements.txt
+    Returns:
+    - bool: True si l'installation s'est déroulée avec succès, False sinon
+    """
+    try:
+        subprocess.check_call(["python.exe", "-m", "pip", "install", "--upgrade", "pip"])
+    except subprocess.CalledProcessError as e:
+        print("Python.exe introuvable !!!")
+    try:
+        subprocess.check_call(["pip", "install", "-r", fichier_requirements])
+        print('[',datetime.now().time(),'] ', "Installation des dépendances réussie.")
+        return True
+    except subprocess.CalledProcessError as e:
+        print("Erreur lors de l'installation des dépendances :", e)
+        return False
+
 
 def main(file_sql):
     with Pool() as pool:

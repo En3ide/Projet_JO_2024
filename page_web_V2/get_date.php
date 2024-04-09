@@ -60,7 +60,7 @@ $resultat = mysqli_query($connexion, $sql);
                 echo "</tr>";
             }
         } else {
-            echo "Aucune Date trouvé dans la base de données.";
+            echo "<p>Aucune Date trouvé dans la base de données.</p>";
         }
         // Fermer la connexion à la base de données
         mysqli_close($connexion);

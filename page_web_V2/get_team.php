@@ -77,7 +77,7 @@ $sql = "SELECT Team.*, To_pertain_team.*
                     echo "</tr>";
                 }
             } else {
-                echo "Aucun pays trouvé dans la base de données.";
+                echo "<p>Aucune Team trouvé dans la base de données.</p>";
             }
             // Fermer la connexion à la base de données
             mysqli_close($connexion);

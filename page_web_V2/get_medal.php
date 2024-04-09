@@ -33,17 +33,17 @@ $resultat = mysqli_query($connexion, $sql);
 ?>
 
 <body>
-    <h2>Tableau des Medail</h2>
+    <h2>Tableau des Medaille</h2>
     <nav id="filter-nav">
         <ul>
-            <li>ID Medail :<input type="text" class="id table-input" id="1"></li>
-            <li>Type Medail :<input type="text" class="id table-input" id="2"></li>
-            <li>ID Epreuve :<input type="text" class="id table-input" id="3"></li>
-            <li>Nom Epreuve:<input type="text" class="id_transport table-input" id="4"></li>
-            <li>ID Athlete :<input type="text" class="id_transport table-input" id="5"></li>
-            <li>Nom Athlete :<input type="text" class="id_transport table-input" id="6"></li>
-            <li>Prenom Athlete :<input type="text" class="station_name table-input" id="7"></li>
-            <li>Date<input value="" type="text" style="display:none;" class="table-input" id="8"></li>
+            <li>ID :<input type="text" class="id table-input" id="1"></li>
+            <li>Type :<input type="text" class="id table-input" id="2"></li>
+            <li>ID épreuve :<input type="text" class="id table-input" id="3"></li>
+            <li>Nom épreuve :<input type="text" class="id_transport table-input" id="4"></li>
+            <li>ID athlete :<input type="text" class="id_transport table-input" id="5"></li>
+            <li>Nom athlete :<input type="text" class="id_transport table-input" id="6"></li>
+            <li>Prénom athlete :<input type="text" class="station_name table-input" id="7"></li>
+            <li>Date :<input value="" type="text" class="table-input" id="8"></li>
             <li style="display:none;"><input value="" type="text" class="table-input" id="9"></li>
         </ul>
     </nav>
@@ -51,14 +51,14 @@ $resultat = mysqli_query($connexion, $sql);
     <table id="table-donnee">
         <tbody></tbody>
         <tr>
-            <th>ID Medail</th>
-            <th>Type Medail</th>
-            <th>ID Epreuve</th>
-            <th>Nom Epreuve</th>
-            <th>ID Athlete</th>
-            <th>Nom Athlete</th>
-            <th>Prenom Athlete</th>
-            <th>Date</th>
+            <th>ID</th>
+            <th>Type</th>
+            <th>ID épreuve</th>
+            <th>Nom épreuve</th>
+            <th>ID athlete</th>
+            <th>Nom athlete</th>
+            <th>Prenom athlete</th>
+            <th>Date de remise</th>
         </tr>
 
         <?php
@@ -67,16 +67,18 @@ $resultat = mysqli_query($connexion, $sql);
             // Afficher les données de chaque athlète
             while ($row = mysqli_fetch_assoc($resultat)) {
                 echo "<tr>";
-                echo "<td>" . $row['id_site'] . "</td>";
-                echo "<td>" . $row['name_site'] . "</td>";
-                echo "<td>" . $row['id_trans'] . "</td>";
-                echo "<td>" . $row['name_trans'] . "</td>";
-                echo "<td>" . $row['num_ligne'] . "</td>";
-                echo "<td>" . $row['station_name'] . "</td>";
+                echo "<td>" . $row['id_medal'] . "</td>";
+                echo "<td>" . $row['type_medal'] . "</td>";
+                echo "<td>" . $row['id_event'] . "</td>";
+                echo "<td>" . $row['name_event'] . "</td>";
+                echo "<td>" . $row['id_athlete'] . "</td>";
+                echo "<td>" . $row['name_athlete'] . "</td>";
+                echo "<td>" . $row['firstname_athlete'] . "</td>";
+                echo "<td>" . $row['date_cal'] . "</td>";
                 echo "</tr>";
             }
         } else {
-            echo "Aucune Medail trouvé dans la base de données.";
+            echo "<p>Aucune Medaille trouvé dans la base de données.</p>";
         }
         // Fermer la connexion à la base de données
         mysqli_close($connexion);

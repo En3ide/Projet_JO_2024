@@ -9,15 +9,42 @@ if ($connexion === false) {
 if ($_GET['1'] == "") {
     $_GET['1'] = "%%";
 }
+if ($_GET['5'] == "") {
+    if ($_GET['6'] == "") {
+        // Exécuter la requête pour afficher la liste des tables
+        $sql = "SELECT Record.*, Event.*, Athlete.* 
+    FROM Record 
+    LEFT JOIN Event ON Record.id_event = Event.id_event 
+    LEFT JOIN Athlete ON Record.id_athlete = Athlete.id_athlete
+    WHERE Record.id_record LIKE '%" . $_GET['1'] . "%' AND
+    Record.stat_record LIKE '%" . $_GET['2'] . "%' AND
+    Record.date_record LIKE '%" . $_GET['3'] . "%';";
+    }
+}
+/*
+if ($_GET['5'] == "") {
+    if ($_GET['6'] == "") {
+        $name_athlete = "";
+    } else {
+        $name_athlete = " Athlete.name_athlete LIKE '" . $_GET['6'] . "' AND";
+    }
+    if ($_GET['7'] == "") {
+        $firstname_athlete = "";
+    } else {
+        $firstname_athlete = " Athlete.firstname_athlete LIKE '%" . $_GET['7'] . "%'";
+    }
 
-// Exécuter la requête pour afficher la liste des tables
-$sql = "SELECT Record.*, Event.*, Athlete.* FROM Record JOIN Event ON Record.id_event = Event.id_event JOIN Athlete ON Record.id_athlete = Athlete.id_athlete
-WHERE Record.id_record LIKE '%" . $_GET['1'] . "%' AND
-Record.stat_record LIKE '%" . $_GET['2'] . "%' AND
-Record.date_record LIKE '%" . $_GET['3'] . "%' AND
-Event.name_event LIKE '%" . $_GET['5'] . "%' AND
-Athlete.name_athlete LIKE '%" . $_GET['6'] . "%' AND 
-Athlete.firstname_athlete LIKE '%" . $_GET['7'] . "%';";
+    // Exécuter la requête pour afficher la liste des tables
+    $sql = "SELECT Record.*, Event.*, Athlete.* 
+    FROM Record 
+    LEFT JOIN Event ON Record.id_event = Event.id_event 
+    LEFT JOIN Athlete ON Record.id_athlete = Athlete.id_athlete
+    WHERE Record.id_record LIKE '%" . $_GET['1'] . "%' AND
+    Record.stat_record LIKE '%" . $_GET['2'] . "%' AND
+    Record.date_record LIKE '%" . $_GET['3'] . "%' AND"
+        . $name_athlete
+        . $firstname_athlete . ";";
+}*/
 
 $resultat = mysqli_query($connexion, $sql);
 ?>
@@ -39,12 +66,13 @@ $resultat = mysqli_query($connexion, $sql);
 <table id="table-donnee">
     <tbody>
         <tr>
-            <th>Id Record</th>
+            <th>Id</th>
             <th>Statistique</th>
             <th>Date</th>
             <!--<th>Discipline</th>-->
             <th>Épreuve</th>
-            <th>Athlète</th>
+            <th>Nom athlète</th>
+            <th>Prénom athlète</th>
         </tr>
 
         <?php
@@ -57,7 +85,8 @@ $resultat = mysqli_query($connexion, $sql);
                 echo "<td>" . $row['stat_record'] . "</td>";
                 echo "<td>" . $row['date_record'] . "</td>";
                 echo "<td>" . $row['name_event'] . "</td>";
-                echo "<td>" . $row['name_athlete'] . " " . $row['firstname_athlete'] . "</td>";
+                echo "<td>" . $row['name_athlete'] . "</td>";
+                echo "<td>" . $row['firstname_athlete'] . "</td>";
                 echo "</tr>";
             }
         } else {

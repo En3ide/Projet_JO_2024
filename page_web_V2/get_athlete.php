@@ -18,13 +18,16 @@ if ($_GET['5'] == "") {
 
 // Exécuter la requête pour afficher la liste des tables
 //$sql = "SELECT * FROM Athlete";
-$sql = "SELECT Athlete.*, Country.* FROM Athlete JOIN Country ON Athlete.code_country = Country.code_country
-WHERE Athlete.id_athlete LIKE '%" . $_GET['1'] . "%' AND
-Athlete.firstname_athlete LIKE '%" . $_GET['2'] . "%' AND
-Athlete.name_athlete LIKE '%" . $_GET['3'] . "%' AND
-Athlete.birthday_athlete LIKE '%" . $_GET['4'] . "%' AND
-Athlete.gender_athlete LIKE '" . $_GET['5'] . "' AND
-name_country LIKE '%" . $_GET['6'] . "%';";
+$sql = "SELECT Athlete.*, Country.* 
+FROM Athlete 
+JOIN Country ON Athlete.code_country = Country.code_country
+WHERE Athlete.id_athlete LIKE '" . $_GET['1'] . "' AND 
+Athlete.firstname_athlete LIKE '%" . $_GET['2'] . "%' AND 
+Athlete.name_athlete LIKE '%" . $_GET['3'] . "%' AND 
+Athlete.birthday_athlete LIKE '%" . $_GET['4'] . "%' AND 
+Athlete.gender_athlete LIKE '" . $_GET['5'] . "' AND 
+Country.name_country LIKE '%" . $_GET['6'] . "%';";
+
 $resultat = mysqli_query($connexion, $sql);
 ?>
 <h2>Tableau des athlètes</h2>
@@ -43,9 +46,9 @@ $resultat = mysqli_query($connexion, $sql);
             </select>
         </li>
         <li>Pays :<input type="text" class="table-input" id="6"></li>
-        <li><input value="" type="text" style="display:none;" class="table-input" id="7"></li>
-        <li><input value="" type="text" style="display:none;" class="table-input" id="8"></li>
-        <li><input value="" type="text" style="display:none;" class="table-input" id="9"></li>
+        <li style="display:none;"><input style="display:none;" class="table-input" id="7"></li>
+        <li style="display:none;"><input type="text" style="display:none;" class="table-input" id="8"></li>
+        <li style="display:none;"><input value="" type="text" style="display:none;" class="table-input" id="9"></li>
     </ul>
 </nav>
 <button id="ok-filter-button" onclick="supp_table()">Lancer la recherche</button>
@@ -74,7 +77,7 @@ $resultat = mysqli_query($connexion, $sql);
                 echo "</tr>";
             }
         } else {
-            echo "Aucun athlète trouvé dans la base de données.";
+            echo '<p>Aucun athlète trouvé dans la base de données.</p>';
         }
         // Fermer la connexion à la base de données
         mysqli_close($connexion);

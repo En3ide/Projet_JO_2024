@@ -54,11 +54,15 @@ body {
     cursor: default;
 }
 
-body > * {
+body > *, header a {
     color: var(--font-text-color);
 
     font-family: var(--font-family-main);
     font-size: var(--font-size-default);
+}
+
+hearder a:hover {
+    cursor: pointer;
 }
 
 /* BG BLUR EFFECT */

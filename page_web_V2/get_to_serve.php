@@ -30,11 +30,11 @@ $resultat = mysqli_query($connexion, $sql);
 ?>
 
 <body>
-    <h2>Tableau des sites déservie</h2>
+    <h2>Tableau des sites desservis</h2>
     <nav id="filter-nav">
         <ul>
-            <li>ID Site :<input type="text" class="id table-input" id="1"></li>
-            <li>Nom Site :<input type="text" class="id table-input" id="2"></li>
+            <li>ID :<input type="text" class="id table-input" id="1"></li>
+            <li>Nom :<input type="text" class="id table-input" id="2"></li>
             <li>ID transport :<input type="text" class="id_transport table-input" id="3"></li>
             <li>Type transport :<input type="text" class="id_transport table-input" id="4"></li>
             <li>Numero de ligne :<input type="text" class="id_transport table-input" id="5"></li>
@@ -48,9 +48,9 @@ $resultat = mysqli_query($connexion, $sql);
     <table id="table-donnee">
         <tbody></tbody>
         <tr>
-            <th>Id Site</th>
-            <th>Nom Site</th>
-            <th>Id Transport</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>ID Transport</th>
             <th>Type Transport</th>
             <th>Numero de ligne</th>
             <th>Nom de station</th>

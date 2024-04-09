@@ -31,17 +31,16 @@ $sql = "SELECT Team.*, To_pertain_team.*
 
 <body>
 
-    <h2>Tableau des Teams</h2>
+    <h2>Tableau des équipes</h2>
     <nav id="filter-nav">
         <ul>
             <li>ID Team :<input type="text" class="id table-input" id="1"></li>
             <li>Taille Team :<input type="text" class="id table-input" id="2"></li>
             <li>Genre :<input type="text" class="id_transport table-input" id="3"></li>
-            <li>ID Athlete :<input type="text" class="id_transport table-input" id="4"></li>
-            <li>Nom Athlete :<input type="text" class="id_transport table-input" id="5"></li>
-            <li>Prenom Athlete :<input type="text" class="station_name table-input" id="6"></li>
-            <li>Pays :<input value="" type="text" class="table-input" id="7">
-            </li>
+            <li>Pays :<input value="" type="text" class="table-input" id="7"></li>
+            <li>ID athlète :<input type="text" class="id_transport table-input" id="4"></li>
+            <li>Prénom athlète :<input type="text" class="station_name table-input" id="6"></li>
+            <li>Nom athlète :<input type="text" class="id_transport table-input" id="5"></li>
             <li style="display: none;"><input value="" type="text" style="display:none;" class="table-input" id="8">
             </li>
             <li style="display: none;"><input value="" type="text" style="display:none;" class="table-input" id="9">
@@ -52,13 +51,13 @@ $sql = "SELECT Team.*, To_pertain_team.*
     <table id="table-donnee">
         <tbody>
             <tr>
-                <th>ID Team</th>
-                <th>Taille team</th>
-                <th>Genre de la Team</th>
-                <th>ID Athlete</th>
-                <th>Nom Athlete</th>
-                <th>Prenom Athlete</th>
-                <th>pays</th>
+                <th>ID</th>
+                <th>Taille</th>
+                <th>Genre</th>
+                <th>Pays</th>
+                <th>ID athlète</th>
+                <th>Prénom athlète</th>
+                <th>Nom athlète</th>
             </tr>
 
             <?php
@@ -70,10 +69,10 @@ $sql = "SELECT Team.*, To_pertain_team.*
                     echo "<td>" . $row['id_team'] . "</td>";
                     echo "<td>" . $row['size_team'] . "</td>";
                     echo "<td>" . $row['gender_team'] . "</td>";
-                    echo "<td>" . $row['id_athlete'] . "</td>";
-                    echo "<td>" . $row['name_athlete'] . "</td>";
-                    echo "<td>" . $row['firstname_athlete'] . "</td>";
                     echo "<td>" . $row['name_country'] . "</td>";
+                    echo "<td>" . $row['id_athlete'] . "</td>";
+                    echo "<td>" . $row['firstname_athlete'] . "</td>";
+                    echo "<td>" . $row['name_athlete'] . "</td>";
                     echo "</tr>";
                 }
             } else {

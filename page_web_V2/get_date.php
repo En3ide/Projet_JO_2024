@@ -29,7 +29,7 @@ $resultat = mysqli_query($connexion, $sql);
         <li>Date :<input type="date" class="date table-input" id="2"></li>
         <li><input value="" type="text" style="display:none;" class="table-input" id="6"></li>
         <li><input value="" type="text" style="display:none;" class="table-input" id="7"></li>
-        <li>Cérémony :
+        <li>Jour de cérémonie :
             <select class="ceremony table-input" id="3">
                 <option value=""></option>
                 <option value="1">Oui</option>
@@ -46,7 +46,7 @@ $resultat = mysqli_query($connexion, $sql);
         <tr>
             <th>ID</th>
             <th>Date</th>
-            <th>Cérémony</th>
+            <th>Jour de cérémonie</th>
         </tr>
         <?php
         // Vérifier si la requête a réussi

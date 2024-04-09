@@ -56,8 +56,8 @@ $resultat = mysqli_query($connexion, $sql);
         <li>Date : <input value="" type="date" class="table-input" id="3"></li>
         <li>Discipline :<input value="" type="text" style="display: none;" class="table-input" id="4"></li>
         <li>Épreuve :<input value="" type="text" class="table-input" id="5"></li>
-        <li>Athlète Prenom :<input value="" type="text" class="table-input" id="7"></li>
-        <li>Athlète Nom :<input value="" type="text" class="table-input" id="6"></li>
+        <li>Prénom athlète :<input value="" type="text" class="table-input" id="7"></li>
+        <li>Nom athlète :<input value="" type="text" class="table-input" id="6"></li>
         <li><input value="" type="text" style="display:none;" class="table-input" id="8"></li>
         <li><input value="" type="text" style="display:none;" class="table-input" id="9"></li>
     </ul>
@@ -71,8 +71,8 @@ $resultat = mysqli_query($connexion, $sql);
             <th>Date</th>
             <!--<th>Discipline</th>-->
             <th>Épreuve</th>
-            <th>Nom athlète</th>
             <th>Prénom athlète</th>
+            <th>Nom athlète</th>
         </tr>
 
         <?php
@@ -85,8 +85,8 @@ $resultat = mysqli_query($connexion, $sql);
                 echo "<td>" . $row['stat_record'] . "</td>";
                 echo "<td>" . $row['date_record'] . "</td>";
                 echo "<td>" . $row['name_event'] . "</td>";
-                echo "<td>" . $row['name_athlete'] . "</td>";
                 echo "<td>" . $row['firstname_athlete'] . "</td>";
+                echo "<td>" . $row['name_athlete'] . "</td>";
                 echo "</tr>";
             }
         } else {

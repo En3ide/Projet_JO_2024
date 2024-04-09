@@ -33,17 +33,17 @@ $resultat = mysqli_query($connexion, $sql);
 ?>
 
 <body>
-    <h2>Tableau des Medaille</h2>
+    <h2>Tableau des médailles</h2>
     <nav id="filter-nav">
         <ul>
             <li>ID :<input type="text" class="id table-input" id="1"></li>
             <li>Type :<input type="text" class="id table-input" id="2"></li>
+            <li>Date de remise :<input value="" type="text" class="table-input" id="8"></li>
             <li>ID épreuve :<input type="text" class="id table-input" id="3"></li>
             <li>Nom épreuve :<input type="text" class="id_transport table-input" id="4"></li>
-            <li>ID athlete :<input type="text" class="id_transport table-input" id="5"></li>
-            <li>Nom athlete :<input type="text" class="id_transport table-input" id="6"></li>
-            <li>Prénom athlete :<input type="text" class="station_name table-input" id="7"></li>
-            <li>Date :<input value="" type="text" class="table-input" id="8"></li>
+            <li>ID athlète :<input type="text" class="id_transport table-input" id="5"></li>
+            <li>Prénom athlète :<input type="text" class="station_name table-input" id="7"></li>
+            <li>Nom athlète :<input type="text" class="id_transport table-input" id="6"></li>
             <li style="display:none;"><input value="" type="text" class="table-input" id="9"></li>
         </ul>
     </nav>
@@ -53,12 +53,12 @@ $resultat = mysqli_query($connexion, $sql);
         <tr>
             <th>ID</th>
             <th>Type</th>
+            <th>Date de remise</th>
             <th>ID épreuve</th>
             <th>Nom épreuve</th>
-            <th>ID athlete</th>
-            <th>Nom athlete</th>
-            <th>Prenom athlete</th>
-            <th>Date de remise</th>
+            <th>ID athlète</th>
+            <th>Prénom athlète</th>
+            <th>Nom athlète</th>
         </tr>
 
         <?php
@@ -69,12 +69,12 @@ $resultat = mysqli_query($connexion, $sql);
                 echo "<tr>";
                 echo "<td>" . $row['id_medal'] . "</td>";
                 echo "<td>" . $row['type_medal'] . "</td>";
+                echo "<td>" . $row['date_cal'] . "</td>";
                 echo "<td>" . $row['id_event'] . "</td>";
                 echo "<td>" . $row['name_event'] . "</td>";
                 echo "<td>" . $row['id_athlete'] . "</td>";
-                echo "<td>" . $row['name_athlete'] . "</td>";
                 echo "<td>" . $row['firstname_athlete'] . "</td>";
-                echo "<td>" . $row['date_cal'] . "</td>";
+                echo "<td>" . $row['name_athlete'] . "</td>";
                 echo "</tr>";
             }
         } else {

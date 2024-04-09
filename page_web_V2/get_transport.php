@@ -24,11 +24,11 @@ $resultat = mysqli_query($connexion, $sql);
 
 <body>
 
-    <h2>Tableau des Transport</h2>
+    <h2>Tableau des transports</h2>
     <nav id="filter-nav">
         <ul>
             <li>ID :<input type="text" class="id table-input" id="id_trans"></li>
-            <li>Nom Transport : <input type="text" class="country table-input" id="name_trans"></li>
+            <li>Nom : <input type="text" class="country table-input" id="name_trans"></li>
         </ul>
     </nav>
     <button id="ok-filter-button" onclick="supp_table(document.getElementById('table_donnee'))">Lancer la
@@ -37,8 +37,8 @@ $resultat = mysqli_query($connexion, $sql);
     <table id="table-donnee">
         <tbody>
             <tr>
-                <th>id Transport</th>
-                <th>Nom Transport</th>
+                <th>ID</th>
+                <th>Nom</th>
 
             </tr>
 

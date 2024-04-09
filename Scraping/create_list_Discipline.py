@@ -8,10 +8,12 @@ ASSO_SPORTS_O = [(0,36), (1,0), (2,2), (3,3), (4,4), (5,5), (6,7), (7,6), (8,9),
 ASSO_SPORTS_P = [(0,2), (1,1), (2,4), (3,17), (4,5), (5,7), (6,8), (7,9), (8,10), (9,11), (10,13), (11,12), (12,6), (13,14), (14,16), (15,15), (16,19), (17,18)\
                  , (18,22), (19,0), (20,3), (21,20), (22,21)]
 
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"}
+
 def obtenir_sports_olympiques_fr():
     sports_olympiques = []
     # Récupération des sports des Jeux Olympiques de Paris 2024
-    réponse = requests.get("https://www.paris2024.org/fr/sports-olympiques/")
+    réponse = requests.get("https://www.paris2024.org/fr/sports-olympiques/", headers=HEADERS)
     if réponse.status_code == 200:
         soup = BeautifulSoup(réponse.text, 'html.parser')
         # Trouver tous les divs avec la classe 'block-classic-editor'
@@ -28,7 +30,7 @@ def obtenir_sports_olympiques_fr():
 def obtenir_sports_paralympiques_fr():
     sports_paralympiques = []
     # Récupération des sports des Jeux Paralympiques de Paris 2024
-    réponse = requests.get("https://www.paris2024.org/fr/sports-paralympiques/")
+    réponse = requests.get("https://www.paris2024.org/fr/sports-paralympiques/", headers=HEADERS)
     if réponse.status_code == 200:
         soup = BeautifulSoup(réponse.text, 'html.parser')
         # Trouver tous les divs avec la classe 'block-classic-editor'
@@ -50,7 +52,7 @@ def obtenir_sports_paralympiques_fr():
 def obtenir_sports_olympiques_en():
     sports_olympiques = []
     # Récupération des sports des Jeux Olympiques de Paris 2024
-    réponse = requests.get("https://www.paris2024.org/en/olympic-sports/")
+    réponse = requests.get("https://www.paris2024.org/en/olympic-sports/" , headers=HEADERS)
     if réponse.status_code == 200:
         soup = BeautifulSoup(réponse.text, 'html.parser')
         # Trouver tous les divs avec la classe 'block-classic-editor'
@@ -73,7 +75,7 @@ def obtenir_sports_olympiques_en():
 def obtenir_sports_paralympiques_en():
     sports_paralympiques = []
     # Récupération des sports des Jeux Paralympiques de Paris 2024
-    réponse = requests.get("https://www.paris2024.org/en/paralympic-sports/")
+    réponse = requests.get("https://www.paris2024.org/en/paralympic-sports/" , headers=HEADERS)
     if réponse.status_code == 200:
         soup = BeautifulSoup(réponse.text, 'html.parser')
         # Trouver tous les divs avec la classe 'block-classic-editor'
